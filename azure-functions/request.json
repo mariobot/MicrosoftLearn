@@ -1,0 +1,19 @@
+{
+    "readings": [
+        {
+            "driveGearId": 1,
+            "timestamp": 1534263995,
+            "temperature": 23
+        },
+        {
+            "driveGearId": 3,
+            "timestamp": 1534264048,
+            "temperature": 45
+        },
+        {
+            "driveGearId": 18,
+            "timestamp": 1534264050,
+            "temperature": 55
+        }
+    ]
+}
