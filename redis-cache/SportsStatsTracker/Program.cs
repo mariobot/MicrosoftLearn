@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using StackExchange.Redis;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SportsStatsTracker
 {
@@ -46,6 +47,21 @@ namespace SportsStatsTracker
                 // RESTABLECE TODA LA INTANCIA DE REDIS ELIMINA TODO
                 result = await db.ExecuteAsync("flushdb");
                 Console.WriteLine($"FLUSHDB = {result.Type} : {result}");
+
+                var stat = new GameStat("Soccer", new DateTime(1950, 7, 16), "FIFA World Cup", 
+                new[] { "Uruguay", "Brazil" },
+                new[] { ("Uruguay", 2), ("Brazil", 1) });
+
+                string serializedValue = Newtonsoft.Json.JsonConvert.SerializeObject(stat);
+                bool added = db.StringSet("event:1950-world-cup", serializedValue);
+
+                var result2 = db.StringGet("event:1950-world-cup");
+                var stat2 = Newtonsoft.Json.JsonConvert.DeserializeObject<GameStat>(result2.ToString());
+                Console.WriteLine(stat2.Sport); // displays "Soccer"
+                
+                // LIBERAR CONEXION
+                //redisConnection.Dispose();
+                //redisConnection = null;
 
             }
         }
