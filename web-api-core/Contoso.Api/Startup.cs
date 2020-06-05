@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Contoso.Api.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace Contoso.Api
 {
@@ -40,6 +41,15 @@ namespace Contoso.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            // localhost/map1
+            app.Map("/map1", HandleMap1);
+            // localhost/map2
+            app.Map("/map2", HandleMap2);
+
+            //localhost/?branch=master
+            app.MapWhen(context => context.Request.Query.ContainsKey("branch"),
+                               HandleBranch);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -49,6 +59,38 @@ namespace Contoso.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Hello from non-Map delegate.");
+            });
+        }
+
+        public static void HandleMap1(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Map Test 1 EXICUTION MIDDLEWARE 1");
+            });
+        }
+
+        public static void HandleMap2(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Map Test 2 EXICUTION MIDDLEWARE 2");
+            });
+        }
+
+        private static void HandleBranch(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                var branchVer = context.Request.Query["branch"];
+                // Do something special tho this middleware
+                // Execute some special logic
+                await context.Response.WriteAsync($"Branch used = {branchVer}");
             });
         }
     }

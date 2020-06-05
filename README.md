@@ -3,7 +3,7 @@ Hold all the labs provides from https://docs.microsoft.com/en-us/learn/ Microsof
 
 ## Cosmos db app **cosmos-db-app**
 This folder hold the lab Cosmos db in vs code https://docs.microsoft.com/es-es/learn/modules/build-cosmos-db-app-with-vscode/ 
-## Redis cache APP **redis-cache***
+## Redis cache APP **redis-cache**
 This folder hold the lab Redis Cache https://docs.microsoft.com/es-es/learn/modules/optimize-your-web-apps-with-redis/
 ## Azure Functions *azure-functions*
 This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/create-serverless-logic-with-azure-functions/
