@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cosmos-db-app", "cosmos-db-app\cosmos-db-app.csproj", "{1A5856FF-A2B4-41B1-A05D-60FFDBFD7973}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintFramerAPI", "swagger\PrintFramerAPI\PrintFramerAPI.csproj", "{E1A866AE-6EDD-40AD-9926-CEAF31590BBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A5856FF-A2B4-41B1-A05D-60FFDBFD7973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5856FF-A2B4-41B1-A05D-60FFDBFD7973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5856FF-A2B4-41B1-A05D-60FFDBFD7973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5856FF-A2B4-41B1-A05D-60FFDBFD7973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A866AE-6EDD-40AD-9926-CEAF31590BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A866AE-6EDD-40AD-9926-CEAF31590BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A866AE-6EDD-40AD-9926-CEAF31590BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A866AE-6EDD-40AD-9926-CEAF31590BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A6D0F26-D29A-4126-A3DC-E0BDAB475C7F}
+	EndGlobalSection
+EndGlobal

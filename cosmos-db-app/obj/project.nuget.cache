@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1pYWQ6RX/B0HpLtdVgDzusqZmOS6a3XsbtYnzPqrXqzJAuY9noMAxj7gt2MTRC9cqk48SWfnjjRf+3S8U7aEmw==",
+  "dgSpecHash": "jxmWQv6o135ljN2KatOvk51xG2T/nxdsE+vLstI98R31mue0Goou67bHOMwHM8O6xt5ItRjqNhROMZvILiVJbA==",
   "success": true,
-  "projectFilePath": "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\cosmos-db-app.csproj",
+  "projectFilePath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mbotero\\.nuget\\packages\\microsoft.azure.documentdb.core\\2.10.3\\microsoft.azure.documentdb.core.2.10.3.nupkg.sha512",
     "C:\\Users\\mbotero\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

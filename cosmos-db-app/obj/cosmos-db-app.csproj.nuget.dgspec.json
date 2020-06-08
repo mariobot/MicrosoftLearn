@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\cosmos-db-app.csproj": {}
+    "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj": {}
   },
   "projects": {
-    "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\cosmos-db-app.csproj": {
+    "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\cosmos-db-app.csproj",
+        "projectUniqueName": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
         "projectName": "cosmos-db-app",
-        "projectPath": "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\cosmos-db-app.csproj",
+        "projectPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
         "packagesPath": "C:\\Users\\mbotero\\.nuget\\packages\\",
-        "outputPath": "C:\\Desarrollo\\MSLearning\\cosmos-db-app\\obj\\",
+        "outputPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
