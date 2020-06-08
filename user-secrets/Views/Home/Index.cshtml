@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "";
+}
+
+<div class="">
+    <h1 class="display-4">Secrets with ASP Core</h1>
+    <p>
+        ## The secret are holding in this route
+´´´
+%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+C:\Users\mbotero\AppData\Roaming\Microsoft\UserSecrets
+´´´
+    </p>
+    <p>
+## Init the secret at your project
+´´´
+dotnet user-secrets init
+´´´
+    </p>
+    <p>
+## Set app a secret
+´´´
+dotnet user-secrets set "Movies:ServiceApiKey" "12345"
+´´´
+    </p>
+    <p>
+## Set app a secret at different route
+´´´
+dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
+´´´
+    </p>
+    <p>
+## Recovery a secret
+´´´
+    public void ConfigureServices(IServiceCollection services)
+    {
+        _moviesApiKey = Configuration["Movies:ServiceApiKey"];
+    }
+    </p>
+    <p>
+## Using POCO secrets
+´´´
+var moviesConfig = Configuration.GetSection("Movies")
+                                .Get<MovieSettings>();
+_moviesApiKey = moviesConfig.ServiceApiKey;
+´´´
+    </p>
+    <p>
+### Remove a secret
+´´´
+dotnet user-secrets remove "Movies:ConnectionString"
+´´´
+    </p>
+    <p>
+  ### Clear all secrets
+´´´
+dotnet user-secrets clear
+´´´      
+    </p>
+   
+</div>
