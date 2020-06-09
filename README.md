@@ -11,6 +11,12 @@ This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/create-s
 This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/build-web-api-net-core/
 ## Swagger with APIs **swagger**
 This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/improve-api-developer-experience-with-swagger/
+## Razor with ASP Core **razor-pages**
+This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/create-razor-pages-aspnet-core/
+## User-Secrets **user-secrets**
+The practic lab from the official Microsoft web page to apply secrets in the configuration seccitions.
+The documentation original was privided from https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows
+
 
 # Azure Services MAP
 
