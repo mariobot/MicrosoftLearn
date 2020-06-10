@@ -16,9 +16,10 @@ This folder hold the lab https://docs.microsoft.com/es-es/learn/modules/create-r
 ## User-Secrets **user-secrets**
 The practic lab from the official Microsoft web page to apply secrets in the configuration seccitions.
 The documentation original was privided from https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows
+## Blazor **bluild-blazor**
+Practic lab to execute a simple calculator with blazor https://docs.microsoft.com/es-es/learn/modules/build-blazor-webassembly-visual-studio-code/
 
-
-# Azure Services MAP
+# Azure Services MAP 
 
 ![Azure Map](services.png)
 
