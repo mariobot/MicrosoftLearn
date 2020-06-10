@@ -1,0 +1,45 @@
+@page "/addcontact"
+
+<div>
+    <div>
+        Nombre: <input @bind="nom">
+    </div>
+    <div>
+        Apellido: <input @bind="ap">
+    </div>
+    <div>
+        Celular: <input @bind="cel">
+    </div>
+    <div>
+        Direccion: <input @bind="dir">
+    </div>
+    <div>
+        <button class="btn btn-primary" @onclick="AddContactMethod" >Adicionar Contacto! </button>
+    </div>
+</div>
+
+@code{
+
+    public string nom {get;set;}
+
+    public string ap { get; set; }
+
+    public string dir { get; set; }
+
+    public string cel { get; set; }
+    
+    
+    public List<Contacto> Contactos = new List<Contacto>();
+
+    private void AddContactMethod()
+    {
+        Contacto _contacto = new Contacto{
+            Nombre = nom,
+            Apellido = ap,
+            Celular = cel,
+            Direccion = dir
+        };
+
+        Contactos.Add(_contacto);        
+    }
+}

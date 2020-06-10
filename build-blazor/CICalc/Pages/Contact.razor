@@ -1,0 +1,26 @@
+
+<div>
+    <div class="col-6">
+        <div>
+            Nombre: @Nombre @Apellido
+            <br>
+            Direccion: @Direccion
+            <br>
+            Telefono: @Telefono
+        </div>        
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public string Nombre { get; set; }
+
+    [Parameter]
+    public string Apellido { get; set; }
+
+    [Parameter]
+    public string Telefono { get; set; }
+
+    [Parameter]
+    public string Direccion { get; set; }
+}
