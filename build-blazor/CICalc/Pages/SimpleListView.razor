@@ -1,0 +1,16 @@
+@typeparam TItem
+@Heading
+<ul>
+    @foreach (var item in Items)
+    {
+        <li>@ItemTemplate(item)</li>
+    } 
+</ul>
+@code {
+    [Parameter]
+    public RenderFragment Heading { get; set; }
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+}

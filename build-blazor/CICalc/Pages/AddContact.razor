@@ -1,3 +1,7 @@
+@using System
+@implements IDisposable
+@inject NavigationManager NavigationManager
+
 @page "/addcontact"
 
 <div>
@@ -14,7 +18,10 @@
         Direccion: <input @bind="dir">
     </div>
     <div>
-        <button class="btn btn-primary" @onclick="AddContactMethod" >Adicionar Contacto! </button>
+        <button class="btn btn-primary" @onclick="AddContactMethod" >Add Contacto! </button>
+    </div>
+    <div>
+        <button class="btn btn-primary" @onclick="IrAContactos" >Ir Contactos! </button>
     </div>
 </div>
 
@@ -47,4 +54,29 @@
         cel = "";
         dir ="";
     }
+
+    private void IrAContactos()
+    {
+        NavigationManager.NavigateTo("contacts");
+    }
+
+    // when the component are initialized
+    protected override void OnInitialized() {        
+
+    }
+
+    // when the parameters are set
+    protected override void OnParametersSet() { }
+
+    // for check after render a component
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            
+        }
+    }
+
+    // For free resources
+    public void Dispose() {}
 }

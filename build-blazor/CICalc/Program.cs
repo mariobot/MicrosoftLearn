@@ -21,5 +21,17 @@ namespace CICalc
 
             await builder.Build().RunAsync();
         }
+
+        /*public void ConfigureServices(IServiceCollection services)
+        {
+            // Add custom services here
+            services.AddHttpClient("github", client =>{
+                client.BaseAddress = new Uri("http://api.github.com/");
+                // Github API versioning
+                client.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                // Github requires a user-agent
+                client.DefaultRequestHeaders.Add("User-Agent", "BlazorWebForms-Sample");
+            });
+        }*/
     }
 }
