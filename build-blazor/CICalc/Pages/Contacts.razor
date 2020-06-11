@@ -1,29 +1,16 @@
 @page "/contacts"
 
-<h2>Lista de Contactos</h2>
-
-<table>
-    <tr>
-        <td>Nombre</td>
-        <td>Apellido</td>
-        <td>Celular</td>
-        <td>Direccion</td>
-    </tr>
-    <tr>        
-        <td>@p1.Nombre</td>
-        <td>@p1.Apellido</td>
-        <td>@p1.Celular</td>
-        <td>@p1.Direccion</td>       
-    </tr>
-</table>
-
 <Contact Nombre=@p1.Nombre Apellido=@p1.Apellido Telefono=@p1.Celular Direccion=@p1.Direccion ></Contact>
 
 @code{
+
+    [Parameter]
+    public List<Contacto> Contactos { get; set; }    
+        
     Contacto p1 = new Contacto(){
         Nombre = "Mario A",
         Apellido = "Botero F",
         Celular = "3004651284",
         Direccion = "Av 33 56 2"
-    };    
+    };
 }
