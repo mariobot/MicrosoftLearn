@@ -45,8 +45,9 @@ namespace ContosoPets.Api
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
+            //app.UseUrls("http://*:5001");
         }
     }
 }
