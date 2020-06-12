@@ -1,5 +1,5 @@
 #FROM microsoft/aspnetcore:2.2
-FROM microsoft/aspnetcore-build
+FROM microsoft/aspnetcore
 COPY output /app
 WORKDIR /app
 EXPOSE 80
