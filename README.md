@@ -23,5 +23,7 @@ Practic lab to execute a simple calculator with blazor https://docs.microsoft.co
 # Azure Services MAP 
 ![Azure Map](services.png)
 
-Azure Fundamentals
+[Azure Fundamentals](https://docs.microsoft.com/es-es/learn/paths/azure-fundamentals/)
+
+
 
