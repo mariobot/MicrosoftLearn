@@ -19,10 +19,9 @@ The documentation original was privided from https://docs.microsoft.com/en-us/as
 ## Blazor ***bluild-blazor***
 Practic lab to execute a simple calculator with blazor https://docs.microsoft.com/es-es/learn/modules/build-blazor-webassembly-visual-studio-code/ and Blazor Official PDF Document
 
-# Azure Services MAP 
 
+# Azure Services MAP 
 ![Azure Map](services.png)
 
-```
-curl --header "Content-Type: application/json" --header "x-functions-key: <your-function-key>" --request POST --data "{\"name\": \"Azure Function\"}" https://<your-url-here>/api/DriveGearTemperatureService
-```
+Azure Fundamentals
+
