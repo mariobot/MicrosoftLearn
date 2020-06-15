@@ -18,7 +18,8 @@ The practic lab from the official Microsoft web page to apply secrets in the con
 The documentation original was privided from https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows
 ## Blazor ***bluild-blazor***
 Practic lab to execute a simple calculator with blazor https://docs.microsoft.com/es-es/learn/modules/build-blazor-webassembly-visual-studio-code/ and Blazor Official PDF Document
-
+## Webjobs ***webjobs***
+Practic to deploy a webjob in azure app aplication https://docs.microsoft.com/es-es/learn/modules/run-web-app-background-task-with-webjobs/
 
 # Azure Services MAP 
 ![Azure Map](services.png)
