@@ -21,6 +21,14 @@ namespace MVVMSample.Controllers
             // Load products
             _viewModel.HandleRequest();
             return View(_viewModel);    
-        }          
+        }
+
+        [HttpPost]
+        public IActionResult Products(ProductViewModel vm)
+        {
+            vm.Repository = _repo;  
+            vm.HandleRequest();
+            return View(vm);
+        }
     }
 }

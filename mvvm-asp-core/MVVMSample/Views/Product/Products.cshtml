@@ -3,5 +3,29 @@
     ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>;
-<partial name="_ProductList">
+<h1>Products</h1>
+
+<form method="post">
+    <partial name="~/Views/Shared/_StandardViewModelHidden.cshtml" />
+    <partial name="_ProductSearch.cshtml" />
+    <partial name="_ProductList" />
+</form>
+
+@section Scripts 
+{  
+  <script>
+    $(document).ready(function () {
+        // Connect to any elements that have 'data-custom-cmd'
+        $("[data-custom-cmd]").on("click", function (event) {
+            event.preventDefault();
+            
+            // Fill in the 'command' to post back to view model
+            $("#EventCommand").val($(this).data("custom-cmd"));
+            
+            // Submit form
+            $("form").submit();
+        }); 
+    });  
+  </script>
+}
+

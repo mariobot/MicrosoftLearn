@@ -1,0 +1,21 @@
+@model MVVMViewModelLayer.ProductViewModel
+<div class="card">
+  <div class="card-header bg-primary text-light">
+    <h5 class="card-title">Search for Products</h5>
+  </div>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col">
+        <label asp-for="SearchEntity.Name" class="control-label"></label>
+        <input asp-for="SearchEntity.Name" class="form-control" />
+      </div>
+      <div class="form-group col">
+        <label asp-for="SearchEntity.ListPrice" class="control-label"></label>
+        <input asp-for="SearchEntity.ListPrice" class="form-control" />      
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-primary text-light">
+    <button type="button" data-custom-cmd="search" class="btn btn-success">Search</button>
+  </div>
+</div>
