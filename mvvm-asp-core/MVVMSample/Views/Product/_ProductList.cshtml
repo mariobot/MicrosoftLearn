@@ -1,0 +1,23 @@
+@using MVVMEntityLayer
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Product Number</th>
+      <th class="text-right">Cost</th>
+      <th class="text-right">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Product item in Model.Products) 
+    {
+      <tr>
+        <td>@Html.DisplayFor(m => item.Name)</td>
+        <td>@Html.DisplayFor(m => item.ProductNumber)</td>
+        <td class="text-right">@Html.DisplayFor(m => item.StandardCost)</td>
+        <td class="text-right">@Html.DisplayFor(m => item.ListPrice)</td>
+      </tr>
+    }
+  </tbody>
+</table>

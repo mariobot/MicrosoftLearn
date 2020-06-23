@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using MVVMEntityLayer;
 
-namespace MVVMDataLayer.RepositoryInterfaces
+namespace MVVMDataLayer
 {
     public interface IProductRepository
     {

@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVVMDataLayer;
+using MVVMViewModelLayer;
 
 namespace MVVMSample
 {
@@ -24,6 +22,10 @@ namespace MVVMSample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Inject your application services  
+            // In this section inject the services
+            InjectAppServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,5 +55,19 @@ namespace MVVMSample
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        private void InjectAppServices(IServiceCollection services)
+        {  
+            // Get connection string from appsettings.json  
+            string cnn = Configuration["ConnectionStrings:AdvWorksConnectionString"];    
+            
+            // Add AdventureWorks DbContext object  
+            services.AddDbContext<AdvWorksDbContext>(options => options.UseSqlServer(cnn));
+            
+            // Add Classes for Scoped DI  
+            services.AddScoped<IProductRepository, ProductRepository>();  
+            services.AddScoped<ProductViewModel>();
+        }
+
     }
 }

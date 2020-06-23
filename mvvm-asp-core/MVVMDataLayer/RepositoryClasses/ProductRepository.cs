@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVVMEntityLayer;
-using MVVMDataLayer.RepositoryInterfaces;
+using MVVMDataLayer;
 
-namespace MVVMDataLayer.RepositoryClasses
+namespace MVVMDataLayer
 {
     public class ProductRepository : IProductRepository 
     {
