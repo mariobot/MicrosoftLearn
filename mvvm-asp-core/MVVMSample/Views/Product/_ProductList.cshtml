@@ -2,12 +2,18 @@
 
 <table class="table table-bordered table-hover">
   <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Product Number</th>
-      <th class="text-right">Cost</th>
-      <th class="text-right">Price</th>
-    </tr>
+    <th>
+    <a href="#" data-custom-cmd="sort" data-custom-arg="Name">Product Name</a>
+    </th>
+    <th>
+        <a href="#" data-custom-cmd="sort" data-custom-arg="ProductNumber">Product Number</a>
+    </th>
+    <th class="text-right">
+        <a href="#" data-custom-cmd="sort" data-custom-arg="StandardCost">Cost</a>
+    </th>
+    <th class="text-right">
+        <a href="#" data-custom-cmd="sort" data-custom-arg="ListPrice">Price</a>
+    </th>
   </thead>
   <tbody>
     @foreach (Product item in Model.Products) 

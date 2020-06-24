@@ -32,9 +32,10 @@ namespace MVVMViewModelLayer
         public override void HandleRequest()    
         {
             switch (EventCommand.ToLower()) 
-            {    
+            {
+                case "sort": 
                 case "search":
-                    SearchProducts();
+                    SortProducts();
                     break;
                 default:
                     LoadProducts();
@@ -64,6 +65,69 @@ namespace MVVMViewModelLayer
             {    
                 Products = Repository.Search(SearchEntity).OrderBy(p => p.Name).ToList();
             }
-        }  
+        }
+
+        protected virtual void SortProducts()
+        {
+            // Search for Products  
+            SearchProducts();
+
+            if (EventCommand == "sort")
+            {
+                // Set sort direction
+                SetSortDirection();
+            }
+
+            // Determine sort direction  
+            bool isAscending = SortDirection == "asc";
+
+            // What field should we sort on?  
+            switch (SortExpression.ToLower())
+            {
+                case "name":
+                    if (isAscending)
+                    {
+                        Products = Products.OrderBy(p => p.Name).ToList();
+                    }
+                    else
+                    {
+                        Products = Products.OrderByDescending(p => p.Name).ToList();
+                    }
+                    break;
+
+                case "productnumber":
+                    if (isAscending)
+                    {
+                        Products = Products.OrderBy(p => p.ProductNumber).ToList();
+                    }
+                    else
+                    {
+                        Products = Products.OrderByDescending(p => p.ProductNumber).ToList();
+                    }
+                    break;
+
+                case "standardcost":
+                    if (isAscending)
+                    {
+                        Products = Products.OrderBy(p => p.StandardCost).ToList();
+                    }
+                    else
+                    {
+                        Products = Products.OrderByDescending(p => p.StandardCost).ToList();
+                    }
+                    break;
+
+                case "listprice":
+                    if (isAscending)
+                    {
+                        Products = Products.OrderBy(p => p.ListPrice).ToList();
+                    }
+                    else
+                    {
+                        Products = Products.OrderByDescending(p => p.ListPrice).ToList();
+                    }
+                    break;
+            }
+        }
     }
 }

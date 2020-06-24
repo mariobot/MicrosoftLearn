@@ -18,9 +18,11 @@ namespace MVVMSample.Controllers
         
         public IActionResult Products()
         {
-            // Load products
+            // Load products  
+            _viewModel.SortExpression = "Name";
+            _viewModel.EventCommand = "sort";
             _viewModel.HandleRequest();
-            return View(_viewModel);    
+            return View(_viewModel);
         }
 
         [HttpPost]
@@ -28,6 +30,7 @@ namespace MVVMSample.Controllers
         {
             vm.Repository = _repo;  
             vm.HandleRequest();
+            ModelState.Clear();
             return View(vm);
         }
     }
