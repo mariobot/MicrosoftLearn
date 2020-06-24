@@ -22,13 +22,17 @@
             // Fill in the 'command' to post back to view model
             $("#EventCommand").val($(this).data("custom-cmd"));
 
+            // Fill in arguments to post back to view model
+            // Arguments to events
+            $("#EventArgument").val($(this).data("custom-arg"));
+
             if($("#EventCommand").val() == "sort") 
             {
               // Get the new sort expression
               $("#SortExpression").val(
               $(this).data("custom-arg"));
             }
-            
+                        
             // Submit form
             $("form").submit();
         }); 

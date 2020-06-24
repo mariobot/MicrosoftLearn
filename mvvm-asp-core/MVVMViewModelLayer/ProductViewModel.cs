@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVVMDataLayer;
 using MVVMEntityLayer;
+using CommonLibrary.PagerClasses;
 
 namespace MVVMViewModelLayer
 {
@@ -10,6 +11,7 @@ namespace MVVMViewModelLayer
     {   
         // property to hold the search fields
         public ProductSearch SearchEntity { get; set; }
+        public int TotalProducts { get; set; }
 
         /// <summary>
         /// NOTE: You need a parameterless     
@@ -33,12 +35,15 @@ namespace MVVMViewModelLayer
         {
             switch (EventCommand.ToLower()) 
             {
-                case "sort": 
                 case "search":
+                    Pager.PageIndex = 0;
                     SortProducts();
+                    PageProducts();
                     break;
-                default:
-                    LoadProducts();
+                case "sort":
+                case "page":
+                    SortProducts();
+                    PageProducts();
                     break;
             }                  
         }
@@ -129,5 +134,12 @@ namespace MVVMViewModelLayer
                     break;
             }
         }
+        protected virtual void PageProducts()
+        {
+            TotalProducts = Products.Count;
+            base.SetPagerObject(TotalProducts);
+            Products = Products.Skip(base.Pager.PageIndex * base.Pager.PageSize).Take(base.Pager.PageSize).ToList();
+        }
+
     }
 }

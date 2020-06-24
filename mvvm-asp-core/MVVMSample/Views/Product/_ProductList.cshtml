@@ -1,4 +1,5 @@
 @using MVVMEntityLayer
+@using CommonLibrary.PagerClasses
 
 <table class="table table-bordered table-hover">
   <thead>
@@ -27,3 +28,13 @@
     }
   </tbody>
 </table>
+<ul class="pagination">  
+    @foreach (PagerItem item in Model.Pages) 
+    {
+        <li class="page-item @item.CssClass">
+            <a class="page-link" href="#" data-custom-cmd="page" data-custom-arg="@item.Argument" title="@item.Tooltip">@Html.Raw(item.Text)</a>
+        </li>  
+    }
+</ul>
+
+

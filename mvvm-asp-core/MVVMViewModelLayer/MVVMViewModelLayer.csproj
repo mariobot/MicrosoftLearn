@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MVVMEntityLayer\MVVMEntityLayer.csproj" />
     <ProjectReference Include="..\MVVMDataLayer\MVVMDataLayer.csproj" />
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
