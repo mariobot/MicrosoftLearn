@@ -12,6 +12,7 @@ namespace MVVMViewModelLayer
         // property to hold the search fields
         public ProductSearch SearchEntity { get; set; }
         public int TotalProducts { get; set; }
+        public List<Product> AllProducts { get; set; }
 
         /// <summary>
         /// NOTE: You need a parameterless     
@@ -62,14 +63,21 @@ namespace MVVMViewModelLayer
 
         public virtual void SearchProducts()
         {
-            if (Repository == null)
+            if (AllProducts == null)
             {
-                throw new ApplicationException("Must set the Repository property.");  
-            }  
-            else 
-            {    
-                Products = Repository.Search(SearchEntity).OrderBy(p => p.Name).ToList();
+                if (Repository == null)
+                {
+                    throw new ApplicationException("Must set the Repository property.");
+                }
+                else
+                {
+                    // Get data from Repository
+                    AllProducts = Repository.Search(SearchEntity).OrderBy(p => p.Name).ToList();
+                }
             }
+
+            // Get data for the Products collection  
+            Products = AllProducts.Where(p => (SearchEntity.Name == null || p.Name.StartsWith(SearchEntity.Name)) && p.ListPrice >= SearchEntity.ListPrice).ToList();
         }
 
         protected virtual void SortProducts()

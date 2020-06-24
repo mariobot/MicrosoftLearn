@@ -41,7 +41,9 @@ namespace MVVMSample
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
+            app.UseSession();
+
             // NOT USE HTTPS
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -65,7 +67,11 @@ namespace MVVMSample
             
             // Add AdventureWorks DbContext object  
             services.AddDbContext<AdvWorksDbContext>(options => options.UseSqlServer(cnn));
-            
+
+            // The next two lines are for session state
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
             // Add Classes for Scoped DI  
             services.AddScoped<IProductRepository, ProductRepository>();  
             services.AddScoped<ProductViewModel>();
