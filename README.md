@@ -20,6 +20,9 @@ The documentation original was privided from https://docs.microsoft.com/en-us/as
 Practic lab to execute a simple calculator with blazor https://docs.microsoft.com/es-es/learn/modules/build-blazor-webassembly-visual-studio-code/ and Blazor Official PDF Document
 ## Webjobs ***webjobs***
 Practic to deploy a webjob in azure app aplication https://docs.microsoft.com/es-es/learn/modules/run-web-app-background-task-with-webjobs/
+## MVVMSample ***mvvm-asp-core***
+Practice lab from CODEM Code Magazine,  Apply a MVVM Pattern at asp-core project
+
 
 # Azure Services MAP 
 ![Azure Map](services.png)
