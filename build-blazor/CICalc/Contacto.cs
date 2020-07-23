@@ -9,5 +9,9 @@ namespace CICalc
         public string Celular { get; set; }
 
         public string Direccion { get; set; }
+
+        public static void main(){
+            Microsoft.CSharp.CSharpCodeProvider.
+        }
     }
 }
