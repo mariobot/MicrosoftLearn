@@ -21,8 +21,10 @@ namespace CICalc
 
             await builder.Build().RunAsync();
         }
-
-        /*public void ConfigureServices(IServiceCollection services)
+        
+        /*
+        // Configuracion de la url para la API de GitHub.
+        public void ConfigureServices(IServiceCollection services)
         {
             // Add custom services here
             services.AddHttpClient("github", client =>{
@@ -32,6 +34,7 @@ namespace CICalc
                 // Github requires a user-agent
                 client.DefaultRequestHeaders.Add("User-Agent", "BlazorWebForms-Sample");
             });
-        }*/
+        }
+        */
     }
 }

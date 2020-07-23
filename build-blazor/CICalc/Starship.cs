@@ -1,25 +1,36 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CICalc
-{
-    public class Starship
-    {
+namespace CICalc {
+    public class Starship {
+
         [Required]
-        [StringLength(16,
-        ErrorMessage = "Identifier too long (16 character limit).")]
+        [StringLength (16, ErrorMessage = "Identifier too long (16 character limit).")]
         public string Identifier { get; set; }
         public string Description { get; set; }
+
         [Required]
         public string Classification { get; set; }
-        [Range(1, 100000,
-        ErrorMessage = "Accommodation invalid (1-100000).")]
+
+        [Range (1, 100000,
+            ErrorMessage = "Accommodation invalid (1-100000).")]
         public int MaximumAccommodation { get; set; }
+
         [Required]
-        [Range(typeof(bool), "true", "true",
-        ErrorMessage = "This form disallows unapproved ships.")]
+        [Range (typeof (bool), "true", "true",
+            ErrorMessage = "This form disallows unapproved ships.")]
         public bool IsValidatedDesign { get; set; }
+
         [Required]
         public DateTime ProductionDate { get; set; }
+
+        /*public Starship (string identifier, string description, string classification, int maximumAccommodation, bool isValidatedDesign, DateTime productionDate) {
+            this.Identifier = identifier;
+            this.Description = description;
+            this.Classification = classification;
+            this.MaximumAccommodation = maximumAccommodation;
+            this.IsValidatedDesign = isValidatedDesign;
+            this.ProductionDate = productionDate;
+        }*/
     }
 }

@@ -1,9 +1,5 @@
-namespace CICalc
-{
-    public class Contacto
-    {
-        private const bool V = false;
-
+namespace CICalc {
+    public class Contacto {            
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
@@ -11,9 +7,5 @@ namespace CICalc
         public string Celular { get; set; }
 
         public string Direccion { get; set; }
-
-        public static void main(){
-            bool bandera = V;
-        }
     }
 }
