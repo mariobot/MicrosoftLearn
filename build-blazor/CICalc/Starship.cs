@@ -12,13 +12,11 @@ namespace CICalc {
         [Required]
         public string Classification { get; set; }
 
-        [Range (1, 100000,
-            ErrorMessage = "Accommodation invalid (1-100000).")]
+        [Range (1, 100000, ErrorMessage = "Accommodation invalid (1-100000).")]
         public int MaximumAccommodation { get; set; }
 
         [Required]
-        [Range (typeof (bool), "true", "true",
-            ErrorMessage = "This form disallows unapproved ships.")]
+        [Range (typeof (bool), "true", "true", ErrorMessage = "This form disallows unapproved ships.")]
         public bool IsValidatedDesign { get; set; }
 
         [Required]
