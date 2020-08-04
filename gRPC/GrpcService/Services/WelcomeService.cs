@@ -1,14 +1,19 @@
+﻿using Grpc.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Grpc.Core;
-using Microsoft.Extensions.Logging;
 
-namespace gRPC.GrpcService.Services {
-    public class WelcomeService {
-        public async Task<string> Hi5(ServerCallContext context) {
-            return "HI gRPC";
+namespace GrpcService.Services
+{
+    public class WelcomeService : Welcome.WelcomeBase
+    {
+        public override Task<WelcomeReply> SayWelcome(WelcomeRequest request, ServerCallContext context)
+        {
+            return Task.FromResult(new WelcomeReply
+            {
+                Message = "WELCOME TO gRPC " + request.Name
+            });
         }
     }
 }

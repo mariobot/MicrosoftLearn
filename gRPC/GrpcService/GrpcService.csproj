@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\welcome.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\route_guide.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
