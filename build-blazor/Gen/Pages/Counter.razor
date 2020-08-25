@@ -1,0 +1,25 @@
+﻿@page "/counter"
+
+<h1>Generate Data</h1>
+
+<p>Total of Records: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Generate DATA</button>
+
+<p>@data</p>
+
+@code {
+    private int currentCount = 0;
+    private string data = "";
+
+    private void IncrementCount()
+    {
+        currentCount = 100;
+        FillData();
+    }
+
+    private void FillData()
+    {
+        data += "aslñkdfjaalñsdkfjaslñdfkjsalfdñkjasdlñfkjsaldñfkjaslñdkfljsaldkfñjaljñksdjfasklñdfjasdlkfjlaskdjfaslñdkajdfaslksdfja";
+    }
+}
