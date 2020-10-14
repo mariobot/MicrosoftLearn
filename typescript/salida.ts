@@ -61,7 +61,48 @@ showTodo(myTodo)
 
 // Clases
 
+class User{
+    private name: string;
+    public email: string;
+    private age: number;
 
+    constructor(name: string, email: string, age :number){
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    register(){
+        console.log(`${this.name} was registered`);
+    }
+
+    showAge(){
+        return this.age;
+    }
+
+    public ageInYears()
+    {
+        return this.age + "years";
+    }
+}
+
+var mario = new User("Mario Botero","mariobot@mail.com",30);
+
+// Herencia
+class members extends User{
+    id:number;
+
+    constructor(id, name, email, age){
+        super(name,email,age);
+        this.id = id;
+    }
+
+    ageInYears2(){
+        super.ageInYears();
+    }
+}
+
+var mario2 = new members(2,"Mario Botero", "mariobot@mail.com", 30);
 
 document.write();
 
