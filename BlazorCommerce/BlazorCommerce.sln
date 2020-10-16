@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce", "BlazorCommerce.csproj", "{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce.CoreBusiness", "..\BlazorCommerce.CoreBusiness\BlazorCommerce.CoreBusiness.csproj", "{F22A4957-9569-4810-8CD6-52BEDA0A1554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce.UseCases", "..\BlazorCommerce.UseCases\BlazorCommerce.UseCases.csproj", "{864A1250-C10B-463B-8A6A-F289945EA0C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22A4957-9569-4810-8CD6-52BEDA0A1554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22A4957-9569-4810-8CD6-52BEDA0A1554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22A4957-9569-4810-8CD6-52BEDA0A1554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22A4957-9569-4810-8CD6-52BEDA0A1554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864A1250-C10B-463B-8A6A-F289945EA0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864A1250-C10B-463B-8A6A-F289945EA0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864A1250-C10B-463B-8A6A-F289945EA0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864A1250-C10B-463B-8A6A-F289945EA0C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
