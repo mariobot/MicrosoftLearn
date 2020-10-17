@@ -1,0 +1,37 @@
+﻿@page "/product/{id:int}"
+@inject BlazorCommerce.UseCases.SearchProduct.IViewProduct viewProduct
+
+<h3>Product</h3>
+<div>
+    <img src="@product.ImageLink" />
+    <br />
+    @product.Name
+    <br />
+    @product.Brand
+    <br />
+    @product.Price.ToString("c")
+    <br />
+    @product.Description
+    <br />
+    <br />
+    <NavLink href="products">
+        Back to List
+    </NavLink>
+
+</div>
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Product product;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        if (id > 0)
+        {
+            product = viewProduct.Execute(id);
+        }
+    }
+}

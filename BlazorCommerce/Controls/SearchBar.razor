@@ -1,0 +1,18 @@
+﻿<div>
+    <h3>Search Product</h3>
+    <input @bind-value="filter"/>
+    <button @onclick="HandleSearch">Search</button>
+    <h5>@filter</h5>
+</div>
+
+@code {
+    private string filter;
+
+    [Parameter]
+    public EventCallback<string> OnSearch { get; set; }
+
+    private void HandleSearch() 
+    {
+        OnSearch.InvokeAsync(filter);
+    }
+}

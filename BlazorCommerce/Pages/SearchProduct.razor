@@ -1,0 +1,34 @@
+﻿@page "/products"
+@inject BlazorCommerce.UseCases.SearchProduct.ISearchProduct searchProduct
+
+<SearchBar OnSearch="HandleSearch"></SearchBar>
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>Brand</td>
+        <td>Price</td>
+    </tr>
+    @if (products != null)
+    {
+        @foreach (var product in products)
+        {
+            <ProductItem Product="product"></ProductItem>
+        }
+    }
+</table>
+@code {
+
+    private IEnumerable<Product> products;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        products = searchProduct.Execute();
+    }
+
+    protected void HandleSearch(string filter) 
+    {        
+        products = searchProduct.Execute(filter);
+    }
+}
