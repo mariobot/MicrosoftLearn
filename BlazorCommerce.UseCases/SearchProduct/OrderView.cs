@@ -6,23 +6,18 @@ using System.Text;
 
 namespace BlazorCommerce.UseCases.SearchProduct
 {
-    public class ViewProduct : IViewProduct
+    public class OrderView : IOrderView
     {
         private readonly IProductRepository productRepository;
 
-        public ViewProduct(IProductRepository productRepository)
+        public OrderView(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
 
-        public Product Execute(int id)
+        public IEnumerable<Order> Execute()
         {
-            return productRepository.GetProduct(id);
-        }
-
-        public void AddProduct(int id, int quantity)
-        {
-            productRepository.AddProduct(id, quantity);
+            return productRepository.GetOrders();
         }
     }
 }

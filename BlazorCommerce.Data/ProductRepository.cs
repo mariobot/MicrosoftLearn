@@ -18,6 +18,8 @@ namespace BlazorCommerce.Data
             new Product(){ Id = 6, Brand = "Microsoft", Name="MS PC", Price=1200, ImageLink="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRhsz1qtpoTR5KkH1fhMfo1xYX1qefKcPIdPQ&usqp=CAU", Description="Clock from google with love"},
         };
 
+        List<Order> orders = new List<Order>();
+
         public Product GetProduct(int id)
         {
             return products.FirstOrDefault(x => x.Id == id);
@@ -28,6 +30,23 @@ namespace BlazorCommerce.Data
             if (string.IsNullOrWhiteSpace(filter)) return products;
 
             return products.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
+        }
+
+        public void AddProduct(int Id,int Quantity)
+        { 
+            var product = products.FirstOrDefault(x => x.Id == Id);
+            orders.Add(new Order()
+            {
+                IdProduct = product.Id,
+                Quantity = Quantity,
+                Total = Quantity * product.Price,
+                Product = product
+            });
+        }
+
+        public IEnumerable<Order> GetOrders()
+        {
+            return orders;
         }
     }
 }

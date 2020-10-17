@@ -35,6 +35,7 @@ namespace BlazorCommerce
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISearchProduct, SearchProduct>();
             services.AddTransient<IViewProduct, ViewProduct>();
+            services.AddTransient<IOrderView, OrderView>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

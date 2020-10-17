@@ -5,5 +5,7 @@ namespace BlazorCommerce.UseCases.SearchProduct
     public interface IViewProduct
     {
         Product Execute(int id);
+
+        void AddProduct(int id, int quantity);
     }
 }
