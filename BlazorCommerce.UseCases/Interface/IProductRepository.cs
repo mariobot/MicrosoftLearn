@@ -9,7 +9,7 @@ namespace BlazorCommerce.UseCases.Interface
     {
         IEnumerable<Product> GetProducts(string filter);
         Product GetProduct(int id);
-        void AddProduct(int Id, int Quantity);
+        Order AddProduct(int Id, int Quantity);
         IEnumerable<Order> GetOrders();
     }
 }

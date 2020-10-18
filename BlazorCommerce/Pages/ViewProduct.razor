@@ -1,5 +1,6 @@
 ﻿@page "/product/{id:int}"
 @inject BlazorCommerce.UseCases.SearchProduct.IViewProduct viewProduct
+@inject BlazorCommerce.UseCases.SearchProduct.SessionState state
 
 <h3>Product</h3>
 <div>
@@ -14,16 +15,20 @@
     @product.Description
     <br />
     <br />
+    <input type="text" required inputmode="numeric" @bind-value="quantity" />
+    <button @onclick="HandlerAddProduct">Add Product</button>
+    @message
     <NavLink href="products">
         Back to List
     </NavLink>
-
 </div>
 @code {
     [Parameter]
     public int id { get; set; }
 
     private Product product;
+    private int quantity = 1;
+    private string message = "";
 
     protected override void OnParametersSet()
     {
@@ -32,6 +37,22 @@
         if (id > 0)
         {
             product = viewProduct.Execute(id);
+        }
+    }
+
+    private void HandlerAddProduct()
+    {
+        if (quantity == 0)
+            message = "Add minimun 1 article";
+        else
+        {
+            Order or = viewProduct.AddProduct(id, quantity);
+            message = "Product added to Order";
+            
+            if (state.orders == null)
+                state.orders = new List<Order>();
+            
+            state.orders.Add(or);
         }
     }
 }

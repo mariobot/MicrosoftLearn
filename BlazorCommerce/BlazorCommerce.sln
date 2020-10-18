@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce", "BlazorCommerce.csproj", "{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCommerce", "BlazorCommerce.csproj", "{C25E1CD9-5F50-4A8E-BB7A-41A6E85A19D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce.CoreBusiness", "..\BlazorCommerce.CoreBusiness\BlazorCommerce.CoreBusiness.csproj", "{F22A4957-9569-4810-8CD6-52BEDA0A1554}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCommerce.CoreBusiness", "..\BlazorCommerce.CoreBusiness\BlazorCommerce.CoreBusiness.csproj", "{F22A4957-9569-4810-8CD6-52BEDA0A1554}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce.UseCases", "..\BlazorCommerce.UseCases\BlazorCommerce.UseCases.csproj", "{864A1250-C10B-463B-8A6A-F289945EA0C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCommerce.UseCases", "..\BlazorCommerce.UseCases\BlazorCommerce.UseCases.csproj", "{864A1250-C10B-463B-8A6A-F289945EA0C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCommerce.Data", "..\BlazorCommerce.Data\BlazorCommerce.Data.csproj", "{33AEFD48-29CA-4633-BE50-EEFDDA4DA611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCommerce.Data", "..\BlazorCommerce.Data\BlazorCommerce.Data.csproj", "{33AEFD48-29CA-4633-BE50-EEFDDA4DA611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,42 @@
+﻿@page "/order"
+@inject BlazorCommerce.UseCases.SearchProduct.IOrderView orderView
+@inject BlazorCommerce.UseCases.SearchProduct.SessionState state
+
+<h3>Order</h3>
+
+@if (ordersList != null)
+{
+    <table class="table table-danger">
+        <tr>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+        </tr>
+        @foreach (var or in ordersList)
+        {
+            <tr>
+                <td>@or.Product.Name</td>
+                <td>@or.Product.Price</td>
+                <td>@or.Quantity</td>
+                <td>@or.Total</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2>No products at the basket</h2>
+}
+
+@code {
+
+    IEnumerable<Order> ordersList;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ordersList = state.orders;
+    }
+}

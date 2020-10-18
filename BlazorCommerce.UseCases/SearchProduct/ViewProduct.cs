@@ -20,9 +20,9 @@ namespace BlazorCommerce.UseCases.SearchProduct
             return productRepository.GetProduct(id);
         }
 
-        public void AddProduct(int id, int quantity)
+        public Order AddProduct(int id, int quantity)
         {
-            productRepository.AddProduct(id, quantity);
+            return productRepository.AddProduct(id, quantity);
         }
     }
 }

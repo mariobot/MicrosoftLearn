@@ -6,6 +6,6 @@ namespace BlazorCommerce.UseCases.SearchProduct
     {
         Product Execute(int id);
 
-        void AddProduct(int id, int quantity);
+        Order AddProduct(int id, int quantity);
     }
 }
