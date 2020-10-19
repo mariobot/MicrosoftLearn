@@ -6,7 +6,7 @@
 
 @if (ordersList != null)
 {
-    <table class="table table-danger">
+    <table class="table table-success">
         <tr>
             <td>Product Name</td>
             <td>Price</td>
@@ -22,6 +22,12 @@
                 <td>@or.Total</td>
             </tr>
         }
+    <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td>@total</td>
+    </tr>
     </table>
 }
 else
@@ -32,11 +38,17 @@ else
 @code {
 
     IEnumerable<Order> ordersList;
+    public double total = 0;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
         ordersList = state.orders;
+
+        if (ordersList != null)
+        {
+            total = ordersList.Sum(x => x.Product.Price);
+        }
     }
 }
