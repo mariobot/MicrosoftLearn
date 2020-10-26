@@ -102,7 +102,6 @@ class members extends User{
     }
 }
 
-
 var mario2 = new members(2,"Mario Botero", "mariobot@mail.com", 30);
 
 document.write();
