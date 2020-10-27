@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCore.DataAccess", "AspCore.DataAccess\AspCore.DataAccess.csproj", "{05EFFC17-6BAF-4D46-8CE7-40F632609C2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspCore.DataAccess", "AspCore.DataAccess\AspCore.DataAccess.csproj", "{05EFFC17-6BAF-4D46-8CE7-40F632609C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCore.Domain", "AspCore.Domain\AspCore.Domain.csproj", "{01E7A6E1-3BB9-46F8-933F-D160994AB295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspCore.Domain", "AspCore.Domain\AspCore.Domain.csproj", "{01E7A6E1-3BB9-46F8-933F-D160994AB295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCore.Service", "AspCore.Service\AspCore.Service.csproj", "{0CFADB41-91F2-4D8D-9AAB-37164EE84D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspCore.Service", "AspCore.Service\AspCore.Service.csproj", "{0CFADB41-91F2-4D8D-9AAB-37164EE84D30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCore.UI", "AspCore.UI\AspCore.UI.csproj", "{7BFB142D-62BF-405C-90D1-0F2674740449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCore.UI", "Asp.Core.UI\AspCore.UI.csproj", "{0B6D5386-7644-4B73-93F3-E0A7F8669D0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0CFADB41-91F2-4D8D-9AAB-37164EE84D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CFADB41-91F2-4D8D-9AAB-37164EE84D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CFADB41-91F2-4D8D-9AAB-37164EE84D30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BFB142D-62BF-405C-90D1-0F2674740449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BFB142D-62BF-405C-90D1-0F2674740449}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BFB142D-62BF-405C-90D1-0F2674740449}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BFB142D-62BF-405C-90D1-0F2674740449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6D5386-7644-4B73-93F3-E0A7F8669D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6D5386-7644-4B73-93F3-E0A7F8669D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6D5386-7644-4B73-93F3-E0A7F8669D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6D5386-7644-4B73-93F3-E0A7F8669D0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
