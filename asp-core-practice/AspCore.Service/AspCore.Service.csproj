@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="OrderRepo\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AspCore.DataAccess\AspCore.DataAccess.csproj" />
   </ItemGroup>
 
