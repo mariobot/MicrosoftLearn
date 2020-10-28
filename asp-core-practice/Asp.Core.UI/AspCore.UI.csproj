@@ -4,4 +4,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspCore.DataAccess\AspCore.DataAccess.csproj" />
+    <ProjectReference Include="..\AspCore.Domain\AspCore.Domain.csproj" />
+    <ProjectReference Include="..\AspCore.Service\AspCore.Service.csproj" />
+  </ItemGroup>
+
 </Project>
