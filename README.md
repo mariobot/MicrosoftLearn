@@ -55,6 +55,11 @@ Practice lab to create a queue storage https://docs.microsoft.com/en-us/learn/mo
 
 Practice lab from https://khalidabuhakmeh.com/install-tailwind-css-with-aspnet-core to create an asp-core mvc project with tailwind css framework.
 
+## Minimal API Design with .NET 6 **_minimal-api_**
+
+Practice lab form https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio to create an minimal api back end using .Net 6
+Practice lab form https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-6.0 to consume an minimal api back end using javascript
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
