@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
         "projectName": "cosmos-db-app",
         "projectPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
-        "packagesPath": "C:\\Users\\mbotero\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
         "outputPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\mbotero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,10 +26,11 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/1xXU4gzIuELiItCK6pu1YTSFQyjKZ47dySFDlac67g6A2dcjT2/api": {}
+          "https://www.myget.org/F/natcp/auth/727291ab-5307-45eb-9b1e-9bcc5ea5cb18/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.Azure.DocumentDB.Core": {
               "target": "Package",
@@ -81,12 +83,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.21, 3.1.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
