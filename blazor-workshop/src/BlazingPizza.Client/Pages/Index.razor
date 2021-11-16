@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
 
 <div class="main">
     <ul class="pizza-cards">
@@ -22,13 +23,13 @@
     @if (order.Pizzas.Any())
     {
         <div class="order-contents">
-        <h2>Your order</h2>
+            <h2>Your order</h2>
 
-        @foreach (var configuredPizza in order.Pizzas)
-        {
-            <ConfiguredPizzaItem Pizza="configuredPizza" OnRemoved="@(() => RemoveConfiguredPizza(configuredPizza))" />
-        }
-        </div> 
+            @foreach (var configuredPizza in order.Pizzas)
+            {
+                <ConfiguredPizzaItem Pizza="configuredPizza" OnRemoved="@(() => RemoveConfiguredPizza(configuredPizza))" />
+            }
+        </div>
     }
     else
     {
@@ -97,8 +98,10 @@
 
     async Task PlaceOrder()
     {
-        await HttpClient.PostAsJsonAsync("orders", order);
+        var response = await HttpClient.PostAsJsonAsync("orders", order);
+        var newOrderId = await response.Content.ReadFromJsonAsync<int>();
         order = new Order();
+        NavigationManager.NavigateTo($"myorders/{newOrderId}");
     }
 
 }
