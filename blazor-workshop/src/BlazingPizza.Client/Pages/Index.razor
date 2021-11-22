@@ -47,12 +47,11 @@
     </div>
 </div>
 
-
-@if (OrderState.ShowingConfigureDialog)
-{
-    <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza" OnCancel="OrderState.CancelConfigurePizzaDialog" OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
-}
-
+<TemplateDialog Show="OrderState.ShowingConfigureDialog">
+    <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza" 
+                          OnCancel="OrderState.CancelConfigurePizzaDialog" 
+                          OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
+</TemplateDialog>
 
 
 @code {
