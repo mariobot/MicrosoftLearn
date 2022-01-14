@@ -38,6 +38,8 @@ namespace WebApp
 
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();
+            services.AddScoped<IAddCategoryUseCase, AddCategoryUseCase>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
