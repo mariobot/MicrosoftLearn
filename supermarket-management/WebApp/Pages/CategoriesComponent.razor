@@ -1,0 +1,39 @@
+﻿@page "/categories"
+@inject UseCases.IViewCategoriesUseCase ViewCategoryUseCase
+
+<h3>Manage Categories</h3>
+
+@if (categories.Any())
+{    
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in categories)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+
+    private List<Category> categories;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        categories = ViewCategoryUseCase.Execute().ToList();
+    }
+}
