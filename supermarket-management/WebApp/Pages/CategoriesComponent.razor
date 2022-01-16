@@ -5,12 +5,13 @@
 <h3>Administrar Categorias</h3>
 
 @if (categories.Any())
-{    
+{
     <table class="table">
         <thead>
             <tr>
                 <td>Nombre</td>
                 <td>Descripcion</td>
+                <td>Editar</td>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <tr>
                     <td>@category.Name</td>
                     <td>@category.Description</td>
+                    <td><button type="button" @onclick="@(() => OnEditCategory(category.CategoryId))" class="btn btn-primary">Editar</button></td>
                 </tr>
             }
         </tbody>
@@ -26,7 +28,6 @@
 }
 <br />
 <button type="button" @onclick="OnClickAddCategory" class="btn btn-primary">Adicionar Categoria</button>
-
 
 
 @code {
@@ -43,5 +44,10 @@
     private void OnClickAddCategory()
     {
         NavigationManager.NavigateTo("/addcategory");
+    }
+
+    private void OnEditCategory(int CategoryId)
+    {
+        NavigationManager.NavigateTo($"/editcategory/{CategoryId}");
     }
 }

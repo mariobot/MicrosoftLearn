@@ -39,6 +39,8 @@ namespace WebApp
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();
             services.AddScoped<IAddCategoryUseCase, AddCategoryUseCase>();
+            services.AddScoped<IEditCategoryUseCase, EditCategoryUseCase>();
+            services.AddScoped<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
 
         }
 
