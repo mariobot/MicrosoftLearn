@@ -35,6 +35,7 @@ namespace WebApp
 
             // Dependency Injection for InMemory Data store
             services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();
@@ -42,6 +43,7 @@ namespace WebApp
             services.AddScoped<IEditCategoryUseCase, EditCategoryUseCase>();
             services.AddScoped<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
             services.AddScoped<IDeleteCategoryUseCase, DeleteCategoryUseCase>();
+            services.AddScoped<IViewProductsUseCase, ViewProductsUseCase>();
 
         }
 
