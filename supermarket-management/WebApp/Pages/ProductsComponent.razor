@@ -20,7 +20,7 @@
             @foreach (var product in products)
             {
                 <tr>
-                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId)?.Name</td>
+                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
                     <td>@product.Name</td>
                     <td>@string.Format("{0:C0}", product.Price)</td>
                     <td>@product.Quantity</td>

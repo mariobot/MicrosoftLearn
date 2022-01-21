@@ -10,13 +10,13 @@ namespace CoreBusiness
     public class Product
     {
         public int ProductId { get; set; }
-        [Required]
-        public int CategoryId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "La Categoria es requerido")]
+        public int? CategoryId { get; set; }
+        [Required(ErrorMessage = "El nombre es requerido")]
         public string Name { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-        [Required]
-        public double Price { get; set; }
+        [Required(ErrorMessage = "La cantidad es requerida")]
+        public int? Quantity { get; set; }
+        [Required(ErrorMessage = "El precio es requerido")]
+        public double? Price { get; set; }
     }
 }
