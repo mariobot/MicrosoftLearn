@@ -14,17 +14,21 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in products)
             {
-                <tr>
-                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
-                    <td>@product.Name</td>
-                    <td>@string.Format("{0:C0}", product.Price)</td>
-                    <td>@product.Quantity</td>
-                </tr>
+            <tr>
+                <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
+                <td>@product.Name</td>
+                <td>@string.Format("{0:C0}", product.Price)</td>
+                <td>@product.Quantity</td>
+                <td><button type="button" @onclick="@(() => OnEditProduct(product.ProductId))" class="btn btn-primary">Editar</button></td>
+                <td><button type="button" @onclick="@(() => DeleteProduct(product.ProductId))" class="btn btn-primary">Eliminar</button></td>
+            </tr>
             }
         </tbody>
     </table>
@@ -43,5 +47,15 @@
     protected void OnClickAddProduct()
     {
         NavigationManager.NavigateTo("/addproduct");
+    }
+
+    protected void OnEditProduct(int ProductId)
+    {
+        NavigationManager.NavigateTo($"/editproduct/{ProductId}");
+    }
+
+    protected void DeleteProduct(int ProductId)
+    {
+
     }
 }
