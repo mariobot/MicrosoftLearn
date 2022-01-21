@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject IViewProductsUseCase ViewProductsUseCase
 @inject IGetCategoryByIdUseCase GetCategoryByIdUseCase
+@inject IDeleteProductUseCase DeleteProductUseCase
 
 <h3>Productos</h3>
 
@@ -41,7 +42,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        products = ViewProductsUseCase.Execute();
+        LoadProducts();
     }
 
     protected void OnClickAddProduct()
@@ -56,6 +57,12 @@
 
     protected void DeleteProduct(int ProductId)
     {
+        DeleteProductUseCase.Execute(ProductId);
+        LoadProducts();
+    }
 
+    protected void LoadProducts()
+    {
+        products = ViewProductsUseCase.Execute();
     }
 }
