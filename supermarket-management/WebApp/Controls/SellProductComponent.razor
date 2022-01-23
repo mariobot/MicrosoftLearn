@@ -1,0 +1,69 @@
+﻿@inject IGetProductByIdUseCase GetProductByIdUseCase
+
+@if (productToSell != null)
+{
+    <EditForm Model="productToSell" OnInvalidSubmit="SellProduct">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group">
+            <label for="name">Nombre del Producto</label>
+            <input id="name" class="form-control" readonly value="@productToSell.Name" />
+        </div>
+        <div class="form-group">
+            <label for="price">Precio</label>
+            <input id="price" class="form-control" readonly value="@string.Format("{0:C0}",productToSell.Price)" />
+        </div>
+        <div class="form-group">
+            <label for="quantity">Cantidad</label>
+            <InputNumber id="quantity" @bind-Value="@productToSell.Quantity" class="form-control" />
+        </div>
+    </EditForm>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+}
+
+
+@code {
+
+    private Product productToSell;
+    private string errorMessage;
+
+    [Parameter]
+    public Product SelectedProduct { get; set; }
+
+    [Parameter]
+    public EventCallback<Product> OnProductSold { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        if (SelectedProduct != null)
+        {
+            productToSell = new Product()
+            {
+                Name = SelectedProduct.Name,
+                CategoryId = SelectedProduct.CategoryId,
+                Quantity = 0,
+                Price = SelectedProduct.Price,
+                ProductId = SelectedProduct.ProductId
+            };
+        }
+    }
+
+    private void SellProduct()
+    {
+        var product = GetProductByIdUseCase.Execute(productToSell.ProductId);
+        if (product.Quantity >= productToSell.Quantity)
+        {
+            OnProductSold.InvokeAsync(productToSell);
+        }
+        else
+        {
+            errorMessage = $"{product.Name} solo tiene {product.Quantity} unidades. No hay suficientes.";
+        }
+    }
+}

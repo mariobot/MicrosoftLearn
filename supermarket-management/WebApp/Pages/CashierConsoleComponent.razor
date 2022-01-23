@@ -2,9 +2,28 @@
 
 <h3>Consola de Venta</h3>
 <br />
-
-<SelectProductForSellingComponent></SelectProductForSellingComponent>
+<div class="row">
+    <div class="col">
+        <SelectProductForSellingComponent OnProductSelected="SelectProduct"></SelectProductForSellingComponent>
+        <hr />
+        <SellProductComponent SelectedProduct="selectedProduct" OnProductSold="SellProduct"></SellProductComponent>
+    </div>
+    <div class="col">
+        Place holder
+    </div>
+</div>
 
 @code {
 
+    private Product selectedProduct;
+
+    private void SelectProduct(Product product)
+    {
+        selectedProduct = product;
+    }
+
+    private void SellProduct(Product product)
+    {
+
+    }
 }
