@@ -1,8 +1,13 @@
 ﻿@inject IGetProductByIdUseCase GetProductByIdUseCase
+@inject ISellProductUseCase SellProductUseCase
 
 @if (productToSell != null)
 {
-    <EditForm Model="productToSell" OnInvalidSubmit="SellProduct">
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+    <EditForm Model="productToSell" OnValidSubmit="SellProduct">
         <DataAnnotationsValidator></DataAnnotationsValidator>
         <ValidationSummary></ValidationSummary>
 
@@ -18,11 +23,8 @@
             <label for="quantity">Cantidad</label>
             <InputNumber id="quantity" @bind-Value="@productToSell.Quantity" class="form-control" />
         </div>
+        <button type="submit" class="btn btn-primary">Comprar</button>
     </EditForm>
-    @if (!string.IsNullOrEmpty(errorMessage))
-    {
-        <div class="alert alert-danger">@errorMessage</div>
-    }
 }
 
 
@@ -47,19 +49,30 @@
             {
                 Name = SelectedProduct.Name,
                 CategoryId = SelectedProduct.CategoryId,
-                Quantity = 0,
+                Quantity = 1,
                 Price = SelectedProduct.Price,
                 ProductId = SelectedProduct.ProductId
             };
+        }
+        else 
+        {
+            productToSell = null;
+        
         }
     }
 
     private void SellProduct()
     {
         var product = GetProductByIdUseCase.Execute(productToSell.ProductId);
-        if (product.Quantity >= productToSell.Quantity)
+        if (productToSell.Quantity <= 0)
+        {
+            errorMessage = "La cantidad tiene que ser mayor a 0";
+        }
+        else if (product.Quantity >= productToSell.Quantity)
         {
             OnProductSold.InvokeAsync(productToSell);
+            SellProductUseCase.Execute(productToSell.ProductId, productToSell.Quantity.Value);
+            errorMessage = string.Empty;
         }
         else
         {

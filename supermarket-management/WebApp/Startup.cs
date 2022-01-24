@@ -49,6 +49,7 @@ namespace WebApp
             services.AddScoped<IEditProductUseCase, EditProductUseCase>();
             services.AddScoped<IDeleteProductUseCase, DeleteProductUseCase>();
             services.AddScoped<IViewProductByCategoryId, ViewProductByCategoryId>();
+            services.AddScoped<ISellProductUseCase, SellProductUseCase>();
 
         }
 
