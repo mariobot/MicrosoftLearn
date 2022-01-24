@@ -1,21 +1,36 @@
 ﻿@page "/cashier_console"
 
 <h3>Consola de Venta</h3>
+<div class="form-group">
+    <label for="cashier">Nombre del Cajero:</label>
+    <input type="text" id="cashier" class="form-control" @bind-value="cashierName" />
+</div>
+
 <br />
 <div class="row">
-    <div class="col">
+    <div class="col-4">
         <SelectProductForSellingComponent OnProductSelected="SelectProduct"></SelectProductForSellingComponent>
         <hr />
-        <SellProductComponent SelectedProduct="selectedProduct" OnProductSold="SellProduct"></SellProductComponent>
+        <SellProductComponent CashierName="@cashierName"
+                              SelectedProduct="selectedProduct" 
+                              OnProductSold="SellProduct"></SellProductComponent>
     </div>
     <div class="col">
-        Place holder
+        <TodayTransactionComponent @ref="transactionComponent"></TodayTransactionComponent>
     </div>
 </div>
 
 @code {
 
+    private TodayTransactionComponent transactionComponent;
     private Product selectedProduct;
+    private string cashierName;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        cashierName = "";
+    }
 
     private void SelectProduct(Product product)
     {
@@ -24,6 +39,6 @@
 
     private void SellProduct(Product product)
     {
-
+        transactionComponent.LoadTransactions(cashierName);
     }
 }

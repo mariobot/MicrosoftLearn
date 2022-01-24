@@ -17,12 +17,35 @@ namespace Plugins.DataStore.InMemory
             transactions = new List<Transaction>();
         }
 
-        public IEnumerable<Transaction> GetByDay(DateTime date)
+        public IEnumerable<Transaction> Get(string casherName)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(casherName))
+            {
+                return transactions;
+            }
+            else 
+            {
+                return transactions.Where(x => string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase));
+                
+            }
         }
 
-        public void Save(string cashierName,int productId, double price, int qty)
+        public IEnumerable<Transaction> GetByDay(string casherName, DateTime date)
+        {
+            if (string.IsNullOrEmpty(casherName))
+            {
+                return transactions.Where(x => x.TimeStamp.Date == date);
+            }
+            else
+            {
+                return transactions.Where(x => 
+                    string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase) 
+                    && x.TimeStamp.Date == date);
+
+            }
+        }
+
+        public void Save(string cashierName,int productId, string productName, double price, int beforeQty, int soldQty)
         {
             int maxId;
             if (transactions != null && transactions.Count > 0)
@@ -38,9 +61,11 @@ namespace Plugins.DataStore.InMemory
             {
                 TransactionId = maxId,
                 ProductId = productId,
+                ProductName = productName,
                 TimeStamp = DateTime.UtcNow,
                 Price = price,
-                Qty = qty,
+                BeforeQty = beforeQty,
+                SoldQty = soldQty,
                 CashierName = cashierName
             });
         }

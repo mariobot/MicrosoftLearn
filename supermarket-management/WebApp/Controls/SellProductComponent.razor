@@ -66,18 +66,20 @@
 
     private void SellProduct()
     {
+        if (string.IsNullOrEmpty(CashierName))
+        {
+            errorMessage = "El nombre del Cajero esta vacio, nose pueden vender productos.";
+            return;
+        }
+        
         var product = GetProductByIdUseCase.Execute(productToSell.ProductId);
+        
         if (productToSell.Quantity <= 0)
         {
             errorMessage = "La cantidad tiene que ser mayor a 0";
         }
         else if (product.Quantity >= productToSell.Quantity)
         {
-            if (string.IsNullOrEmpty(CashierName))
-            {
-                throw new ApplicationException("El nombre del Cajero esta vacio, nose pueden vender productos.");
-            }
-            
             OnProductSold.InvokeAsync(productToSell);
             SellProductUseCase.Execute(CashierName, productToSell.ProductId, productToSell.Quantity.Value);
             errorMessage = string.Empty;
