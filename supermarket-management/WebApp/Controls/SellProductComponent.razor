@@ -34,6 +34,9 @@
     private string errorMessage;
 
     [Parameter]
+    public string CashierName { get; set; }
+
+    [Parameter]
     public Product SelectedProduct { get; set; }
 
     [Parameter]
@@ -54,10 +57,10 @@
                 ProductId = SelectedProduct.ProductId
             };
         }
-        else 
+        else
         {
             productToSell = null;
-        
+
         }
     }
 
@@ -70,8 +73,13 @@
         }
         else if (product.Quantity >= productToSell.Quantity)
         {
+            if (string.IsNullOrEmpty(CashierName))
+            {
+                throw new ApplicationException("El nombre del Cajero esta vacio, nose pueden vender productos.");
+            }
+            
             OnProductSold.InvokeAsync(productToSell);
-            SellProductUseCase.Execute(productToSell.ProductId, productToSell.Quantity.Value);
+            SellProductUseCase.Execute(CashierName, productToSell.ProductId, productToSell.Quantity.Value);
             errorMessage = string.Empty;
         }
         else
