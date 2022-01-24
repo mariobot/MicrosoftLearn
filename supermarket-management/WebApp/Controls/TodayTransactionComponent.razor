@@ -1,39 +1,36 @@
 ﻿@inject IGetTodayTransactionsUseCase GetTodayTransactionsUseCase
 
-<h3>Transacciones del dia de hoy.</h3>
-
 @if (transactions != null)
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nombre Cajero</th>
-            <th>Nombre Producto</th>
-            <th>Fecha</th>
-            <th>Cantidad Antes</th>
-            <th>Cantidad Vendida</th>
-            <th>Cantidad Existentes</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var transaction in transactions)
-        {
+    <h4>Transacciones del dia de hoy.</h4>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@transaction.CashierName</td>
-                <td>@transaction.ProductName</td>
-                <td>@transaction.TimeStamp.ToShortDateString()</td>
-                <td>@transaction.BeforeQty</td>
-                <td>@transaction.SoldQty</td>
-                <td>@(transaction.BeforeQty - transaction.SoldQty)</td>
+                <th>Nombre Cajero</th>
+                <th>Nombre Producto</th>
+                <th>Fecha</th>
+                <th>Cantidad Antes</th>
+                <th>Cantidad Vendida</th>
+                <th>Cantidad Existentes</th>
+                <th>Venta Total</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var tran in transactions)
+            {
+                <tr>
+                    <td>@tran.CashierName</td>
+                    <td>@tran.ProductName</td>
+                    <td>@tran.TimeStamp.ToShortDateString()</td>
+                    <td>@tran.BeforeQty</td>
+                    <td>@tran.SoldQty</td>
+                    <td>@(tran.BeforeQty - tran.SoldQty)</td>
+                    <td>@(string.Format("{0:C0}", tran.SoldQty * tran.Price))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
-
-
-
-
 
 @code {
 
@@ -42,5 +39,6 @@
     public void LoadTransactions(string cashierName)
     {
         transactions = GetTodayTransactionsUseCase.Execute(cashierName);
+        StateHasChanged();
     }
 }

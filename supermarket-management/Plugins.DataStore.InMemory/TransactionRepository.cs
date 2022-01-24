@@ -25,23 +25,22 @@ namespace Plugins.DataStore.InMemory
             }
             else 
             {
-                return transactions.Where(x => string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase));
+                return transactions.Where(x => string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase)).ToList();
                 
             }
         }
 
         public IEnumerable<Transaction> GetByDay(string casherName, DateTime date)
         {
-            if (string.IsNullOrEmpty(casherName))
+            if (string.IsNullOrWhiteSpace(casherName))
             {
-                return transactions.Where(x => x.TimeStamp.Date == date);
+                return transactions.Where(x => x.TimeStamp.Date == date).ToList();
             }
             else
             {
-                return transactions.Where(x => 
-                    string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase) 
-                    && x.TimeStamp.Date == date);
-
+                return transactions.Where(x =>
+                    string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase)
+                    && x.TimeStamp.Date == date.Date).ToList();
             }
         }
 

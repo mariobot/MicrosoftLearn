@@ -71,17 +71,17 @@
             errorMessage = "El nombre del Cajero esta vacio, nose pueden vender productos.";
             return;
         }
-        
+
         var product = GetProductByIdUseCase.Execute(productToSell.ProductId);
-        
+
         if (productToSell.Quantity <= 0)
         {
             errorMessage = "La cantidad tiene que ser mayor a 0";
         }
         else if (product.Quantity >= productToSell.Quantity)
         {
-            OnProductSold.InvokeAsync(productToSell);
             SellProductUseCase.Execute(CashierName, productToSell.ProductId, productToSell.Quantity.Value);
+            OnProductSold.InvokeAsync(productToSell);
             errorMessage = string.Empty;
         }
         else
