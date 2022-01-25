@@ -44,6 +44,20 @@ namespace Plugins.DataStore.InMemory
             }
         }
 
+        public IEnumerable<Transaction> GetByDayRange(string casherName, DateTime startDate, DateTime endDate)
+        {
+            if (string.IsNullOrWhiteSpace(casherName))
+            {
+                return transactions.Where(x => x.TimeStamp.Date >= startDate.Date && x.TimeStamp.Date <= endDate.AddDays(1).Date).ToList();
+            }
+            else
+            {
+                return transactions.Where(x =>
+                    string.Equals(x.CashierName, casherName, StringComparison.OrdinalIgnoreCase)
+                    && x.TimeStamp.Date >= startDate.Date && x.TimeStamp.Date <= endDate.AddDays(1).Date).ToList();
+            }
+        }
+
         public void Save(string cashierName,int productId, string productName, double price, int beforeQty, int soldQty)
         {
             int maxId;

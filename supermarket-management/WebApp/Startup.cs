@@ -53,6 +53,7 @@ namespace WebApp
             services.AddScoped<ISellProductUseCase, SellProductUseCase>();
             services.AddScoped<IRecordTransactionUseCase, RecordTransactionUseCase>();
             services.AddScoped<IGetTodayTransactionsUseCase, GetTodayTransactionsUseCase>();
+            services.AddScoped<IGetTransactionsUseCase, GetTransactionsUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
