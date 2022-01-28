@@ -40,8 +40,13 @@ namespace WebApp
             });
 
             // Dependency Injection for InMemory Data store
-            services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
+            //services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+            //services.AddScoped<IProductRepository, ProductInMemoryRepository>();
+            //services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+
+            // Dependency Injection for ef core Data store for SQL
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRespository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
 
             // Dependency Injection for Use Cases
