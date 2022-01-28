@@ -34,20 +34,27 @@ namespace WebApp
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddDbContext<MarketContext>(options =>
+            var enableInMemory = Configuration.GetValue<bool>("EnableInMemory");
+
+            if (enableInMemory)
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+                // Dependency Injection for InMemory Data store
+                services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+                services.AddScoped<IProductRepository, ProductInMemoryRepository>();
+                services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+            }
+            else 
+            {
+                services.AddDbContext<MarketContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                });
 
-            // Dependency Injection for InMemory Data store
-            //services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
-            //services.AddScoped<IProductRepository, ProductInMemoryRepository>();
-            //services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
-
-            // Dependency Injection for ef core Data store for SQL
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IProductRepository, ProductRespository>();
-            services.AddScoped<ITransactionRepository, TransactionRepository>();
+                // Dependency Injection for ef core Data store for SQL
+                services.AddScoped<ICategoryRepository, CategoryRepository>();
+                services.AddScoped<IProductRepository, ProductRespository>();
+                services.AddScoped<ITransactionRepository, TransactionRepository>();
+            }
 
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();
