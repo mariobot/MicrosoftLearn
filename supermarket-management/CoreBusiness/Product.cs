@@ -18,5 +18,8 @@ namespace CoreBusiness
         public int? Quantity { get; set; }
         [Required(ErrorMessage = "El Precio es requerido")]
         public double? Price { get; set; }
+
+        // navegation property for ef core
+        public Category Category { get; set; }
     }
 }
