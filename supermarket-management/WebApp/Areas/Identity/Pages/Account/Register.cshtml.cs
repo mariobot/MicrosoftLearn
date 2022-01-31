@@ -76,6 +76,8 @@ namespace WebApp.Areas.Identity.Pages.Account
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("Position", "Cashier"));
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

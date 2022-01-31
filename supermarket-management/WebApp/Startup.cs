@@ -48,20 +48,19 @@ namespace WebApp
                 services.AddDbContext<MarketContext>(options =>
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                });
-
-                services.AddAuthorization(options =>
-                {
-                    options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
-                    options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
-
-                });
+                });                
 
                 // Dependency Injection for ef core Data store for SQL
                 services.AddScoped<ICategoryRepository, CategoryRepository>();
                 services.AddScoped<IProductRepository, ProductRespository>();
                 services.AddScoped<ITransactionRepository, TransactionRepository>();
             }
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
+                options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
+            });
 
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();

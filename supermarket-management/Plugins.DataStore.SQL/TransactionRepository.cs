@@ -1,4 +1,5 @@
 ﻿using CoreBusiness;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Plugins.DataStore.SQL
             else
             {
                 return db.Transactions.Where(x =>
-                    x.CashierName.ToLower() == casherName.ToLower()
+                    EF.Functions.Like(x.CashierName, $"%{casherName}%")
                     && x.TimeStamp.Date == date.Date).ToList();
             }
         }
@@ -53,7 +54,7 @@ namespace Plugins.DataStore.SQL
             else
             {
                 return db.Transactions.Where(x =>
-                    x.CashierName.ToLower() == casherName.ToLower()
+                    EF.Functions.Like(x.CashierName, $"%{casherName}%")
                     && x.TimeStamp.Date >= startDate.Date && x.TimeStamp.Date <= endDate.AddDays(1).Date).ToList();
             }
         }
