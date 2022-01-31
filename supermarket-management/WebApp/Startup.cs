@@ -50,6 +50,13 @@ namespace WebApp
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                 });
 
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
+                    options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
+
+                });
+
                 // Dependency Injection for ef core Data store for SQL
                 services.AddScoped<ICategoryRepository, CategoryRepository>();
                 services.AddScoped<IProductRepository, ProductRespository>();
@@ -92,9 +99,13 @@ namespace WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });

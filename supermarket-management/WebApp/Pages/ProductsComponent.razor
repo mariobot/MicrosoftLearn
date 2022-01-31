@@ -1,4 +1,6 @@
 ﻿@page "/products"
+@attribute [Authorize(Policy = "AdminOnly")]
+
 @inject NavigationManager NavigationManager
 @inject IViewProductsUseCase ViewProductsUseCase
 @inject IGetCategoryByIdUseCase GetCategoryByIdUseCase
@@ -22,14 +24,14 @@
         <tbody>
             @foreach (var product in products)
             {
-            <tr>
-                <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
-                <td>@product.Name</td>
-                <td>@string.Format("{0:C0}", product.Price)</td>
-                <td>@product.Quantity</td>
-                <td><button type="button" @onclick="@(() => OnEditProduct(product.ProductId))" class="btn btn-primary">Editar</button></td>
-                <td><button type="button" @onclick="@(() => DeleteProduct(product.ProductId))" class="btn btn-primary">Eliminar</button></td>
-            </tr>
+                <tr>
+                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
+                    <td>@product.Name</td>
+                    <td>@string.Format("{0:C0}", product.Price)</td>
+                    <td>@product.Quantity</td>
+                    <td><button type="button" @onclick="@(() => OnEditProduct(product.ProductId))" class="btn btn-primary">Editar</button></td>
+                    <td><button type="button" @onclick="@(() => DeleteProduct(product.ProductId))" class="btn btn-primary">Eliminar</button></td>
+                </tr>
             }
         </tbody>
     </table>
