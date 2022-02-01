@@ -15,6 +15,7 @@ using WebApp.Data;
 using UseCases;
 using Plugins.DataStore.SQL;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp
 {
@@ -42,25 +43,31 @@ namespace WebApp
                 services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
                 services.AddScoped<IProductRepository, ProductInMemoryRepository>();
                 services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("AdminOnly", p => p.RequireAssertion(_ => true));
+                    options.AddPolicy("CashierOnly", p => p.RequireAssertion(_ => true));
+                });
             }
-            else 
+            else
             {
                 services.AddDbContext<MarketContext>(options =>
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                });                
+                });
 
                 // Dependency Injection for ef core Data store for SQL
                 services.AddScoped<ICategoryRepository, CategoryRepository>();
                 services.AddScoped<IProductRepository, ProductRespository>();
                 services.AddScoped<ITransactionRepository, TransactionRepository>();
-            }
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
-                options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
-            });
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
+                    options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
+                });
+            }
 
             // Dependency Injection for Use Cases
             services.AddScoped<IViewCategoriesUseCase, ViewCategoriesUseCase>();

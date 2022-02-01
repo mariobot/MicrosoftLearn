@@ -1,4 +1,6 @@
 ﻿@page "/cashier_console"
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
 @attribute [Authorize(Policy = "CashierOnly")]
 
 @if (!string.IsNullOrWhiteSpace(cashierName))
@@ -48,7 +50,11 @@
     protected override async Task OnInitializedAsync()
     {
         authState = await _authState;
-        cashierName = authState.User.Identity.Name;
+        if (authState.User.Identity.Name != null)
+        {
+            cashierName = authState.User.Identity.Name;
+        }
+        cashierName = "";
     }
 
     protected override void OnAfterRender(bool firstRender)
