@@ -45,20 +45,20 @@ namespace WebApp.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage ="Campo requerido")]
+            [EmailAddress(ErrorMessage = "El formato de email es incorrecto")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Required(ErrorMessage ="Campro requerido")]
+            [StringLength(100, ErrorMessage = "El {0} debe tener por lo menos {2} y maximo {1} caracteres de largo.", MinimumLength = 6)]
+            [DataType(DataType.Password, ErrorMessage ="La contraseña no cumple con los parametros de seguridad")]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [DataType(DataType.Password, ErrorMessage ="La confirmacion de contraseña no concurda")]
+            [Display(Name = "Confirmar contraseña")]
+            [Compare("Password", ErrorMessage = "La contraseña y la confirmacion de la contraseña no son las mismas.")]
             public string ConfirmPassword { get; set; }
         }
 
