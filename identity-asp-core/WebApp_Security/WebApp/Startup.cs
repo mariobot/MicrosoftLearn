@@ -30,6 +30,7 @@ namespace WebApp
                 options.Cookie.Name = "MyCookieAuth";
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/AccessDenied";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
             });
 
             services.AddAuthorization(options =>
