@@ -30,3 +30,22 @@
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>
+
+<script type="text/javascript">    
+    /* param {number} bpm BPM
+    * param {boolean} emphasize
+    */
+    function playClick(bpm, emphasize)
+    {
+        var audioContext = new AudioContext();
+        var oscillator = audioContext.createOscillator();
+        oscillator.type = 'square';
+        
+        oscillator.frequency.value = emphasize ? 880 : 440; // Hz
+        oscillator.connect(audioContext.destination);
+        oscillator.start();
+        
+        var noteDuration = (60.0 / bpm) * (4.0 / 16);
+        oscillator.stop(audioContext.currentTime + noteDuration);
+    }
+</script>

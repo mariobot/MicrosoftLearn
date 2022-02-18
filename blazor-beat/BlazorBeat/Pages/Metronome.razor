@@ -1,0 +1,48 @@
+﻿@page "/metronome"
+@inject IJSRuntime JS;
+
+<h3>Metronome</h3>
+
+<div>
+    <span id="click">@click</span>
+</div>
+<div>
+    <input id="bpm" @bind="bpm" /><label id="bpm">BPM</label>
+</div>
+<div>
+    <input id="beat" @bind="beat" /><label id="beat">拍子</label>
+</div>
+
+<div>
+    <button class="btn btn-primary" @onclick="StartAsync">Start</button>
+</div>
+
+@code
+{
+    private int bpm = 100;
+    private int beat = 4;
+    private int click = 0;
+
+    async void StartAsync()
+    {
+        
+        var interval = TimeSpan.FromSeconds(60.0 / this.bpm);
+
+        while (true)
+        {
+            
+            if (this.click++ >= this.beat)
+            {
+                
+                this.click = 1;
+            }
+
+            StateHasChanged();
+
+            JS.InvokeVoidAsync("playClick", this.bpm, this.click == 1);
+
+            await Task.Delay(interval);
+        }
+    }
+}
+
