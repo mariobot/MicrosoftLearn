@@ -8,6 +8,16 @@
     <MudAppBar>
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         My Application
+        <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Class="mr-5" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Add" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Settings" Color="Color.Inherit" />
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
+        <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" Link="metronome" />
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
