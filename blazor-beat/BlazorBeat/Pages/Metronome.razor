@@ -3,6 +3,28 @@
 
 <h3>Metronome</h3>
 
+
+
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h6">The Story Book</MudText>
+        </CardHeaderContent>
+        <CardHeaderActions>
+            <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+        </CardHeaderActions>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudText>This day everything happend.</MudText>
+        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+
+        <MudButton Class="btn-btn-primary" @onclick="StartAsync">Start</MudButton>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" Color="Color.Primary">Read More</MudButton>
+    </MudCardActions>
+</MudCard>
+
 <div>
     <span id="click">@click</span>
 </div>
@@ -11,10 +33,6 @@
 </div>
 <div>
     <input id="beat" @bind="beat" /><label id="beat">拍子</label>
-</div>
-
-<div>
-    <button class="btn btn-primary" @onclick="StartAsync">Start</button>
 </div>
 
 @code
