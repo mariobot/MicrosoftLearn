@@ -1,54 +1,63 @@
 ﻿@page "/metronome"
 @inject IJSRuntime JS;
 
-<h3>Metronome</h3>
+
+<MudPaper Class="pa-16 ma-2" Square="true">
+
+</MudPaper>
+<MudPaper Class="pa ma-2" Square="true">
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">The Story Book</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+            </CardHeaderActions>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText>This day everything happend.</MudText>
+            <MudTextField Typo="Typo.body2" @bind-Value="this.bpm" Color="Color.Primary">BPM.</MudTextField>
+            <MudTextField Typo="Typo.body2" @bind-Value="this.beat" Color="Color.Primary">Beat.</MudTextField>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Class="btn-btn-primary" @onclick="StartAsync">Start</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary">Read More</MudButton>
+        </MudCardActions>
+    </MudCard>
+</MudPaper>
+<MudPaper Class="pa-16 ma-2" Square="true">
+
+</MudPaper>
 
 
 
-<MudCard>
-    <MudCardHeader>
-        <CardHeaderContent>
-            <MudText Typo="Typo.h6">The Story Book</MudText>
-        </CardHeaderContent>
-        <CardHeaderActions>
-            <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
-        </CardHeaderActions>
-    </MudCardHeader>
-    <MudCardContent>
-        <MudText>This day everything happend.</MudText>
-        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
-
-        <MudButton Class="btn-btn-primary" @onclick="StartAsync">Start</MudButton>
-    </MudCardContent>
-    <MudCardActions>
-        <MudButton Variant="Variant.Text" Color="Color.Primary">Read More</MudButton>
-    </MudCardActions>
-</MudCard>
-
-<div>
-    <span id="click">@click</span>
-</div>
-<div>
-    <input id="bpm" @bind="bpm" /><label id="bpm">BPM</label>
-</div>
-<div>
-    <input id="beat" @bind="beat" /><label id="beat">拍子</label>
-</div>
 
 @code
-{
-    private int bpm = 100;
-    private int beat = 4;
-    private int click = 0;
+{           
+    public int bpm { get; set; }
+    public int beat { get; set; }
+    public int click { get; set; }
+    public bool enable { get; set; }
+
+    protected override void OnInitialized()
+    {
+        bpm = 100;
+        beat = 4;
+        click = 0;
+        enable = false;
+
+        base.OnInitialized();
+    }
 
     async void StartAsync()
-    {
-        
+    {   
         var interval = TimeSpan.FromSeconds(60.0 / this.bpm);
 
-        while (true)
-        {
-            
+        enable = enable ? false : true;
+
+        while (enable)
+        {            
             if (this.click++ >= this.beat)
             {
                 
