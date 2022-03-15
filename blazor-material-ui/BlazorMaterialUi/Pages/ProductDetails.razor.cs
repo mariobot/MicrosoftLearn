@@ -10,9 +10,15 @@ namespace BlazorMaterialUi.Pages
 {
     public partial class ProductDetails
     {
-        public Product Product { get; set; } = new Product();
+        public Product Product { get; set; } = new Product() {
+            Reviews = new List<Review>(),
+            Declaration = new Declaration(),
+            QAs = new List<QA>()
+        };
+
         [Inject]
         public IHttpClientRepository Repository { get; set; }
+
         [Parameter]
         public Guid ProductId { get; set; }
 

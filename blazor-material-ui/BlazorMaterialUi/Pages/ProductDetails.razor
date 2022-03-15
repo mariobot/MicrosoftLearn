@@ -1,4 +1,5 @@
 ﻿@page "/product/{productId:guid}"
+@using BlazorMaterialUi.Components
 
 <MudGrid>
     <MudItem md="12" sm="12">
@@ -31,3 +32,4 @@
         </MudPaper>
     </MudItem>
 </MudGrid>
+<AdditionalProductInfo Product="this.Product" ReviewCount="_reviewCount" QuestionCount="_questionCount"></AdditionalProductInfo>
