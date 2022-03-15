@@ -20,9 +20,13 @@
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Image">
-            <MudAvatar Color="Color.Transparent" Size="Size.Large" Image="@context.ImageUrl" />
+            <MudLink Href="@($"product/{context.Id}")">
+                <MudAvatar Color="Color.Transparent" Size="Size.Large" Image="@context.ImageUrl" />
+            </MudLink>
         </MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Name">
+            <MudLink Href="@($"product/{context.Id}")">@context.Name</MudLink>
+        </MudTd>
         <MudTd DataLabel="Supplier">@context.Supplier</MudTd>
         <MudTd DataLabel="Price">$@context.Price</MudTd>
     </RowTemplate>

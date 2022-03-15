@@ -23,6 +23,22 @@ namespace BlazorMaterialUi.HttpRepository
             _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
+        public async Task<Product> GetProduct(Guid id)
+        {
+            var uri = $"products/{id}";
+
+            using (var response = await _client.GetAsync(uri))
+            {
+                response.EnsureSuccessStatusCode();
+
+                var stream = await response.Content.ReadAsStreamAsync();
+
+                var product = await JsonSerializer.DeserializeAsync<Product>(stream, _options);
+
+                return product;
+            }
+        }
+
         public async Task<PagingResponse<Product>> GetProducts(ProductParameters productParameters)
         {
             var queryStringParam = new Dictionary<string, string>
