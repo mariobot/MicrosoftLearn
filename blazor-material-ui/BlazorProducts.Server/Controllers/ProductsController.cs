@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BlazorProducts.Server.Repository;
+using Entities.Models;
 using Entities.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -34,6 +35,14 @@ namespace BlazorProducts.Server.Controllers
 			var product = await _repo.GetProduct(id);
 
 			return Ok(product);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> InsertProduct(Product product)
+		{
+			await _repo.InsertProduct(product);
+
+			return Ok();		
 		}
 	}
 }
