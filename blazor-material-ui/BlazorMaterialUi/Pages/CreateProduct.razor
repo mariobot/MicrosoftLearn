@@ -13,6 +13,8 @@
                               Adornment="Adornment.Start" AdornmentIcon="@Icons.Filled.AttachMoney"
                               InputType="InputType.Number" For="@(() => _product.Price)" />
                 <MudDatePicker Label="Manufacture date" @bind-Date="_date" />
+                <br />
+                <BlazorMaterialUi.Components.ImageUpload OnChange="SetImgUrl"/>
             </MudCardContent>
             <MudCardActions>
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"

@@ -17,5 +17,7 @@ namespace BlazorMaterialUi.Pages
             _product.ManufactureDate = (DateTime)_date;
             await Repository.CreateProduct(_product);
         }
+
+        public void SetImgUrl(string imgUrl) => _product.ImageUrl = imgUrl;
     }
 }
