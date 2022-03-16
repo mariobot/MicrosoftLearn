@@ -1,12 +1,18 @@
 ﻿@page "/fetchdata"
 @using Entities.Models
 
+
 <MudTable ServerData="@(new Func<TableState, Task<TableData<Product>>>(GetServerData))"
           Hover="true" Breakpoint="Breakpoint.Sm" RightAlignSmall="true"
           @ref="_table" RowsPerPage="4">
     <ToolBarContent>
+        <MudTooltip Text="Create Product">
+            <MudLink Href="/createProduct">
+                <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Size="Size.Medium" />
+            </MudLink>
+        </MudTooltip>
         <MudText Typo="Typo.h6">Products</MudText>
-        <MudToolBarSpacer/>
+        <MudToolBarSpacer />
         <MudTextField T="string" OnDebounceIntervalElapsed="OnSearch" Placeholder="Search"
                       Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
                       IconSize="Size.Medium" Class="mt-0">

@@ -5,8 +5,10 @@ using Entities.RequestParameters;
 using Microsoft.AspNetCore.WebUtilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -21,6 +23,11 @@ namespace BlazorMaterialUi.HttpRepository
         {
             _client = client;
             _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        }
+
+        public async Task CreateProduct(Product product)
+        {
+            await _client.PostAsJsonAsync("products", product);
         }
 
         public async Task<Product> GetProduct(Guid id)
@@ -66,6 +73,15 @@ namespace BlazorMaterialUi.HttpRepository
 
                 return pagingResponse;
             }
+        }
+
+        public async Task<string> UploadImage(MultipartFormDataContent content)
+        {
+            var postResult = await _client.PostAsync("upload", content);
+            var postContent = await postResult.Content.ReadAsStringAsync();
+            var imgUrl = Path.Combine("https://localhost:5011/", postContent);
+
+            return imgUrl;
         }
     }
 }
