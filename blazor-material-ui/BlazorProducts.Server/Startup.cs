@@ -42,7 +42,7 @@ namespace BlazorProducts.Server
                 .WithExposedHeaders("X-Pagination"));
             });
 
-            services.AddDbContext<ProductContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+            services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
 
             services.AddScoped<IProductRepository, ProductRepository>();
 

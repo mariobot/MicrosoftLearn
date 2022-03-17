@@ -11,9 +11,9 @@ namespace BlazorProducts.Server.Repository
 {
     public class ProductRepository : IProductRepository
 	{
-		private readonly ProductContext _context;
+		private readonly DatabaseContext _context;
 
-		public ProductRepository(ProductContext context)
+		public ProductRepository(DatabaseContext context)
 		{
 			_context = context;
 		}

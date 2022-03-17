@@ -1,16 +1,12 @@
 ﻿using BlazorProducts.Server.Context.Configuration;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlazorProducts.Server.Context
 {
-	public class ProductContext : DbContext
+    public class DatabaseContext : DbContext
 	{
-		public ProductContext(DbContextOptions options)
+		public DatabaseContext(DbContextOptions options)
 			:base(options)
 		{
 		}

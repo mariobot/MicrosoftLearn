@@ -12,7 +12,7 @@ namespace BlazorProducts.Server.MigrationManager
         {
             using (var scope = host.Services.CreateScope())
             {
-                using (var appContext = scope.ServiceProvider.GetRequiredService<ProductContext>())
+                using (var appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
                 {
                     try
                     {
