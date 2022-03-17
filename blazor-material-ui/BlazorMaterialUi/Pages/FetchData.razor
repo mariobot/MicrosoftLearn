@@ -24,6 +24,7 @@
         <MudTh><MudTableSortLabel SortLabel="name" T="Product">Name</MudTableSortLabel></MudTh>
         <MudTh>Supplier</MudTh>
         <MudTh><MudTableSortLabel SortLabel="price" T="Product">Price</MudTableSortLabel></MudTh>
+        <MudTh>Edit</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Image">
@@ -36,6 +37,11 @@
         </MudTd>
         <MudTd DataLabel="Supplier">@context.Supplier</MudTd>
         <MudTd DataLabel="Price">$@context.Price</MudTd>
+        <MudTd DataLabel="Update">
+            <MudLink Href="@($"updateProduct/{@context.Id}")">
+                <MudFab Icon="@Icons.Filled.Edit" Color="Color.Secondary" Size="Size.Small" />
+            </MudLink>
+        </MudTd>
     </RowTemplate>
     <PagerContent>
         <MudTablePager PageSizeOptions="@_pageSizeOption" RowsPerPageString="Products per page"/>
