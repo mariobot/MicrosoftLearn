@@ -1,6 +1,7 @@
 using BlazorMaterialUi.HttpRepository;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using MudBlazor;
 using MudBlazor.Services;
 using System;
 using System.Net.Http;
@@ -22,7 +23,13 @@ namespace BlazorMaterialUi
                 BaseAddress = new Uri("https://localhost:5011/api/") 
             });
 
-            builder.Services.AddMudServices();
+            builder.Services.AddMudServices(config => { 
+                config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.TopRight;
+                config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
+                config.SnackbarConfiguration.ShowCloseIcon = true;
+                config.SnackbarConfiguration.MaxDisplayedSnackbars = 1;
+                
+            });
 
             await builder.Build().RunAsync();
         }

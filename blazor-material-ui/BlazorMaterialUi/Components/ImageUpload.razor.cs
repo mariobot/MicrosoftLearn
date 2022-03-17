@@ -1,6 +1,7 @@
 ﻿using BlazorMaterialUi.HttpRepository;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using MudBlazor;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -15,6 +16,8 @@ namespace BlazorMaterialUi.Components
         public EventCallback<string> OnChange { get; set; }
         [Inject]
         public IHttpClientRepository Repository { get; set; }
+        [Inject]
+        public ISnackbar Snackbar { get; set; }
         private async Task UploadImage(InputFileChangeEventArgs e)
         {
             var imageFiles = e.GetMultipleFiles();
@@ -33,6 +36,8 @@ namespace BlazorMaterialUi.Components
                     }
                 }
             }
+
+            Snackbar.Add("Image uploaded successfully.", Severity.Info);
         }
     }
 }
