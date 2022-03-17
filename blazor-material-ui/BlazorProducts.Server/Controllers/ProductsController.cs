@@ -42,6 +42,22 @@ namespace BlazorProducts.Server.Controllers
 		{
 			await _repo.InsertProduct(product);
 
+			return Ok();
+		}
+
+		[HttpPut]
+		public async Task<IActionResult> UpdateProduct(Product product)
+		{
+			await _repo.UpdateProduct(product);
+
+			return Ok();
+		}
+
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteProduct(Guid id)
+		{
+			await _repo.DeleteProduct(id);
+
 			return Ok();		
 		}
 	}

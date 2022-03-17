@@ -83,5 +83,15 @@ namespace BlazorMaterialUi.HttpRepository
 
             return imgUrl;
         }
+
+        public async Task UpdateProduct(Product product)
+        {
+            await _client.PutAsJsonAsync("products", product);
+        }
+
+        public async Task DeleteProduct(Guid id)
+        {
+            await _client.DeleteAsync($"products/{id}");
+        }
     }
 }

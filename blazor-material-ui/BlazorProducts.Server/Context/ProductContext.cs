@@ -24,5 +24,11 @@ namespace BlazorProducts.Server.Context
 		}
 
 		public DbSet<Product> Products { get; set; }
-	}
+
+		public DbSet<Declaration> Declarations { get; set; }
+
+		public DbSet<QA> QAs { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+    }
 }
