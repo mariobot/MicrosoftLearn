@@ -1,8 +1,10 @@
 ﻿using BlazorMaterialUi.HttpRepository;
+using BlazorMaterialUi.Shared;
 using Entities.Models;
 using Entities.RequestParameters;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,6 +19,11 @@ namespace BlazorMaterialUi.Pages
 
         [Inject]
         public IHttpClientRepository Repository { get; set; }
+
+        [Inject]
+        public IDialogService Dialog { get; set; }
+        [Inject]
+        public NavigationManager Nav { get; set; }
 
         private async Task<TableData<Product>> GetServerData(TableState state)
         {
@@ -40,6 +47,26 @@ namespace BlazorMaterialUi.Pages
         {
             _productParameters.SearchTerm = searchTerm;
             _table.ReloadServerData();
+        }
+
+        private async Task RemoveDialogAsync(Guid productId)
+        {
+            var parameters = new DialogParameters
+            {
+                { "Content", "Are you sure to delete this product?"},
+                { "ButtonColor", Color.Error },
+                { "ButtonText", "Delete" }
+            };
+
+            var dialog = Dialog.Show<DialogNotification>("Remove product", parameters);
+            var result = await dialog.Result;
+            if (!result.Cancelled)
+            {
+                await Repository.DeleteProduct(productId);
+                bool.TryParse(result.Data.ToString(), out bool shouldNavigate);
+                if (shouldNavigate)
+                    Nav.NavigateTo("/fetchdata", true);
+            }
         }
     }
 }
