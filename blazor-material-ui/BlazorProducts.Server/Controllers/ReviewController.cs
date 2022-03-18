@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlazorProducts.Server.Controllers
 {
-    [Route("api/review")]
+    [Route("api/reviews")]
     [ApiController]
     public class ReviewController : Controller
     {

@@ -15,5 +15,6 @@ namespace BlazorMaterialUi.HttpRepository
         Task<string> UploadImage(MultipartFormDataContent content);
         Task UpdateProduct(Product product);
         Task DeleteProduct(Guid id);
+        Task AddReview(Review review);
     }
 }

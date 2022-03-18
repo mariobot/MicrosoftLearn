@@ -1,0 +1,17 @@
+﻿<EditForm Model="_review" OnValidSubmit="Create">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudRating SelectedValue="@_review.Rate" Size="Size.Medium" FullIcon="@Icons.Filled.ThumbUp"
+                       EmptyIcon="@Icons.Filled.ThumbUpOffAlt" SelectedValueChanged="RatingValueChanged" />
+            <MudTextField Label="Use Name" @bind-Value="_review.User"
+                          For="@(() => _review.User)" />
+            <MudTextField Label="Comment" @bind-Value="_review.Comment"
+                          For="@(() => _review.Comment)" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                        Class="ml-auto">Add Comment</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>

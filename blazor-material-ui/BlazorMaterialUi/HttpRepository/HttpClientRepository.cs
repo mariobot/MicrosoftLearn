@@ -93,5 +93,10 @@ namespace BlazorMaterialUi.HttpRepository
         {
             await _client.DeleteAsync($"products/{id}");
         }
+
+        public async Task AddReview(Review review)
+        {
+            await _client.PostAsJsonAsync("reviews",review);
+        }
     }
 }

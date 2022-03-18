@@ -30,6 +30,8 @@
             <MudFab Icon="@Icons.Filled.ShoppingCart" Color="Color.Tertiary"
                     Label="Add to cart" Class="mt-4" />
         </MudPaper>
+        <br />
+        <AddReviewBox productId="@Product.Id.ToString()" OnAddReview="LoadInfo"></AddReviewBox>
     </MudItem>
 </MudGrid>
 <AdditionalProductInfo Product="this.Product" ReviewCount="_reviewCount" QuestionCount="_questionCount"></AdditionalProductInfo>
