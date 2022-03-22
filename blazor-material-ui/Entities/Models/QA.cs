@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Entities.Models
 {
-	public class QA
+    public class QA
 	{
 		public Guid Id { get; set; }
 		public string Question { get; set; }
