@@ -98,5 +98,10 @@ namespace BlazorMaterialUi.HttpRepository
         {
             await _client.PostAsJsonAsync("reviews",review);
         }
+
+        public async Task AddQuestion(QA qa)
+        {
+            await _client.PostAsJsonAsync("qas", qa);
+        }
     }
 }

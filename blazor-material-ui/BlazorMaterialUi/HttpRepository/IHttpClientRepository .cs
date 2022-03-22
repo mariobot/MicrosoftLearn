@@ -16,5 +16,6 @@ namespace BlazorMaterialUi.HttpRepository
         Task UpdateProduct(Product product);
         Task DeleteProduct(Guid id);
         Task AddReview(Review review);
+        Task AddQuestion(QA qa);
     }
 }

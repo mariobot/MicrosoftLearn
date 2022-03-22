@@ -1,0 +1,18 @@
+﻿<EditForm Model="_qa" OnValidSubmit="CreateQuestion">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTextField Label="Use Name" @bind-Value="_qa.User"
+                          For="@(() => _qa.User)" />
+            <MudTextField Label="Question" @bind-Value="_qa.Question"
+                          For="@(() => _qa.Question)" />
+            <MudTextField Label="Answer" @bind-Value="_qa.Answer"
+                          For="@(() => _qa.Answer)" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                       Class="ml-auto">Add Qestion or Answer</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+
