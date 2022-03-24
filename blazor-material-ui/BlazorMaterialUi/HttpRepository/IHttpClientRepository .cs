@@ -18,5 +18,8 @@ namespace BlazorMaterialUi.HttpRepository
         Task AddReview(Review review);
         Task AddQuestion(QA qa);
         Task AddDeclaration(Declaration declaration);
+        Task<Declaration> GetDeclaration(Guid declarationId);
+        Task UpdateDeclaration(Declaration declaration);
+        Task DeleteDeclaration(Guid declarationId);
     }
 }

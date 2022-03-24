@@ -108,5 +108,29 @@ namespace BlazorMaterialUi.HttpRepository
         {
             await _client.PostAsJsonAsync("declarations", declaration);
         }
+
+        public async Task<Declaration> GetDeclaration(Guid declarationId)
+        {
+            var uri = $"declarations/{declarationId}";
+
+            using (var response = await _client.GetAsync(uri))
+            {
+                response.EnsureSuccessStatusCode();
+                var stream = await response.Content.ReadAsStreamAsync();
+                var declaration = await JsonSerializer.DeserializeAsync<Declaration>(stream, _options);
+                return declaration;
+            }
+        }
+
+        public async Task UpdateDeclaration(Declaration declaration)
+        {
+            await _client.PutAsJsonAsync("declarations", declaration);
+        }
+
+        public async Task DeleteDeclaration(Guid declarationId)
+        {
+            await _client.DeleteAsync($"declarations/{declarationId}");
+        }
+
     }
 }
