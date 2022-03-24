@@ -1,6 +1,7 @@
 ﻿using BlazorProducts.Server.Repository;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace BlazorProducts.Server.Controllers
@@ -13,13 +14,34 @@ namespace BlazorProducts.Server.Controllers
 
         public DeclarationsController(IDeclarationRepository repo)
         {
-            this._repo = repo;
+            _repo = repo;
+        }
+
+        [HttpGet("{declarationId}")]
+        public async Task<IActionResult> GetDeclaration(Guid declarationId)
+        {
+            var declaration = await _repo.GetDeclaration(declarationId);            
+            return Ok(declaration);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddDeclaration(Declaration declaration)
         {
-            await this._repo.AddDeclaration(declaration);
+            await _repo.AddDeclaration(declaration);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateDeclaration(Declaration declaration)
+        {
+            await _repo.UpdateDeclaration(declaration);
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> UpdateDeclaration(Guid declarationId)
+        {
+            await _repo.DeleteDeclaration(declarationId);
             return Ok();
         }
     }

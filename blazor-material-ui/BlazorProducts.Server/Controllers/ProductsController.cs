@@ -23,9 +23,7 @@ namespace BlazorProducts.Server.Controllers
 		public async Task<IActionResult> Get([FromQuery] ProductParameters productParameters)
 		{
 			var products = await _repo.GetProducts(productParameters);
-
 			Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
-
 			return Ok(products);
 		}
 
@@ -33,7 +31,6 @@ namespace BlazorProducts.Server.Controllers
 		public async Task<IActionResult> GetProduct(Guid id)
 		{
 			var product = await _repo.GetProduct(id);
-
 			return Ok(product);
 		}
 
@@ -41,7 +38,6 @@ namespace BlazorProducts.Server.Controllers
 		public async Task<IActionResult> InsertProduct(Product product)
 		{
 			await _repo.InsertProduct(product);
-
 			return Ok();
 		}
 
@@ -49,7 +45,6 @@ namespace BlazorProducts.Server.Controllers
 		public async Task<IActionResult> UpdateProduct(Product product)
 		{
 			await _repo.UpdateProduct(product);
-
 			return Ok();
 		}
 
@@ -57,7 +52,6 @@ namespace BlazorProducts.Server.Controllers
 		public async Task<IActionResult> DeleteProduct(Guid id)
 		{
 			await _repo.DeleteProduct(id);
-
 			return Ok();		
 		}
 	}
