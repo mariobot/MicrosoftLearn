@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BlazorProducts.Server.Repository
 {
-    interface IDeclarationRepository
+    public interface IDeclarationRepository
     {
         Task AddDeclaration(Declaration declaration);
     }

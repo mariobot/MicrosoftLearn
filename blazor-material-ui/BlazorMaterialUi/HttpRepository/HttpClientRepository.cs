@@ -25,11 +25,6 @@ namespace BlazorMaterialUi.HttpRepository
             _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
-        public async Task CreateProduct(Product product)
-        {
-            await _client.PostAsJsonAsync("products", product);
-        }
-
         public async Task<Product> GetProduct(Guid id)
         {
             var uri = $"products/{id}";
@@ -84,6 +79,11 @@ namespace BlazorMaterialUi.HttpRepository
             return imgUrl;
         }
 
+        public async Task CreateProduct(Product product)
+        {
+            await _client.PostAsJsonAsync("products", product);
+        }
+
         public async Task UpdateProduct(Product product)
         {
             await _client.PutAsJsonAsync("products", product);
@@ -102,6 +102,11 @@ namespace BlazorMaterialUi.HttpRepository
         public async Task AddQuestion(QA qa)
         {
             await _client.PostAsJsonAsync("qas", qa);
+        }
+
+        public async Task AddDeclaration(Declaration declaration)
+        {
+            await _client.PostAsJsonAsync("declarations", declaration);
         }
     }
 }

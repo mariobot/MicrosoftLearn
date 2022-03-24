@@ -22,6 +22,13 @@
             <MudCardActions>
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
                            Class="ml-auto">Update Product</MudButton>
+                @if (_product.Declaration == null)
+                {
+                    <MudLink Href="@($"createDeclaration/{_product.Id}")">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                   Class="ml-auto">Create Declaration</MudButton>
+                    </MudLink>
+                }
             </MudCardActions>
         </MudCard>
     </EditForm>

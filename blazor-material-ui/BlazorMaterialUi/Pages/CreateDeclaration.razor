@@ -1,0 +1,21 @@
+﻿@page "/createDeclaration/{productId}"
+
+<section style="width:600px; margin: 0 auto;">
+    <EditForm Model="_declaration" OnValidSubmit="Create">
+        <DataAnnotationsValidator />
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Model" @bind-Value="_declaration.Model"
+                              For="@(() => _declaration.Model)" />
+                <MudTextField Label="Origin" @bind-Value="_declaration.Origin"
+                              For="@(() => _declaration.Origin)" />
+                <MudTextField Label="Customer Rights" @bind-Value="_declaration.CustomerRights"
+                              For="@(() => _declaration.CustomerRights)" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                           Class="ml-auto">Create Declaration</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </EditForm>
+</section>

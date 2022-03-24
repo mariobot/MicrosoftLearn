@@ -5,21 +5,20 @@ using System.Threading.Tasks;
 
 namespace BlazorProducts.Server.Controllers
 {
-    [Route("api/qas")]
+    [Route("api/reviews")]
     [ApiController]
-    public class QAController : Controller
+    public class ReviewsController : Controller
     {
-        private IQARepository _repo;
-
-        public QAController(IQARepository repo)
+        private IReviewRepository _repo;
+        public ReviewsController(IReviewRepository repo)
         {
             _repo = repo;
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestion(QA qa)
+        public async Task<IActionResult> AddReview(Review review)
         {
-            await _repo.AddQuestion(qa);
+            await _repo.AddReview(review);
             return Ok();
         }
     }
