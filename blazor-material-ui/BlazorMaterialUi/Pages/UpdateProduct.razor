@@ -30,6 +30,14 @@
                                    Class="ml-auto">Create Declaration</MudButton>
                     </MudLink>
                 }
+                else
+                {
+                    <br />
+                    <MudLink Href="@($"updateDeclaration/{_product.Declaration.Id}")">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                   Class="ml-auto">Update Declaration</MudButton>
+                    </MudLink>
+                }
             </MudCardActions>
         </MudCard>
     </EditForm>
