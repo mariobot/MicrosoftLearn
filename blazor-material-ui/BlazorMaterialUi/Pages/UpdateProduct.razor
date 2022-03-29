@@ -21,22 +21,30 @@
             </MudCardContent>
             <MudCardActions>
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
-                           Class="ml-auto">Update Product</MudButton>
+                           Class="ml-auto">Update Product</MudButton>                
+            </MudCardActions>
+            <MudCardActions>
                 @if (_product.Declaration == null)
                 {
-                    <br />
-                    <MudLink Href="@($"createDeclaration/{_product.Id}")">
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
-                                   Class="ml-auto">Create Declaration</MudButton>
-                    </MudLink>
+                    <MudItem lg="12" md="12" sm="12">
+                        <MudLink Href="@($"createDeclaration/{_product.Id}")">
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                       Class="ml-auto">Create Declaration</MudButton>
+                        </MudLink>
+                    </MudItem>
                 }
                 else
                 {
-                    <br />
-                    <MudLink Href="@($"updateDeclaration/{_product.Declaration.Id}")">
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
-                                   Class="ml-auto">Update Declaration</MudButton>
-                    </MudLink>
+                    <MudItem lg="6" md="6" sm="6">
+                        <MudLink Href="@($"updateDeclaration/{_product.Declaration.Id}")">
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                       Class="ml-auto">Update Declaration</MudButton>
+                        </MudLink>
+                    </MudItem>
+                    <MudItem lg="6" md="6" sm="6">
+                            <MudButton ButtonType="ButtonType.Reset" Variant="Variant.Filled" Color="Color.Error"
+                                       Class="ml-auto" OnClick="ExecuteDeleteDeclarationAsync" >Delete Declaration</MudButton>                        
+                    </MudItem>                    
                 }
             </MudCardActions>
         </MudCard>

@@ -57,5 +57,25 @@ namespace BlazorMaterialUi.Pages
         }
 
         public void SetImgUrl(string imgUrl) => _product.ImageUrl = imgUrl;
+
+        private async Task ExecuteDeleteDeclarationAsync()
+        {
+            var parameters = new DialogParameters
+            {
+                { "Content", "You sure what to delete declaration information."},
+                { "ButtonColor", Color.Error },
+                { "ButtonText", "Delete" }
+            };
+
+            var dialog = Dialog.Show<DialogNotification>("Delete declaration", parameters);
+            var result = await dialog.Result;
+            if (!result.Cancelled)
+            {
+                await Repository.DeleteDeclaration(_product.Declaration.Id);
+                bool.TryParse(result.Data.ToString(), out bool shouldNavigate);
+                if (shouldNavigate)
+                    NavigationManager.NavigateTo("/fetchdata");
+            }
+        }
     }
 }

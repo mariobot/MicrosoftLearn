@@ -31,14 +31,14 @@ namespace BlazorProducts.Server.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateDeclaration(Declaration declaration)
         {
             await _repo.UpdateDeclaration(declaration);
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{declarationId}")]
         public async Task<IActionResult> UpdateDeclaration(Guid declarationId)
         {
             await _repo.DeleteDeclaration(declarationId);
