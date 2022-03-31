@@ -26,5 +26,7 @@ namespace BlazorProducts.Server.Context
 		public DbSet<QA> QAs { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
+
+		public DbSet<Transaction> Transactions { get; set; }
     }
 }
