@@ -48,6 +48,7 @@ namespace BlazorProducts.Server
             services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<IQARepository, QARepository>();
             services.AddScoped<IDeclarationRepository, DeclarationRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
 
             services.AddControllers()
                 .AddNewtonsoftJson(s => s.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
