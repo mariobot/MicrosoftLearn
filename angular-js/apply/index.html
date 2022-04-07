@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<script src="../node_modules/angular/angular.js"></script>
+<script>
+    angular.module("mainModule", [])
+        .controller("FirstController", function ($scope) {
+            $scope.nombre = "Mario";
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.nombre = "Clase de angular-js";
+                });
+            }, 2000)
+
+            document.querySelector("#mi_boton").addEventListener("click", function () {
+                $scope.$apply(function () {
+                    $scope.nombre = "AngularJS framework";
+                });
+            });
+        });
+</script>
+
+<body ng-controller="FirstController">
+    <h1>{{nombre}}</h1>
+    <button id="mi_boton">Click aqui!</button>
+</body>
+
+</html>
