@@ -16,10 +16,10 @@ controller("FirstController", function($scope,$http){
             body: $scope.newPost.body,
             userId: 1
         })
-        .then(function (data,status,headers,){
-            console.log(response);
-            $scope.posts = response.data;
-        },function (error){
+        .then(function (data,status,headers,config){
+            $scope.posts.push(data.data);
+            $scope.newPost = {};
+        },function (error,status,headers,config){
             console.log(error);
         });
     }
