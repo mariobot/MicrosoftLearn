@@ -9,14 +9,15 @@ controller("TodoController", function($scope,localStorageService){
         $scope.todo = [];
     }   
     
-    $scope.newActivity = {};    
+    $scope.newActivity = {};
+    $scope.$watchCollection('todo', function(newValue,oldValue){
+        localStorageService.set("angular-todolist",$scope.todo);
+    });    
     $scope.addActivity = function(){
        $scope.todo.push($scope.newActivity);
        $scope.newActivity = {};
-       localStorageService.set("angular-todolist", $scope.todo);
     }
     $scope.clear = function(){
         $scope.todo = [];
-        localStorageService.set("angular-todolist", $scope.todo);
     }
 });

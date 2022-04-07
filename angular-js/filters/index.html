@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="controller.js"></script>
+
+<body ng-controller="FiltersController">
+    {{mi_html | removeHtml}}
+    {{costo | currency}}
+</body>
+
+</html>
