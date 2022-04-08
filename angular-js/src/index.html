@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="CustomDirective">
+<script src="../node_modules/angular/angular.js"></script>
+<script src="controller.js"></script>
+
+<body ng-controller="AppController">
+    <ul class="no-list" ng-cloak>
+        <li ng-repeat="repo in repos">
+            <h1>{{repo.name}}</h1>
+            <img ng-src="{{repo.owner.avatar_url}}">
+        </li>
+    </ul>
+</body>
+
+</html>
