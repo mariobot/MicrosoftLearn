@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="MyFirstApp">
+<script src="../node_modules/angular/angular.js"></script>
+<script src="controller.js"></script>
+
+<body ng-controller="FirstController">
+    {{nombre}}
+    <p><strong>Valor del padre: </strong>{{$parent.nombre}}</p>
+    <div ng-controller="ChildController">
+        <p><strong>Valor del hijo: </strong>{{nombre}}</p>
+        <input type="text" ng-model="$parent.nombre">
+    </div>
+</body>
+
+</html>
