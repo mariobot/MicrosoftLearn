@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="CustomDirective">
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+<link href="../node_modules/jquery-ui-dist/jquery-ui.min.css" rel="Stylesheet">
+
+<script src="../node_modules/angular/angular.js"></script>
+<script src="controller.js"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="Stylesheet">
+</link>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>-->
+
+<style>
+    .circular {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+    }
+
+    .no-list {
+        list-style-type: none;
+    }
+
+    body,
+    html {
+        text-align: center;
+        background-color: #eee;
+        margin: 0px;
+    }
+</style>
+
+<body ng-controller="AppController">
+    <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
+    <ul class="no-list" ng-cloak>
+        <li ng-repeat="repo in posts" ng-hide="main_repo && main_repo != repo.name">
+            <div class="circular" back-img="{{repo.owner.avatar_url}}">
+            </div>
+            <h1 class="inline-block">{{repo.name}}</h1>
+        </li>
+    </ul>
+    <button ng-click="main_repo = null">Limpiar</button>
+</body>
+
+</html>

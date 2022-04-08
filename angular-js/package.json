@@ -1,0 +1,28 @@
+{
+  "name": "angular-js-mariobot",
+  "version": "1.0.0",
+  "description": "This repo hold code from the AngularJS course.",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-local-storage": "^0.7.1",
+    "jquery": "^3.6.0",
+    "jquery-ui-dist": "^1.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angularjs",
+    "mariobot",
+    "angular-js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Mario Botero Florez",
+  "license": "ISC"
+}
