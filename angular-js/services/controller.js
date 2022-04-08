@@ -1,45 +1,44 @@
 var app = angular.module("TodoList",["LocalStorageModule"])
-.factory("TodoService",function(localStorageService){
-    var todoService = {};
+.service("TodoService",function(localStorageService){    
 
-    todoService.key = "angular-todolist";
+    this.key = "angular-todolist";
 
-    if(localStorageService.get(todoService.key))
+    if(localStorageService.get(this.key))
     {
-        todoService.activities = localStorageService.get(todoService.key)    
+        this.activities = localStorageService.get(this.key)    
     }
     else
     {
-        todoService.activities = [];
+        this.activities = [];
     }
 
-    todoService.add = function(newActivity){
-        todoService.activities.push(newActivity);
-        todoService.updateLocalStorage();
+    this.add = function(newActivity){
+        this.activities.push(newActivity);
+        this.updateLocalStorage();
     };
 
-    todoService.updateLocalStorage = function(){
-        localStorageService.set(todoService.key,todoService.activities);
+    this.updateLocalStorage = function(){
+        localStorageService.set(this.key,this.activities);
     };
 
-    todoService.clearActivities = function(){
-        todoService.activities = [];
-        todoService.updateLocalStorage();
+    this.clearActivities = function(){
+        this.activities = [];
+        this.updateLocalStorage();
     };
 
-    todoService.getAll = function(){
-        return todoService.activities;
+    this.getAll = function(){
+        return this.activities;
     };
 
-    todoService.remove = function(item){
-        todoService.activities = todoService.activities.filter(function(activity){
+    this.remove = function(item){
+        this.activities = this.activities.filter(function(activity){
             return activity !== item
         });
-        todoService.updateLocalStorage();
-        return todoService.getAll();
+        this.updateLocalStorage();
+        return this.getAll();
     };
 
-    return todoService;
+    return this;
 })
 .controller("TodoController", function($scope,TodoService){
 
