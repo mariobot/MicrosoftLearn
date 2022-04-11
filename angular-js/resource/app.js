@@ -1,4 +1,4 @@
-angular.module("FinalApp",["lumx","ngRoute"])
+angular.module("FinalApp",["lumx","ngRoute","ngResource"])
     .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix('');
         $routeProvider
