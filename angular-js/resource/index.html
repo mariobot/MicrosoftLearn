@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="FinalApp">
+<link href="../node_modules/official-lumx/dist/lumx.css" rel="Stylesheet">
+
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="Stylesheet">
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-route/angular-route.min.js"></script>
+
+<script src="../node_modules/official-lumx/dist/lumx.js"></script>
+<script src="../node_modules/velocity-animate/velocity.min.js"></script>
+<script src="../node_modules/moment/moment.js"></script>
+
+<script src="app.js"></script>
+<script src="lumx.js"></script>
+<script src="directives.js"></script>
+<script src="controller.js"></script>
+
+<style>
+</style>
+
+<body>
+    <nav>
+        <div class="bgc-blue-900 tc-white" flex-container="row" flex-align="center center">
+            <div flex-item="4">
+                <h1 class="fs-display-3 display-block">Post App</h1>
+            </div>
+            <div flex-item="1">
+                <a href="#">Inicio</a>
+            </div>
+            <div flex-item="1">
+                <a href="#">Crear Post</a>
+            </div>
+        </div>
+    </nav>
+    <div flex-container="row" flex-align="center">
+        <div ng-view flex-item="9">
+            DEMO
+        </div>
+    </div>
+</body>
+
+</html>
