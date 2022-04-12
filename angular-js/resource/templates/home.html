@@ -14,6 +14,9 @@
                     <a href="#/post/{{post.id}}">
                         <lx-button lx-color="black" lx-type="flat">Leer más</lx-button>
                     </a>
+                    <a href="#/posts/edit/{{post.id}}">
+                        <lx-button lx-color="blue" lx-type="flat">Editar</lx-button>
+                    </a>
                     <lx-button ng-click="removePost(post)" lx-color="orange" lx-type="flat">Eliminar</lx-button>
                 </div>
             </div>
@@ -37,7 +40,6 @@
                         </div>
                         <div class="card__actions">
                             <lx-button lx-color="black" lx-type="flat">Ver usuario</lx-button>
-                            <lx-button lx-color="orange" lx-type="flat">No</lx-button>
                         </div>
                     </div>
                 </div>

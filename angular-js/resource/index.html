@@ -18,6 +18,7 @@
 <script src="lumx.js"></script>
 <script src="directives.js"></script>
 <script src="controller.js"></script>
+<script src="services.js"></script>
 
 <style>
     html {
@@ -32,16 +33,15 @@
                 <h1 class="fs-display-3 display-block">Post App</h1>
             </div>
             <div flex-item="1" class="display-block">
-                <a href="#">Inicio</a>
+                <a href="#/" style="color: white;">Inicio</a>
             </div>
             <div flex-item="1">
-                <a href="#" class="display-block">Crear Post</a>
+                <a href="#/posts/new" class="display-block" style="color: white;">Crear Post</a>
             </div>
         </div>
     </nav>
     <div flex-container="row" flex-align="center">
         <div ng-view flex-item="9">
-            DEMO
         </div>
     </div>
 </body>
