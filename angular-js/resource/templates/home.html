@@ -11,8 +11,10 @@
                     </div>
                 </div>
                 <div class="card__actions">
-                    <lx-button lx-color="black" lx-type="flat">Leer más</lx-button>
-                    <lx-button lx-color="orange" lx-type="flat">No</lx-button>
+                    <a href="#/post/{{post.id}}">
+                        <lx-button lx-color="black" lx-type="flat">Leer más</lx-button>
+                    </a>
+                    <lx-button ng-click="removePost(post)" lx-color="orange" lx-type="flat">Eliminar</lx-button>
                 </div>
             </div>
         </div>

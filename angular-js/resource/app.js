@@ -6,9 +6,9 @@ angular.module("FinalApp",["lumx","ngRoute","ngResource"])
                 controller : "MainController",
                 templateUrl: "templates/home.html"
             })
-            .when("/repo/:name",{
-                controller: "RepoController",
-                templateUrl: "templates/repo.html"
+            .when("/post/:id",{
+                controller: "PostController",
+                templateUrl: "templates/post.html"
             })
             .otherwise("/")
     })
