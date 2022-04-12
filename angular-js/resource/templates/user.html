@@ -1,0 +1,24 @@
+<div class="card" style="margin-top: 1em;">
+    <div class="p+">
+        <strong class="fs-headline display-block tc-red-900">
+            {{user.name}}
+        </strong>
+        <div class="paragraph fs-body-1 mt+">
+            {{user.username}}
+        </div>
+        <div class="paragraph fs-body-1 mt+">
+            {{user.email}}
+        </div>
+        <div class="paragraph fs-body-1 mt+">
+            Street: {{user.address.street}} - Suite: {{user.address.suite}}
+            City: {{user.address.city}} - City: {{user.address.zipcode}}
+        </div>
+        <div class="paragraph fs-body-1 mt+">
+            Phone: {{user.phone}}
+            Website: <a href="https://{{user.website}}" target="_blank">{{user.website}}</a>
+        </div>
+        <div class="paragraph fs-body-1 mt+">
+            Company: {{user.company.name}}
+        </div>
+    </div>
+</div>

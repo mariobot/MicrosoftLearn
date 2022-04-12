@@ -1,7 +1,7 @@
 angular.module("FinalApp")
 .controller("MainController", function($scope,$resource,PostResource){
    User = $resource("https://jsonplaceholder.typicode.com/users/:id",{id: "@id"});
-
+   
    $scope.posts = PostResource.query();
    $scope.users = User.query();
    // query() -> GET /posts -> Un arreglo de posts -< is Array = true
@@ -32,4 +32,9 @@ angular.module("FinalApp")
          $location.path("/resource");
       });
    }
+})
+.controller("UserInfoController", function($scope, $resource, $routeParams){
+   User = $resource("https://jsonplaceholder.typicode.com/users/:id",{id: "@id"});
+   $scope.user = User.get({id: $routeParams.id});
+   console.log($scope.user);
 })
