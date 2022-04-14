@@ -19,6 +19,9 @@
     <script src="node_modules/angular/angular.min.js"></script>
 
     <script src="ext-modules/psMenu/psMenuModule.js"></script>
+    <script src="ext-modules/psMenu/psMenuDirective.js"></script>
+    <script src="ext-modules/psMenu/psMenuController.js"></script>
+    <script src="ext-modules/psMenu/psMenuItemDirective.js"></script>
 
     <script src="ext-modules/psDashboard/psDashboardModule.js"></script>
 
@@ -32,6 +35,12 @@
 <body class="container-fluid">
     <ps-framework title="Withwater Adventures" subtitle="Administrative Adventures"
         icon-file="images/kayak-icon-flat.png">
+
+        <ps-menu>
+            <ps-menu-item label="Dashboard"></ps-menu-item>
+            <ps-menu-item label="Locations"></ps-menu-item>
+            <ps-menu-item label="Raft Guides"></ps-menu-item>
+        </ps-menu>
 
     </ps-framework>
 
