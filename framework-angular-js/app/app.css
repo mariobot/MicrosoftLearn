@@ -1,0 +1,9 @@
+body {
+    background-color: #444;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.container-fluid {
+    padding: 0;
+}

@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
 <head>
     <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="app/app.css" rel="stylesheet" />
+    <link href="ext-modules/psFramework/psFramework.css" rel="stylesheet" />
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
 
     <script src="ext-modules/psMenu/psMenuModule.js"></script>
+
     <script src="ext-modules/psDashboard/psDashboardModule.js"></script>
+
     <script src="ext-modules/psFramework/psFrameworkModule.js"></script>
+    <script src="ext-modules/psFramework/psFrameworkDirective.js"></script>
+    <script src="ext-modules/psFramework/psFrameworkController.js"></script>
+
     <script src="app/appModule.js"></script>
 </head>
 
-<body>
+<body class="container-fluid">
+    <ps-framework>
+
+    </ps-framework>
 
 </body>
 
