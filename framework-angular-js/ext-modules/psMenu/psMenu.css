@@ -8,6 +8,10 @@
     padding-top: 30px;
 }
 
+.ps-menu-area ul {
+    padding-left: 0;
+}
+
 .ps-menu-area .btn:hover {
     color: #ccc;
 }
@@ -28,8 +32,19 @@
     cursor: pointer;
 }
 
+.ps-menu li div {
+    display: inline-block;
+    width: 90%;
+    padding-left: 16px;
+}
+
+
 .ps-selectable-item:hover {
     background-color: #555;
+}
+
+.ps-menu-icon {
+    margin-right: 10px;
 }
 
 .ps-noselect {
