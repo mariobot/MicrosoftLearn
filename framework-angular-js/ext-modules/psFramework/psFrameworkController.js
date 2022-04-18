@@ -6,6 +6,11 @@ angular.module("psFramework").controller("psFrameworkController",
 
             $scope.isMenuVisible = true;
             $scope.isMenuButtonVisible = true;
+            $scope.isMenuVertical = true;
+
+            $scope.$on("ps-menu-orientation-ghanged-event", function(evt, data){
+                $scope.isMenuVertical = data.isMenuVertical;
+            })
 
             $scope.$on('ps-menu-item-selected-event', function (evt, data) {
                 $scope.routeString = data.route;
