@@ -1,0 +1,41 @@
+.ps-menu-area {
+    position: relative;
+    background-color: #333;
+    color: #ccc;
+    padding-left: 0;
+    width: 200px;
+    min-height: 100vh;
+    padding-top: 30px;
+}
+
+.ps-menu-area .btn:hover {
+    color: #ccc;
+}
+
+.ps-menu {
+    list-style-type: none;
+    vertical-align: top;
+}
+
+.ps-menu ul {
+    display: inline;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ps-menu li {
+    line-height: 3em;
+    cursor: pointer;
+}
+
+.ps-selectable-item:hover {
+    background-color: #555;
+}
+
+.ps-noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
