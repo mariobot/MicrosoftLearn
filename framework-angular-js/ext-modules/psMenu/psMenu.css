@@ -47,6 +47,13 @@
     margin-right: 10px;
 }
 
+.ps-menu-active-indicator {
+    float: right;
+    color: #ddd;
+    margin-right: 0;
+    margin-top: 8px;
+}
+
 .ps-noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
