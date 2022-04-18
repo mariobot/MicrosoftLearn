@@ -24,15 +24,35 @@ angular.module("psMenu").controller("psMenuController",
                 }); 
             };
 
+            this.setOpenMenuScope = function (scope) {
+                $scope.openMenuScope = scope;
+            };
+
             $scope.$on("ps-menu-show", function(evt, data){
                 $scope.showMenu = data.show;
             })
 
             $scope.toggleMenuOrientation = function(){
+                if($scope.openMenuScope)
+                {
+                    $scope.openMenuScope.closeMenu();
+                }
                 $scope.isVertical = !$scope.isVertical;
                 $rootScope.$broadcast("ps-menu-orientation-ghanged-event", {
                     isMenuVertical: $scope.isVertical
                 });
             }
+
+            angular.element(document).bind('click', function (e) {
+                if ($scope.openMenuScope && !$scope.isVertical) {
+                    if ($(e.target).parent().hasClass('ps-selectable-item'))
+                        return;
+                    $scope.$apply(function () {
+                        $scope.openMenuScope.closeMenu();
+                    });
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
         }
     ]);
