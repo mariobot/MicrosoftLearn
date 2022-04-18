@@ -3,6 +3,8 @@
 angular.module("psMenu").controller("psMenuController", 
     ["$scope","$rootScope", 
         function($scope, $rootScope){
+            $scope.showMenu = true;
+
             this.getActiveElement = function(){
                 return $scope.activeElement;
             }
@@ -16,5 +18,9 @@ angular.module("psMenu").controller("psMenuController",
                     route: route
                 }); 
             };
+
+            $scope.$on("ps-menu-show", function(evt, data){
+                $scope.showMenu = data.show;
+            })
         }
     ]);
