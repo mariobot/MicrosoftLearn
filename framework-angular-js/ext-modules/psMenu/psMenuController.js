@@ -4,7 +4,9 @@ angular.module("psMenu").controller("psMenuController",
     ["$scope","$rootScope", 
         function($scope, $rootScope){
             $scope.showMenu = true;
+            $scope.openMenuScope = null;
             $scope.isVertical = true;
+            $scope.allowHorizontalToggle = true;
 
             this.getActiveElement = function(){
                 return $scope.activeElement;
@@ -53,6 +55,12 @@ angular.module("psMenu").controller("psMenuController",
                     e.preventDefault();
                     e.stopPropagation();
                 }
+            });
+
+            $scope.$on("ps-menu-show", function(evt, data){
+                $scope.showMenu = data.show;
+                $scope.isVertical = data.isVertical;
+                $scope.allowHorizontalToggle = data.allowHorizontalToggle;
             });
         }
     ]);

@@ -10,6 +10,9 @@ angular.module("psFramework").controller("psFrameworkController",
 
             $scope.$on("ps-menu-orientation-ghanged-event", function(evt, data){
                 $scope.isMenuVertical = data.isMenuVertical;
+
+                checkWidth();
+                broadcastMenuState();
             })
 
             $scope.$on('ps-menu-item-selected-event', function (evt, data) {
@@ -42,7 +45,9 @@ angular.module("psFramework").controller("psFrameworkController",
 
             var broadcastMenuState = function(){
                 $rootScope.$broadcast("ps-menu-show",{
-                    show: $scope.isMenuVisible
+                    show: $scope.isMenuVisible,
+                    isVertical: $scope.isMenuVertical,
+                    allowHorizontalToggle: !$scope.isMenuButtonVisible
                 });
             }
 

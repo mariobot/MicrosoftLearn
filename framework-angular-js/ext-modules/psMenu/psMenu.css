@@ -110,3 +110,14 @@
     width: 200px;
     padding-left: 0;
 }
+
+.ps-fade-in-animation {
+    -moz-transform: linear all 0.5s;
+    -o-transition: linear all 0.5s;
+    -webkit-transition: linear all 0.5s;
+    -transition: linear all 0.5s;
+}
+
+.ps-fade-in-animation.ng-hide {
+    opacity: 0;
+}
