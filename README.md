@@ -55,8 +55,6 @@ Practice lab to create a queue storage https://docs.microsoft.com/en-us/learn/mo
 
 Practice lab from https://khalidabuhakmeh.com/install-tailwind-css-with-aspnet-core to create an asp-core mvc project with tailwind css framework.
 
-## Docker microservicea 
-
 ## Minimal API Design with .NET 6 **_minimal-api_**
 
 Practice lab form https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio to create an minimal api back end using .Net 6
@@ -66,6 +64,32 @@ Practice lab form https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api
 
 Practice lab to use Dapper Minimal ORM implementing in a simple API
 Lab from this video https://www.youtube.com/watch?v=OYbf9XGXgzA
+
+## Supermarket Blazor App **_supermarket-management_**
+
+Practice solution to make a simple supermarket management system build with blazor.
+The original YouTube Tutorial you cand find in the next link https://www.youtube.com/watch?v=DWrH7br4DsM&t=18393s
+
+## Blazor Material UI **_blazor-material-ui_**
+
+Practice Tutorial to apply Materialized UI design with blazor and MudBlazor framework. 
+The original article you cand find in the next links: 
+* https://code-maze.com/blazor-material-ui-configuration-and-theme-customization/
+* https://code-maze.com/creating-blazor-material-navigation-menu/
+* https://code-maze.com/blazor-material-table-paging-searching-sorting/
+* https://code-maze.com/using-mudblazor-to-create-product-details-page/
+* https://code-maze.com/blazor-material-form-creation-with-file-upload-and-dialogs/
+
+# AngularJS Youtube tutorial by (codigofacilito.com) **_angular-js_**
+
+This repo hold all the code replicated in the tutorial provided by codigofacilito.com to learn the principle concepts to Angular JS
+The original YouTube Tutorial link cand find in https://www.youtube.com/watch?v=U4ejmeEals0&list=PLpOqH6AE0tNhdnOl1mOBthj4C7OHdwQB2
+
+# Building a SPA Framework Using AngularJS (Pluralsigh.com) **_framework-angular-js_**
+
+Angular Single Page Apps (SPA) Menus, dashboards, and widgets are important parts of many Angular apps. In this course, we'll build components to easily add these items to any project.
+The original course you cand find in this link https://app.pluralsight.com/library/courses/building-spa-framework-angularjs/table-of-contents
+
 
 # Azure Services MAP
 
