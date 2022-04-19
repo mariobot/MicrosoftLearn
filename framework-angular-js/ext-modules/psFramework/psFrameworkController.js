@@ -1,22 +1,22 @@
 "use strict";
 
 angular.module("psFramework").controller("psFrameworkController",
-    ['$scope', '$window', '$timeout','$rootScope',
-        function ($scope, $window, $timeout, $rootScope) {
+    ['$scope', '$window', '$timeout','$rootScope', '$location',
+        function ($scope, $window, $timeout, $rootScope, $location) {
 
             $scope.isMenuVisible = true;
             $scope.isMenuButtonVisible = true;
             $scope.isMenuVertical = true;
 
             $scope.$on("ps-menu-orientation-ghanged-event", function(evt, data){
-                $scope.isMenuVertical = data.isMenuVertical;
-
+                $scope.isMenuVertical = data.isMenuVertical;                
                 checkWidth();
                 broadcastMenuState();
             })
 
             $scope.$on('ps-menu-item-selected-event', function (evt, data) {
                 $scope.routeString = data.route;
+                $location.path(data.route);
                 checkWidth();
                 broadcastMenuState();
             });
