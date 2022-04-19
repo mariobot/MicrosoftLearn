@@ -80,12 +80,12 @@ The original article you cand find in the next links:
 * https://code-maze.com/using-mudblazor-to-create-product-details-page/
 * https://code-maze.com/blazor-material-form-creation-with-file-upload-and-dialogs/
 
-# AngularJS Youtube tutorial by (codigofacilito.com) **_angular-js_**
+## AngularJS Youtube tutorial by (codigofacilito.com) **_angular-js_**
 
 This repo hold all the code replicated in the tutorial provided by codigofacilito.com to learn the principle concepts to Angular JS
 The original YouTube Tutorial link cand find in https://www.youtube.com/watch?v=U4ejmeEals0&list=PLpOqH6AE0tNhdnOl1mOBthj4C7OHdwQB2
 
-# Building a SPA Framework Using AngularJS (Pluralsigh.com) **_framework-angular-js_**
+## Building a SPA Framework Using AngularJS (Pluralsigh.com) [**_framework-angular-js_**](framework-angular-js)
 
 Angular Single Page Apps (SPA) Menus, dashboards, and widgets are important parts of many Angular apps. In this course, we'll build components to easily add these items to any project.
 The original course you cand find in this link https://app.pluralsight.com/library/courses/building-spa-framework-angularjs/table-of-contents
