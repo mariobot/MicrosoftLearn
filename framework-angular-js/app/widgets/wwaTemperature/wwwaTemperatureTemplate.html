@@ -1,0 +1,19 @@
+<div class="wwa-temperature-widget">
+
+    <div class="wwa-temperature-heading">
+        <img class="wwa-temperature-icon" ng-src="images/therm-icon.png" alt="thermometer" />
+        <span class="www-temperature-title">Temp</span>
+    </div>
+
+    <div class="wwa-temperature-body" style="background-image: url(/images/{{selectedLocation.image}});">
+        <div class="wwa-temperature-view">
+            <div class="wwa-temperature-river-name">
+                {{ selectedLocation.name }}
+            </div>
+            <div class="wwa-temperature-degrees">
+                {{ selectedLocation.temperature }}º
+            </div>
+        </div>
+    </div>
+
+</div>
