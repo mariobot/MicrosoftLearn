@@ -47,5 +47,24 @@ ps-dashboard {
 
 .ps-dashboard-controls {
     float: right;
+}
 
+.ps-widget-menu-area {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    font-size: 22px;
+}
+
+.ps-widget-menu-area .dropdown-menu {
+    left: -20px;
+    padding-left: 15px;
+}
+
+.ps-widget-menu-area a {
+    color: white;
+}
+
+.ps-widget-menu-area i {
+    cursor: pointer;
 }
