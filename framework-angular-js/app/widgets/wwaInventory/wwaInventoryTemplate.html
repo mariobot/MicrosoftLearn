@@ -1,12 +1,12 @@
-﻿
-<div class="wwa-inventory-widget">
+﻿<div class="wwa-inventory-widget">
 
     <div class="wwa-inventory-heading">
         <img class="wwa-inventory-icon" ng-src="images/inventory-icon.png" alt="inventory" />
         <span class="www-inventory-title">Inventory</span>
     </div>
 
-    <div class="wwa-inventory-body" style="background-image: url(/images/{{selectedLocation.image}});">
+    <div class="wwa-inventory-body"
+        ng-style="selectedLocation != null && {'background-image': 'url(/images/'+ selectedLocation.image +')'}">
         <div class="wwa-inventory-area">
 
             <div class="wwa-inventory-river-name">
@@ -33,5 +33,3 @@
     </div>
 
 </div>
-
-

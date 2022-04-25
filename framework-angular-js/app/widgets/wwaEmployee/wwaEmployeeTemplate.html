@@ -1,5 +1,4 @@
-﻿
-<div class="wwa-employee-widget">
+﻿<div class="wwa-employee-widget">
     <div class="wwa-employee-heading">
         <img class="wwa-employee-icon" ng-src="images/employee.png" alt="employee" />
         <span class="www-employee-title">Employee</span>
@@ -12,7 +11,8 @@
                 <h4>LOCAL RIVER</h4>
                 <p>{{selectedEmployee.location}}</p>
             </div>
-            <div class="wwa-employee-picture-area" style="background-image: url(/images/{{selectedEmployee.image}});">
+            <div class="wwa-employee-picture-area"
+                ng-style="selectedEmployee != null && {'background-image': 'url(/images/'+ selectedEmployee.image +')'}">
             </div>
         </div>
     </div>

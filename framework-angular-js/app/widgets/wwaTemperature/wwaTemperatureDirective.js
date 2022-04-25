@@ -6,6 +6,7 @@ angular.module('app').directive('wwaTemperature',
         return {
             templateUrl: 'app/widgets/wwaTemperature/wwaTemperatureTemplate.html',
             link: function (scope, el, attrs) {
+                scope.selectedLocation = null;
                 dataService.getLocation(scope.item.widgetSettings.id)
                     .then(function(data)
                     {

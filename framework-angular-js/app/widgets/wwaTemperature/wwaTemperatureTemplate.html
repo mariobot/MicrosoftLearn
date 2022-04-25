@@ -5,7 +5,8 @@
         <span class="www-temperature-title">Temp</span>
     </div>
 
-    <div class="wwa-temperature-body" style="background-image: url(/images/{{selectedLocation.image}});">
+    <div class="wwa-temperature-body"
+        ng-style="selectedLocation != null && {'background-image': 'url(/images/'+ selectedLocation.image +')'}">
         <div class="wwa-temperature-view">
             <div class="wwa-temperature-river-name">
                 {{ selectedLocation.name }}

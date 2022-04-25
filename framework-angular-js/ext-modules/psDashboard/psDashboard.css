@@ -68,3 +68,7 @@ ps-dashboard {
 .ps-widget-menu-area i {
     cursor: pointer;
 }
+
+.dropdown-backdrop {
+    position: static;
+}
