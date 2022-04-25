@@ -25,14 +25,8 @@ angular.module('app').directive("wwaDashboard",[function(){
                     sizeX: 3,
                     sizeY: 3,
                     row: 0,
-                    col: 0
-                },
-                {
-                    title: "Second",
-                    sizeX: 2,
-                    sizeY: 3,
-                    row: 0,
-                    col: 5
+                    col: 0,
+                    template: "<wwa-temperature></wwa-temperature>"
                 }
             ]
         }
