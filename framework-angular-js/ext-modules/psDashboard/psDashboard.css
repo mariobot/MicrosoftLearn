@@ -44,3 +44,8 @@ ps-dashboard {
     padding: 8px;
     padding-left: 20px;
 }
+
+.ps-dashboard-controls {
+    float: right;
+
+}
