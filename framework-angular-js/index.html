@@ -29,6 +29,7 @@
     <script src="node_modules/angular-gridster/dist/angular-gridster.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="node_modules/ngstorage/ngStorage.min.js"></script>
 
     <script src="ext-modules/psMenu/psMenuModule.js"></script>
     <script src="ext-modules/psMenu/psMenuDirective.js"></script>
@@ -47,6 +48,7 @@
     <script src="app/appModule.js"></script>
     <script src="app/appConfig.js"></script>
     <script src="app/appRouteConfig.js"></script>
+    <script src="app/appController.js"></script>
     <script src="app/services/dataService.js"></script>
 
     <script src="app/directives/wwaDashboardDirective.js"></script>
@@ -61,22 +63,40 @@
     <script src="app/dialogs/wwaSelectLocationController.js"></script>
 </head>
 
-<body class="container-fluid">
-    <ps-framework title="Withwater Adventures" subtitle="Administrative Adventures"
-        icon-file="images/kayak-icon-flat.png">
+<body class="container-fluid" ng-controller="appController">
+    <div ng-switch="state">
+        <div ng-switch-when="unauthorized" class="sign-in-form">
+            <h2>Whitewater Adventures Admin App</h2>
+            <h4>Sign In</h4>
+            <form>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" />
+                </div>
+            </form>
+            <button class="btn btn-default" ng-click="signIn()">Sign In</button>
+        </div>
+        <div ng-switch-default="authorized">
+            <ps-framework title="Withwater Adventures" subtitle="Administrative Adventures"
+                icon-file="images/kayak-icon-flat.png">
 
-        <ps-menu>
-            <ps-menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></ps-menu-item>
-            <ps-menu-item label="Locations" icon="fa-location-arrow" route="locations"></ps-menu-item>
-            <ps-menu-item label="Raft Guides" icon="fa-user" route="guides"></ps-menu-item>
-            <ps-menu-group label="Equipment" icon="fa-gears">
-                <ps-menu-item label="Rafts" icon="fa-unlink" route="rafts"></ps-menu-item>
-                <ps-menu-item label="Paddles" icon="fa-magic" route="paddles"></ps-menu-item>
-                <ps-menu-item label="Life Vets" icon="fa-life-ring" route="vets"></ps-menu-item>
-            </ps-menu-group>
-        </ps-menu>
-    </ps-framework>
-
+                <ps-menu>
+                    <ps-menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></ps-menu-item>
+                    <ps-menu-item label="Locations" icon="fa-location-arrow" route="locations"></ps-menu-item>
+                    <ps-menu-item label="Raft Guides" icon="fa-user" route="guides"></ps-menu-item>
+                    <ps-menu-group label="Equipment" icon="fa-gears">
+                        <ps-menu-item label="Rafts" icon="fa-unlink" route="rafts"></ps-menu-item>
+                        <ps-menu-item label="Paddles" icon="fa-magic" route="paddles"></ps-menu-item>
+                        <ps-menu-item label="Life Vets" icon="fa-life-ring" route="vets"></ps-menu-item>
+                    </ps-menu-group>
+                </ps-menu>
+            </ps-framework>
+        </div>
+    </div>
 </body>
 
 </html>
