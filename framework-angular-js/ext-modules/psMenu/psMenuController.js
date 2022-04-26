@@ -40,7 +40,7 @@ angular.module("psMenu").controller("psMenuController",
                     $scope.openMenuScope.closeMenu();
                 }
                 $scope.isVertical = !$scope.isVertical;
-                $rootScope.$broadcast("ps-menu-orientation-ghanged-event", {
+                $rootScope.$broadcast("ps-menu-orientation-changed-event", {
                     isMenuVertical: $scope.isVertical
                 });
             }

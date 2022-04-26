@@ -8,8 +8,11 @@ angular.module("psFramework").controller("psFrameworkController",
             $scope.isMenuButtonVisible = true;
             $scope.isMenuVertical = true;
 
-            $scope.$on("ps-menu-orientation-ghanged-event", function(evt, data){
+            $scope.$on("ps-menu-orientation-changed-event", function(evt, data){
                 $scope.isMenuVertical = data.isMenuVertical;                
+                $timeout(function(){
+                    $($window).trigger("resize");
+                }, 0);
                 checkWidth();
                 broadcastMenuState();
             })
