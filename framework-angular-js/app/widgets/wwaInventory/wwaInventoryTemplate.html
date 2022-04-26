@@ -7,7 +7,10 @@
 
     <div class="wwa-inventory-body"
         ng-style="selectedLocation != null && {'background-image': 'url(/images/'+ selectedLocation.image +')'}">
-        <div class="wwa-inventory-area">
+        <div ng-if="!isLoaded">
+            <i class="fa fa-refresh fa-2x fa-spin"></i>
+        </div>
+        <div ng-app="isLoaded" class="wwa-inventory-area">
 
             <div class="wwa-inventory-river-name">
                 {{ selectedLocation.name }}

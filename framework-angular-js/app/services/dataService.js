@@ -124,13 +124,13 @@ angular.module('app').factory('dataService',
                 if (locations[i].id == id)
                     return locations[i];
             return undefined;
-        }, 300);
+        }, 500);
     };
 
     var getEmployees = function () {
         return $timeout(function () {
             return employees;
-        }, 500);
+        }, 700);
     };
 
     var getEmployee = function (id) {
@@ -139,7 +139,7 @@ angular.module('app').factory('dataService',
                 if (employees[i].id == id)
                     return employees[i];
             return undefined;
-        }, 300);
+        }, 700);
     };
 
 
