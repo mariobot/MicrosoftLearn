@@ -77,3 +77,48 @@
 .ps-view-full-width {
     margin-left: 0;
 }
+
+.ps-user-profile {
+    background-color: #333;
+    color: white;
+    width: 200px;
+    min-height: 120px;
+    padding-top: 10px;
+}
+
+.ps-user-profile>div {
+    display: inline-block;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+
+.ps-user-profile>div>p {
+    margin-bottom: 2px;
+}
+
+.ps-user-profile>div>button {
+    margin-top: 8px;
+}
+
+.ps-user-profile img {
+    float: left;
+    margin: 12px;
+    width: 80px;
+    height: 80px;
+}
+
+.ps-user-profile-small {
+    color: #333;
+    padding-top: 4px;
+}
+
+.ps-user-profile-small>span {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ps-user-profile-small img {
+    width: 40px;
+    height: 40px;
+}

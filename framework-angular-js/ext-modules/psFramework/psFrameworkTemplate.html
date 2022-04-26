@@ -14,13 +14,16 @@
             </div>
         </div>
         <div class="ps-right-side-controls col-sm-6">
-            <div class="btn btn-primary">B1</div>
-            <div class="btn btn-success">B2</div>
-            <div class="btn btn-warning">B3</div>
+            <ps-user-profile-small></ps-user-profile-small>
         </div>
     </div>
 </div>
-<ng-transclude></ng-transclude>
-<div ng-view class="ps-view" ng-class="{'ps-view-full-width': !isMenuVertical || !isMenuVisible}">
 
+<div class="ps-menu-area" ng-show="isMenuVisible"
+    ng-class="{'ps-menu-area-vertical': isMenuVertical, 'ps-menu-area-horizontal': !isMenuVertical}">
+    <ps-user-profile></ps-user-profile>
+    <ng-transclude></ng-transclude>
+</div>
+
+<div ng-view class="ps-view" ng-class="{'ps-view-full-width': !isMenuVertical || !isMenuVisible}">
 </div>
