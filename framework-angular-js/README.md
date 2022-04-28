@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 
- ## The list of classes of YouTube Course
+ ## The list of classes of Pluralsight Course
  
 - Introduction
 - Creating a SPA Framework using AngularJS
