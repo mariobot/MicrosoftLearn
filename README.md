@@ -90,6 +90,10 @@ The original YouTube Tutorial link cand find in https://www.youtube.com/watch?v=
 Angular Single Page Apps (SPA) Menus, dashboards, and widgets are important parts of many Angular apps. In this course, we'll build components to easily add these items to any project.
 The original course you cand find in this link https://app.pluralsight.com/library/courses/building-spa-framework-angularjs/table-of-contents
 
+## A Deep Dive into the Back-End for Front-End Pattern (BFF Pattern) [**_bff-pattern_**](bff-pattern)
+
+Back-end for front-end is a design pattern intended to help both developers and end-users. It makes your front-end applications resilient to changes in the domain services while also avoiding over-fetching and over-requesting issues
+The Tutorial resource cand find in https://www.codemag.com/Article/2203081/A-Deep-Dive-into-the-Back-End-for-Front-End-Pattern
 
 # Azure Services MAP
 
