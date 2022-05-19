@@ -32,6 +32,8 @@ namespace OrderProcessing.Customer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderProcessing.Customer", Version = "v1" });
             });
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
