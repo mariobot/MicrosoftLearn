@@ -2,7 +2,7 @@
 
 Hold all the labs provides from https://docs.microsoft.com/en-us/learn/ Microsoft Learn Platform.
 
-# AZ-204 Azure Developer (Cerification program az-204) [**_az-204_**](az-204)
+## AZ-204 Azure Developer (exam az-204) [**_az-204_**](az-204)
 
 This folder holder all the code practice labs, excersices, documents and different resources from AZ-204 certification exam https://docs.microsoft.com/es-es/learn/certifications/azure-develope 
 
