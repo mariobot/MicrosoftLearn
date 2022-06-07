@@ -8,3 +8,5 @@ This folder holder all the code practice labs, excersices, documents and differe
 This folder hold the lab to develop azure functions in vs code https://docs.microsoft.com/es-es/learn/modules/develop-azure-functions/
 
 
+## Lab to work with azure blob storage [**_work-azure-blob-storage_**](work-azure-blob-storage)
+https://docs.microsoft.com/es-mx/learn/modules/work-azure-blob-storage/3-develop-blob-storage-dotnet
