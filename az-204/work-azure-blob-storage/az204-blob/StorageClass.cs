@@ -9,7 +9,7 @@ namespace az204_blob.StorageClass
         public static async Task ProcessAsync()
         {
             // Copy the connection string from the portal in the variable below.
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=mboterostorage;AccountKey=GkXsKW7hTC22Pj0WpiZ2/rjXJ6m8MZKTaLvx/QpWDCUuzJ6GE6hYFyn8KFS5NOb7WpH95/WvKj85+AStTaY09w==;EndpointSuffix=core.windows.net";
+            string storageConnectionString = "YOUR-CONNECTION-STRING-HERE";
 
             // Create a client that can authenticate with a connection string
             BlobServiceClient blobServiceClient = new BlobServiceClient(storageConnectionString);
