@@ -9,4 +9,7 @@ This folder hold the lab to develop azure functions in vs code https://docs.micr
 
 
 ## Lab to work with azure blob storage [**_work-azure-blob-storage_**](work-azure-blob-storage)
-https://docs.microsoft.com/es-mx/learn/modules/work-azure-blob-storage/3-develop-blob-storage-dotnet
+This folder hold the lab to create and consume an blob storage account https://docs.microsoft.com/es-mx/learn/modules/work-azure-blob-storage/3-develop-blob-storage-dotnet
+
+## Lab to work with casmos db [**az204-cosmos**](az204-cosmos)
+This flder hold the lab to create an azure cosmos resource https://docs.microsoft.com/es-mx/learn/modules/work-with-cosmos-db/3-exercise-work-cosmos-db-dotnet
