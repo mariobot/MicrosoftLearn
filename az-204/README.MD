@@ -23,3 +23,6 @@ https://docs.microsoft.com/es-es/learn/modules/publish-container-image-to-azure-
 
 ## Azure Container Instance (ACI) [**_azure-container-instance_**](azure-container-instance)
 This folder hold the lab to create and use Azure Container Instance https://docs.microsoft.com/es-es/learn/modules/create-run-container-images-azure-container-instances/3-run-azure-container-instances-cloud-shell
+
+## Microsoft Authentication Library [**_microsoft-authentication-librarye_**](microsoft-authentication-library)
+This folder hold the lab to use Microsoft Auth Library (MSAL) https://docs.microsoft.com/es-mx/learn/modules/implement-authentication-by-using-microsoft-authentication-library/4-interactive-authentication-msal
