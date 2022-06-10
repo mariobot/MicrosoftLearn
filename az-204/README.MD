@@ -12,7 +12,11 @@ This folder hold the lab to develop azure functions in vs code https://docs.micr
 This folder hold the lab to create and consume an blob storage account https://docs.microsoft.com/es-mx/learn/modules/work-azure-blob-storage/3-develop-blob-storage-dotnet
 
 ## Lab to work with casmos db [**az204-cosmos**](az204-cosmos)
-This flder hold the lab to create an azure cosmos resource https://docs.microsoft.com/es-mx/learn/modules/work-with-cosmos-db/3-exercise-work-cosmos-db-dotnet
+This folder hold the lab to create an azure cosmos resource https://docs.microsoft.com/es-mx/learn/modules/work-with-cosmos-db/3-exercise-work-cosmos-db-dotnet
 
 ## Lab to create and deploy resource manager template [**_Azure-Resource-Manager_**](azure-resource-manager)
-This flder hold the lab to create an and deploy (ARM) Azure resource Manager templates https://docs.microsoft.com/es-es/learn/modules/create-deploy-azure-resource-manager-templates/6-create-deploy-resource-manager-template
+This folder hold the lab to create an and deploy (ARM) Azure resource Manager templates https://docs.microsoft.com/es-es/learn/modules/create-deploy-azure-resource-manager-templates/6-create-deploy-resource-manager-template
+
+## Lab to create and publish container image to Azure Container Registry (ACR) [**_Azure-Container-registry**](azure-container-registry)
+This folder hold the lab to create and publish a container image with Azure Container registry
+https://docs.microsoft.com/es-es/learn/modules/publish-container-image-to-azure-container-registry/6-build-run-image-azure-container-registry
