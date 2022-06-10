@@ -17,6 +17,9 @@ This folder hold the lab to create an azure cosmos resource https://docs.microso
 ## Azure Resource Manager (ARC) [**_azure-resource-manager_**](azure-resource-manager)
 This folder hold the lab to create an and deploy (ARM) Azure resource Manager templates https://docs.microsoft.com/es-es/learn/modules/create-deploy-azure-resource-manager-templates/6-create-deploy-resource-manager-template
 
-## Azure Container Registry (ACR) [**_azure-container-registry**](azure-container-registry)
+## Azure Container Registry (ACR) [**_azure-container-registry_**](azure-container-registry)
 This folder hold the lab to create and publish a container image with Azure Container registry
 https://docs.microsoft.com/es-es/learn/modules/publish-container-image-to-azure-container-registry/6-build-run-image-azure-container-registry
+
+## Azure Container Instance (ACI) [**_azure-container-instance_**](azure-container-instance)
+This folder hold the lab to create and use Azure Container Instance https://docs.microsoft.com/es-es/learn/modules/create-run-container-images-azure-container-instances/3-run-azure-container-instances-cloud-shell
