@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PlatformService.Data;
 using PlatformService.Dtos;
 using PlatformService.Models;
+using PlatformService.SyncDataServices.Http;
 
 namespace PlatformService.Controllers
 {
@@ -14,11 +16,13 @@ namespace PlatformService.Controllers
     {
         private readonly IPlataformRepo _repository;
         private IMapper _mapper;
+        private readonly ICommandDataClient _commandDataClinet;
 
-        public PlatformsController(IPlataformRepo repository, IMapper mapper)
+        public PlatformsController(IPlataformRepo repository, IMapper mapper, ICommandDataClient commandDataClinet)
         {
             _repository = repository;
             _mapper = mapper;
+            _commandDataClinet = commandDataClinet;
         }
 
         [HttpGet]
@@ -45,15 +49,24 @@ namespace PlatformService.Controllers
         }
 
         [HttpPost]
-        public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreateDto platformCreateDto)
+        public async Task<ActionResult<PlatformReadDto>> CreatePlatform(PlatformCreateDto platformCreateDto)
         {
             var platformModel = _mapper.Map<Platform>(platformCreateDto);
             _repository.CreatePlatform(platformModel);
             _repository.SaveChanges();
 
-            var platformRedDto = _mapper.Map<PlatformReadDto>(platformModel);
+            var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
 
-            return CreatedAtRoute(nameof(GetPlatformById), new { Id = platformRedDto.Id }, platformRedDto);
+            try
+            {
+                await _commandDataClinet.SendPlatformToCommand(platformReadDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"--> Could not send synchronously: {ex.Message}");
+            }
+
+            return CreatedAtRoute(nameof(GetPlatformById), new { Id = platformReadDto.Id }, platformReadDto);
         }
     }
 }
