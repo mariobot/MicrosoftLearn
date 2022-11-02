@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.Dtos;
 using PlatformService.Models;
@@ -17,12 +18,14 @@ namespace PlatformService.Controllers
         private readonly IPlataformRepo _repository;
         private IMapper _mapper;
         private readonly ICommandDataClient _commandDataClinet;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public PlatformsController(IPlataformRepo repository, IMapper mapper, ICommandDataClient commandDataClinet)
+        public PlatformsController(IPlataformRepo repository, IMapper mapper, ICommandDataClient commandDataClinet, IMessageBusClient messageBusClient)
         {
             _repository = repository;
             _mapper = mapper;
             _commandDataClinet = commandDataClinet;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -57,9 +60,22 @@ namespace PlatformService.Controllers
 
             var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
 
+            // Send Sync Message
             try
             {
                 await _commandDataClinet.SendPlatformToCommand(platformReadDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"--> Could not send synchronously: {ex.Message}");
+            }
+
+            // Send Async Message
+            try
+            {
+                var platformPublishDto = _mapper.Map<PlatformPublisherDto>(platformReadDto);
+                platformPublishDto.Event = "Platform_Publisher";
+                _messageBusClient.PublishNewPlatform(platformPublishDto);
             }
             catch (Exception ex)
             {
