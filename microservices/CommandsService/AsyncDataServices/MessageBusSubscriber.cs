@@ -43,8 +43,6 @@ namespace CommandsService.AsyncDataServices
             Console.WriteLine("--> Listennting on the Message Bus...");
 
             _connection.ConnectionShutdown += RabbitMQ_ConnectionShutdown;
-
-
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
