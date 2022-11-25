@@ -1,7 +1,20 @@
 ﻿@page "/"
-
+@inject MediatR.IMediator _mediator
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<ul>
+    @foreach (var p in people)
+    {
+        <li>@p.FirstName - @p.LastName </li>
+    }
+</ul>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code{  
+    List<PersonModel> people;
+
+    protected override Task OnInitializedAsync()
+    {
+        // get list of people
+        return base.OnInitializedAsync();
+    }
+}
