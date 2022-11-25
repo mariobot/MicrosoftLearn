@@ -1,0 +1,25 @@
+﻿@page "/addperson2"
+@inject MediatR.IMediator _mediator
+
+<h1>Add Person to list</h1>
+
+First Name:
+<input @bind="FirstName" required/>
+<br />
+Last Name:
+<input @bind="LastName" required />
+<br />
+<button class="btn btn-primary" @onclick="SavePerson">Save Person</button>
+
+@code {
+    private string FirstName { get; set; }
+    private string LastName { get; set; }
+
+    private async Task SavePerson()
+    {
+        await _mediator.Send(new InsertPersonCommand(FirstName, LastName));
+
+        FirstName = "";
+        LastName = "";
+    }
+}
