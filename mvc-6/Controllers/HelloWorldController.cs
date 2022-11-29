@@ -6,16 +6,12 @@ namespace FirstMVC.Controllers
 {
     public class HelloWorldController : Controller
     {
+        private static List<DogViewModel> dogs = new List<DogViewModel>();
+
         // GET: HelloWorldController
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: HelloWorldController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            return View(dogs);
         }
 
         // GET: HelloWorldController/Create
@@ -29,8 +25,9 @@ namespace FirstMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateDog(DogViewModel dogViewModel)
-        {   
-            return View("Index");
+        {
+            dogs.Add(dogViewModel);
+            return RedirectToAction("Index");
         }
 
         // GET: HelloWorldController/Edit/5
