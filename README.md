@@ -99,6 +99,23 @@ The original course you cand find in this link https://app.pluralsight.com/libra
 Back-end for front-end is a design pattern intended to help both developers and end-users. It makes your front-end applications resilient to changes in the domain services while also avoiding over-fetching and over-requesting issues
 The Tutorial resource cand find in https://www.codemag.com/Article/2203081/A-Deep-Dive-into-the-Back-End-for-Front-End-Pattern
 
+## Microservices with kubernetes and .Net (Microservices) [**_microservices_**](microservices)
+
+A practical tutorial from Youtube to use kubernetes to deploy and create an microservices project.
+
+## Minimal api (Minimal api) [**_min-web-api_**](min-web-api)
+
+A practical tutorial from Youtube to use minimal api in a simple project to create the basic CRUD actions with minimal api structure.
+
+## Mediator Pattern (Mediator Pattern) [**_mediator-pattern_**](mediator-pattern)
+
+A practical tutorial from Youtube to implement Mediator pattern in a C# Project with the simple definition of queries, commands and handles.
+
+## MVC Application in dotnet 6 (MVC Application 6) [**_mvc-6_**](mvc-6)
+
+A pratical tutorial from Youtube to create a basic pizzas webpage with the new razor and page definition with dontet 6
+
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
