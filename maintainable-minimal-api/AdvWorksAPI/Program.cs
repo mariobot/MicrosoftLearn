@@ -1,9 +1,20 @@
+using AdvWorksAPI.Components;
+using AdvWorksAPI.RouterClasses;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add Logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+// Add "Router" classes as a service
+builder.Services.AddScoped<RouterBase, ProductRouter>();
+builder.Services.AddScoped<RouterBase, CustomerRouter>();
 
 var app = builder.Build();
 
@@ -14,28 +25,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-var summaries = new[]
+//*************************************
+// Add Routes from all "Router Classes"
+//*************************************
+using (var scope = app.Services.CreateScope())
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    // Build collection of all RouterBase classes
+    var services = scope.ServiceProvider.GetServices<RouterBase>();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-       new WeatherForecast
-       (
-           DateTime.Now.AddDays(index),
-           Random.Shared.Next(-20, 55),
-           summaries[Random.Shared.Next(summaries.Length)]
-       ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    // Loop through each RouterBase class
+    foreach (var item in services)
+    {
+        // Invoke the AddRoutes() method to add the routes
+        item.AddRoutes(app);
+    }
 
-app.Run();
-
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    // Make sure this is called within the application scope
+    app.Run();
 }
