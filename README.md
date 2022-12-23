@@ -115,6 +115,10 @@ A practical tutorial from Youtube to implement Mediator pattern in a C# Project 
 
 A pratical tutorial from Youtube to create a basic pizzas webpage with the new razor and page definition with dontet 6
 
+## Practical tutorial to apply Test Driven Development in Dotnet6 (API TDD) [**_api-tdd_**](api-tdd)
+
+A pratical tutorial from Youtube using Test patterns Building a .NET 6 API Using TDD https://www.youtube.com/watch?v=ULJ3UEezisw
+
 
 # Azure Services MAP
 
