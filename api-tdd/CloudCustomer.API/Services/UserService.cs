@@ -7,14 +7,17 @@ namespace CloudCustomer.API.Services
     }
     public class UserService : IUserService
     {
-        public UserService()
-        { 
-        
+        private readonly HttpClient httpClient;
+
+        public UserService(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
         }
 
-        public Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            throw new NotImplementedException();
+            var users = await this.httpClient.GetAsync("https://example.com");
+            return new List<User> { };
         }
     }
 }

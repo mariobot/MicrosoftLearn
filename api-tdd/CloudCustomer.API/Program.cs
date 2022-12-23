@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddHttpClient<IUserService, UserService>();
 
 var app = builder.Build();
 
