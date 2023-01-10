@@ -32,7 +32,5 @@ namespace SuggestionAppLibrary.DataAccess
         {
             return categories.InsertOneAsync(category);
         }
-
-        public Task
     }
 }
