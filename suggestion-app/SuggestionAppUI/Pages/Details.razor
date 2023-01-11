@@ -1,0 +1,94 @@
+﻿@page "/Details/{id}"
+
+@inject ISuggestionData suggestionData
+@inject NavigationManager navManager
+
+<h1>Suggestion Details</h1>
+<div>
+    <div>
+        @if (suggestion is not null)
+        {
+            <div>
+                <div>
+                    <div>
+                        <div>@GetUpvoteTopText()</div>
+                        <span class="io io-caret-top"></span>
+                        <div>@GetUpvoteBottomText()</div>
+                    </div>
+                    <div>
+                        <div>@suggestion.DateCreated.ToString("MM.dd.yyyy")</div>
+                    </div>
+                </div>
+                <div>
+                    <div>@suggestion.Suggestion</div>
+                    <div>@suggestion.Author.DisplayName</div>
+                    <div>@suggestion.Description</div>
+                    <div>
+                        @suggestion.Category.CategoryName
+                    </div>
+                </div>
+                <div>
+                    <button @onclick="Closepage">Close</button>
+                </div>
+            </div>            
+        }
+    </div>
+</div>
+
+@if (suggestion?.SuggestionStatus is not null)
+{
+    <div>
+        <div>
+            <div></div>
+            <div>
+                <div>
+                    @suggestion.SuggestionStatus.StatusName
+                </div>
+                <div>
+                    @((MarkupString)suggestion.OwnerNotes)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private SuggestionModel suggestion;
+
+    protected override async Task OnInitializedAsync()
+    {
+        suggestion = await suggestionData.GetSuggestion(Id);
+    }
+
+    private void Closepage()
+    {
+        navManager.NavigateTo("/"); 
+    }
+
+    private string GetUpvoteTopText()
+    {
+        if (suggestion.UserVotes?.Count > 0)
+        {
+            return suggestion.UserVotes.Count.ToString("00");
+        }
+        else
+        {
+            return "Click To";
+        }
+    }
+
+    private string GetUpvoteBottomText()
+    {
+        if (suggestion.UserVotes?.Count > 1)
+        {
+            return "Upvotes";
+        }
+        else
+        {
+            return "Upvote";
+        }
+    }
+}
