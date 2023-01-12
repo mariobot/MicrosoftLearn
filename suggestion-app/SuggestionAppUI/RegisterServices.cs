@@ -1,4 +1,7 @@
-﻿namespace SuggestionAppUI;
+﻿using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+
+namespace SuggestionAppUI;
 
 public static class RegisterServices
 {
@@ -8,6 +11,17 @@ public static class RegisterServices
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
         builder.Services.AddMemoryCache();
+
+        builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"));
+
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Admin", policy =>
+            {
+                policy.RequireClaim("jobTitle", "Admin");
+            });
+        });
 
         builder.Services.AddSingleton<IDbConnection, DbConnection>();
         builder.Services.AddSingleton<ICategoryData, MongoCategoryData>();
