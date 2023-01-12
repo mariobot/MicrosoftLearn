@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace SuggestionAppUI;
 
@@ -16,6 +17,12 @@ public static class RegisterServices
 
         builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
             .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"));
+
+        builder.Services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+        {
+            options.ResponseType = OpenIdConnectResponseType.Code;
+            options.Scope.Add(options.ClientId);
+        });
 
         builder.Services.AddAuthorization(options =>
         {

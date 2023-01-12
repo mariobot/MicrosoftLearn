@@ -1,11 +1,12 @@
 ﻿@page "/Create"
 @using SuggestionAppUI.Models;
 @using SuggestionAppUI.Components;
-
+@attribute [Authorize]
 @inject ICategoryData categoryData
 @inject ISuggestionData suggestionData
 @inject IUserData userData
 @inject NavigationManager navManager
+@inject AuthenticationStateProvider authProvider
 
 <h1>Make a Suggestion</h1>
 <div>
@@ -62,7 +63,9 @@
         categories = await categoryData.GetAllCategories();
 
         // Todo - Replace with lookup
-        loggedInUser = await userData.GetUserFromAuthentication("abc-123");
+        var authState = await authProvider.GetAuthenticationStateAsync();
+        string objectId = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("objectidentifier"))?.Value;
+        loggedInUser = await userData.GetUserFromAuthentication(objectId);
     }
 
     private void ClosePage()
