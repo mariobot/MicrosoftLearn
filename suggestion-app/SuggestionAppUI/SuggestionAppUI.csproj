@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Identity.Web" Version="1.21.1" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.21.1" />
   </ItemGroup>

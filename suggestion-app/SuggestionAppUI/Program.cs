@@ -34,6 +34,7 @@ app.UseRewriter(new RewriteOptions().Add(context =>
     }
 }));
 
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
