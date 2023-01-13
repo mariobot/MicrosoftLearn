@@ -1,5 +1,5 @@
 ﻿@page "/"
-
+@inject AuthenticationStateProvider authProvider
 @inject ICategoryData categoryData
 @inject IStatusData statusData
 @inject ISuggestionData suggestionData
@@ -79,6 +79,7 @@
 </div>
 
 @code {
+    private UserModel loggedInUser;
     private List<SuggestionModel> suggestions;
     private List<CategoryModel> categories;
     private List<StatusModel> statuses;
@@ -91,7 +92,64 @@
     protected async override Task OnInitializedAsync()
     {
         categories = await categoryData.GetAllCategories();
-        statuses = await statusData.GetAllStatuses();    
+        statuses = await statusData.GetAllStatuses();
+        await LoadAndVerifyUser();
+    }
+
+    private async Task LoadAndVerifyUser()
+    {
+        var authState = await authProvider.GetAuthenticationStateAsync();
+        string objectId = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("objectidentifier"))?.Value;
+
+
+        if (string.IsNullOrWhiteSpace(objectId) == false)
+        {
+            loggedInUser = await userData.GetUserFromAuthentication(objectId) ?? new();
+
+            string firstName = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("givenname"))?.Value;
+            string lastName = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("surname"))?.Value;
+            string displayName = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("name"))?.Value;
+            string email = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("email"))?.Value;
+
+            bool isDirty = false;
+
+            if (objectId.Equals(loggedInUser.ObjectIdentifier) == false)
+            {
+                isDirty = true;
+                loggedInUser.ObjectIdentifier = objectId;
+            }
+            if (firstName.Equals(loggedInUser.FirstName) == false)
+            {
+                isDirty = true;
+                loggedInUser.FirstName = firstName;
+            }
+            if (lastName.Equals(loggedInUser.LastName) == false)
+            {
+                isDirty = true;
+                loggedInUser.LastName = lastName;
+            }
+            if (displayName.Equals(loggedInUser.DisplayName) == false)
+            {
+                isDirty = true;
+                loggedInUser.DisplayName = displayName;
+            }
+            if (email.Equals(loggedInUser.EmailAddress) == false)
+            {
+                isDirty = true;
+                loggedInUser.EmailAddress = email;
+            }
+            if (isDirty)
+            {
+                if (string.IsNullOrWhiteSpace(loggedInUser.Id))
+                {
+                    await userData.CreateUser(loggedInUser);
+                }
+                else
+                {
+                    await userData.UpdateUser(loggedInUser);                }
+            }
+        }
+
     }
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
@@ -187,6 +245,34 @@
         await FilterSuggestions();
     }
 
+    private async Task VoteUp(SuggestionModel suggestion)
+    {
+        if (loggedInUser is not null)
+        {
+            if (suggestion.Author.Id == loggedInUser.Id)
+            {
+                // Cant vote on your own suggestion
+                return;
+            }
+
+            if (suggestion.UserVotes.Add(loggedInUser.Id) == false)
+            {
+                suggestion.UserVotes.Remove(loggedInUser.Id);
+            }
+
+            await suggestionData.UpvoteSuggestion(suggestion.Id, loggedInUser.Id);
+
+            if (isSortedByNew == false)
+            {
+                suggestions = suggestions.OrderByDescending(x => x.UserVotes.Count).ThenByDescending(x => x.DateCreated).ToList();
+            }
+        }
+        else
+        {
+            navManager.NavigateTo("/MicrosoftIdentity/Account/SignIn", true);
+        }
+    }
+
     private string GetUpvoteTopText(SuggestionModel suggestion)
     {
         if (suggestion.UserVotes?.Count > 0)
@@ -195,7 +281,14 @@
         }
         else
         {
-            return "Click To";
+            if (suggestion.Author.Id == loggedInUser?.Id)
+            {
+                return "Awaiting";
+            }
+            else
+            {
+                return "Click To";
+            }
         }
     }
 
