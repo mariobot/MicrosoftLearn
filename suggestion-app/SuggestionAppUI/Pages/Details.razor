@@ -2,6 +2,8 @@
 
 @inject ISuggestionData suggestionData
 @inject NavigationManager navManager
+@inject AuthenticationStateProvider authProvider
+@inject IUserData userData
 
 <h1>Suggestion Details</h1>
 <div>
@@ -10,9 +12,9 @@
         {
             <div>
                 <div>
-                    <div>
+                    <div @onclick="(() => VoteUp())">
                         <div>@GetUpvoteTopText()</div>
-                        <span class="io io-caret-top"></span>
+                        <span class="oi oi-caret-top"></span>
                         <div>@GetUpvoteBottomText()</div>
                     </div>
                     <div>
@@ -57,10 +59,12 @@
     public string Id { get; set; }
 
     private SuggestionModel suggestion;
+    private UserModel loggedInUser;
 
     protected override async Task OnInitializedAsync()
     {
         suggestion = await suggestionData.GetSuggestion(Id);
+        loggedInUser = await authProvider.GetUserFromAuth(userData);
     }
 
     private void Closepage()
@@ -76,7 +80,14 @@
         }
         else
         {
-            return "Click To";
+            if (suggestion.Author.Id == loggedInUser?.Id)
+            {
+                return "Awaiting";
+            }
+            else
+            {
+                return "Click To";
+            }
         }
     }
 
@@ -89,6 +100,29 @@
         else
         {
             return "Upvote";
+        }
+    }
+
+    private async Task VoteUp()
+    {
+        if (loggedInUser is not null)
+        {
+            if (suggestion.Author.Id == loggedInUser.Id)
+            {
+                // Cant vote on your own suggestion
+                return;
+            }
+
+            if (suggestion.UserVotes.Add(loggedInUser.Id) == false)
+            {
+                suggestion.UserVotes.Remove(loggedInUser.Id);
+            }
+
+            await suggestionData.UpvoteSuggestion(suggestion.Id, loggedInUser.Id);
+        }
+        else
+        {
+            navManager.NavigateTo("/MicrosoftIdentity/Account/SignIn", true);
         }
     }
 }

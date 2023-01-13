@@ -90,9 +90,9 @@ namespace SuggestionAppLibrary.DataAccess
                     suggestion.UserVotes.Remove(userId);
                 }
 
-                await suggestionsInTransaction.ReplaceOneAsync(x => x.Id == suggestionId, suggestion);
+                await suggestionsInTransaction.ReplaceOneAsync(session, x => x.Id == suggestionId, suggestion);
                 var usersInTransaction = db.GetCollection<UserModel>(this.db.UserCollectionName);
-                var user = await userData.GetUser(suggestion.Author.Id);
+                var user = await userData.GetUser(userId);
 
                 if (isUpvote)
                 {
@@ -104,7 +104,7 @@ namespace SuggestionAppLibrary.DataAccess
                     user.VotedOnSuggestions.Remove(suggestionToRemove);
                 }
 
-                await usersInTransaction.ReplaceOneAsync(x => x.Id == userId, user);
+                await usersInTransaction.ReplaceOneAsync(session, x => x.Id == userId, user);
 
                 await session.CommitTransactionAsync();
 
@@ -132,7 +132,7 @@ namespace SuggestionAppLibrary.DataAccess
                 var usersInTransaction = db.GetCollection<UserModel>(this.db.UserCollectionName);
                 var user = await userData.GetUser(suggestion.Author.Id);
                 user.AuthoredSuggestions.Add(new BasicSuggestionModel(suggestion));
-                await usersInTransaction.ReplaceOneAsync(x => x.Id == user.Id, user);
+                await usersInTransaction.ReplaceOneAsync(session, x => x.Id == user.Id, user);
 
                 await session.CommitTransactionAsync();
             }
