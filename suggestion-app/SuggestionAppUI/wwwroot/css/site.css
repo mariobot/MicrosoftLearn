@@ -42,7 +42,7 @@ a, .btn-link {
 }
 
 .valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+   /* outline: 1px solid #26b050;*/
 }
 
 .invalid {
@@ -81,3 +81,63 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.page-heading {
+    text-align: center
+}
+
+.suggestion-container {
+    display:flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.suggest-btn {
+    font-family: 'Montserrat',sans-serif;
+    border-width: 3px;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-weight: 900;
+}
+
+.btn-outline-light:hover {
+    color: #39BAD8;
+    background-color: #FFFFFF;
+    border-color: #FFFFFF
+}
+
+.suggestion-count {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.btn-order {
+    background-color: #FFFFFF;
+    border: 0px solid #DDDDDD;
+    border-radius: 10px;
+}
+
+.btn:focus,
+.form-control-focus{
+    box-shadow: none;
+}
+
+.sort-selected {
+    background-color: #DDDDDD;
+    color: #000000;
+    font-weight:700;
+}
+
+    .sort-selected:hover {
+        color: #000000;
+    }
+
+.search-box {
+    --bs-grutter-x:3.5rem;
+}
+
+.rounded-control {
+    border-radius: 10px;
+}
