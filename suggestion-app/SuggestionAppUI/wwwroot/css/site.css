@@ -141,3 +141,41 @@ a, .btn-link {
 .rounded-control {
     border-radius: 10px;
 }
+
+.categories {
+    margin: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+    .categories div {
+        margin-top:1rem;
+    }
+
+    .categories div:hover {
+        cursor:pointer;
+    }
+
+.selected-category {
+    font-weight: 700;
+}
+
+.statuses {
+    margin: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+    .statuses div {
+        margin-top: 1rem;
+    }
+
+        .statuses div:hover {
+            cursor: pointer;
+        }
+
+.selected-status {
+    font-weight: 700;
+}
