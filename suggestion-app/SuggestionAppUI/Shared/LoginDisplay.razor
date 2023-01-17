@@ -1,13 +1,13 @@
 ﻿<AuthorizeView Policy="Admin">
-    <a href="/AdminApproval">Admin</a>
+    <a class="login-link" href="/AdminApproval">Admin</a>
 </AuthorizeView>
 <AuthorizeView>
     <Authorized>
-        <a href="/Profile">Profile</a>
-        <a href="/MicrosoftIdentity/Account/SignOut">Logout</a>
+        <a class="login-link" href="/Profile">Profile</a>
+        <a class="login-link" href="/MicrosoftIdentity/Account/SignOut">Logout</a>
     </Authorized>
     <NotAuthorized>
-        <a href="/MicrosoftIdentity/Account/SignIn">Login</a>
+        <a class="login-link" href="/MicrosoftIdentity/Account/SignIn">Login</a>
     </NotAuthorized>
 </AuthorizeView>
 

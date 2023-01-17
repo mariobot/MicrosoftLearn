@@ -8,13 +8,13 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Mongolian Baiti', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     color: #FFFFFF
 }
 
 body {
-    background : url(../images/background.jpeg) no-repeat center center fixed;
+    background : url(../images/background.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
@@ -28,7 +28,8 @@ h1:focus {
 }
 
 a, .btn-link {
-    color: #0071c1;
+    color: #FFFFFF;
+    text-decoration:none;
 }
 
 .btn-primary {
@@ -293,4 +294,14 @@ a, .btn-link {
     font-weight: bold;
     font-size:0.8rem;
     letter-spacing:1.2px;
+}
+
+.nav-links {
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.login-link {
+    padding-left: 1rem;
 }
