@@ -305,3 +305,80 @@ a, .btn-link {
 .login-link {
     padding-left: 1rem;
 }
+
+.form-layout {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding:2rem;
+}
+
+    .form-layout a {
+        font-weight: 700;
+        color: #39BAD8
+    }
+
+        .form-layout a:hover {
+            font-weight: 700;
+            color: #39BAD8;
+            text-decoration: underline;
+        }
+
+.close-button-section {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.input-section {
+    margin-bottom:2rem;
+}
+
+.input-description {
+    margin-bottom: 0.5rem;
+}
+
+.radio-item-group input[type=radio] {
+    display: none;
+}
+
+.radio-item-group label {
+    border-color: #39BAD8;
+    border-width: 1px;
+    padding: 0.3rem 1.5rem;
+    border-radius: 10px;
+    width:100%;
+    border-style:solid
+}
+
+.radio-item-group input[type=radio]:checked + label {
+    background-color: #39BAD8;
+    color: #FFFFFF;
+    width: 100%;
+    border: 1px #39BAD8 solid;
+}
+
+.radio-item-group {
+    margin: 0.5rem;
+}
+
+.center-children {
+    display:flex;
+    justify-content:center;
+}
+
+.btn-main {
+    color: #FFFFFF;
+    background-color: #39BAD8;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:900;
+    border-radius: 10px;
+    border-width:3px
+}
+
+    .btn-main:hover {
+        color: #39BAD8;
+        border-color: #39BAD8;
+        background-color: #FFFFFF;
+        border-width:3px;
+    }
