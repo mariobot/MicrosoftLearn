@@ -5,32 +5,35 @@
 @inject AuthenticationStateProvider authProvider
 @inject IUserData userData
 
-<h1>Suggestion Details</h1>
-<div>
-    <div>
+<h1 class="page-heading text-uppercase mb-4">Suggestion Details</h1>
+
+<div class="row justify-content-center detail-form">
+    <div class="col-xl-8 col-lg-10 form-layout">
         @if (suggestion is not null)
         {
-            <div>
-                <div>
-                    <div @onclick="(() => VoteUp())">
-                        <div>@GetUpvoteTopText()</div>
-                        <span class="oi oi-caret-top"></span>
-                        <div>@GetUpvoteBottomText()</div>
-                    </div>
+            <div class="row suggestion-detail-row">
+                <div class="col-11 suggestion-detail">
                     <div>
+                        <div class="@GetVoteClass()" @onclick="(() => VoteUp())">
+                            <div class="text-uppercase">@GetUpvoteTopText()</div>
+                            <span class="oi oi-caret-top detail-upvote"></span>
+                            <div class="text-uppercase">@GetUpvoteBottomText()</div>
+                        </div>
+                    </div>
+                    @*<div class="suggestion-detail-date">
                         <div>@suggestion.DateCreated.ToString("MM.dd.yyyy")</div>
+                    </div>*@
+                    <div class="suggestion-detail-text">
+                        <div class="fw-bold mb-2 suggestion-detail-suggestion">@suggestion.Suggestion</div>
+                        <div class="mb-2 suggestion-detail-author">@suggestion.Author.DisplayName</div>
+                        <div class="mb-2">@suggestion.Description</div>
+                        <div class="suggestion-entry-text-category">
+                            @suggestion.Category.CategoryName
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div>@suggestion.Suggestion</div>
-                    <div>@suggestion.Author.DisplayName</div>
-                    <div>@suggestion.Description</div>
-                    <div>
-                        @suggestion.Category.CategoryName
-                    </div>
-                </div>
-                <div>
-                    <button @onclick="Closepage">Close</button>
+                <div class="col-1 close-button-section">
+                    <button class="btn btn-close" @onclick="Closepage"></button>
                 </div>
             </div>            
         }
@@ -39,14 +42,14 @@
 
 @if (suggestion?.SuggestionStatus is not null)
 {
-    <div>
-        <div>
-            <div></div>
-            <div>
-                <div>
+    <div class="row justify-content-center detail-form">
+        <div class="col-xl-8 col-lg-10 suggestion-results form-layout">
+            <div class="@GetStatusClass()"></div>
+            <div class="suggestion-detail-status-section">
+                <div class="suggestion-detail-status fw-bold mb-2 suggestion-detail-suggestion">
                     @suggestion.SuggestionStatus.StatusName
                 </div>
-                <div>
+                <div class="suggestion-detail-owner-notes">
                     @((MarkupString)suggestion.OwnerNotes)
                 </div>
             </div>
@@ -124,5 +127,41 @@
         {
             navManager.NavigateTo("/MicrosoftIdentity/Account/SignIn", true);
         }
+    }
+
+    private string GetVoteClass()
+    {
+        if (suggestion.UserVotes is null || suggestion.UserVotes.Count == 0)
+        {
+            return "suggestion-detail-no-votes";
+        }
+        else if (suggestion.UserVotes.Contains(loggedInUser?.Id))
+        {
+            return "suggestion-detail-voted";
+        }
+        else
+        {
+            return "suggestion-detail-not-voted";
+        }
+    }
+
+    private string GetStatusClass()
+    {
+        if (suggestion is null || suggestion.SuggestionStatus is null)
+        {
+            return "suggestion-detail-status-none";
+        }
+
+        string output = suggestion.SuggestionStatus.StatusName switch
+        {
+            "Completed" => "suggestion-detail-status-completed",
+            "Watching" => "suggestion-detail-status-watching",
+            "Upcoming" => "suggestion-detail-status-upcoming",
+            "Dimissed" => "suggestion-detail-status-completed",
+            _ => "suggestion-detail-status-none",
+        };
+
+        return output;
+        
     }
 }

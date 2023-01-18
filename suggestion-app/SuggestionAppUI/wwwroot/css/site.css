@@ -382,3 +382,124 @@ a, .btn-link {
         background-color: #FFFFFF;
         border-width:3px;
     }
+
+.suggestion-detail-row {
+    --bs-grutter-x: 0;
+}
+
+.suggestion-detail {
+    display:grid;
+    grid-template-columns: 100px 1fr;
+    padding:0;
+    text-align:center
+}
+
+.suggestion-detail-no-votes
+.suggestion-detail-not-voted
+.suggestion-detail-voted {
+    border: 3px solid #39BAD8;
+    text-align: center;
+    line-height: 1rem;
+    height: 100px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    font-size: 0.8rem;
+}
+
+.suggestion-detail-no-votes {
+    background-color: #DDDDDD;
+    color: #FFFFFF;
+    border-color: #DDDDDD;
+}
+
+.suggestion-detail-voted {
+    background-color: #39BAD8;
+    color: #FFFFFF;
+}
+
+.suggestion-detail-not-voted {
+    background-color: #FFFFFF;
+    color: #39BAD8;
+}
+
+.detail-upvote {
+    font-size:2.7rem;
+}
+
+.entry-upvote {
+    font-size:3rem
+}
+
+.suggestion-detail-date {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.suggestion-detail-text {
+    display:flex;
+    flex-direction:column;
+    padding-left: 27px;
+    padding-right: 10px;
+    padding-top:0;
+    padding-bottom:10px;
+    text-align:left;
+}
+
+.suggestion-detail-suggestion {
+    font-size: 1.25rem;
+}
+
+.suggestion-detail-author {
+    color: #A9A9A9
+}
+
+.suggestion-results {
+    display:grid;
+    grid-template-columns: 50px 1fr;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.suggestion-detail-status-complete {
+    background-color: #B5D43A;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius:15px;
+}
+
+.suggestion-detail-status-watching {
+    background-color: #E9354C;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.suggestion-detail-status-upcoming {
+    background-color: #835581;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.suggestion-detail-status-dismissed {
+    background-color: #F9C30B;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.suggestion-detail-status-none {
+    background-color: #FFFFFF;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.suggestion-detail-status-section {
+    padding:1.5rem;
+}
+
+.suggestion-detail-status {
+    flex-grow:1;
+}
+
+.suggestion-detail-owner-notes {
+    padding-bottom:20px;
+}
