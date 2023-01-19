@@ -462,7 +462,7 @@ a, .btn-link {
     margin-top: 20px;
 }
 
-.suggestion-detail-status-complete {
+.suggestion-detail-status-completed {
     background-color: #B5D43A;
     border-top-left-radius: 15px;
     border-bottom-left-radius:15px;
@@ -599,7 +599,7 @@ a, .btn-link {
 
 .btn-archive {
     border:0;
-    background-color: # FFFFFF;
+    background-color: #FFFFFF;
     padding: 0 10px;
     flex:unset;
 }
@@ -616,4 +616,30 @@ a, .btn-link {
 
 .btn-archive-confirm {
     color:#E9354C;
+}
+
+.admin-details {
+    margin-top:20px;
+}
+
+.admin-set-statuses {
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap
+}
+
+.btn-status-completed:hover {
+    color: #B5D43A
+}
+
+.btn-status-watching:hover {
+    color: #B9354C
+}
+
+.btn-status-upcoming:hover {
+    color: #835581
+}
+
+.btn-status-dismissed:hover {
+    color: #B9C30B
 }

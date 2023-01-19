@@ -4,6 +4,7 @@
 @inject NavigationManager navManager
 @inject AuthenticationStateProvider authProvider
 @inject IUserData userData
+@inject IStatusData statusData
 
 <h1 class="page-heading text-uppercase mb-4">Suggestion Details</h1>
 
@@ -19,10 +20,7 @@
                             <span class="oi oi-caret-top detail-upvote"></span>
                             <div class="text-uppercase">@GetUpvoteBottomText()</div>
                         </div>
-                    </div>
-                    @*<div class="suggestion-detail-date">
-                        <div>@suggestion.DateCreated.ToString("MM.dd.yyyy")</div>
-                    </div>*@
+                    </div>                    
                     <div class="suggestion-detail-text">
                         <div class="fw-bold mb-2 suggestion-detail-suggestion">@suggestion.Suggestion</div>
                         <div class="mb-2 suggestion-detail-author">@suggestion.Author.DisplayName</div>
@@ -57,17 +55,95 @@
     </div>
 }
 
+@if (suggestion is not null)
+{
+    <AuthorizeView Policy="Admin">
+        <div class="row justify-content-center detail-form">
+            <div class="col-xl-8 col-lg-10 form-layout admin-details">
+                <div>
+                    <div class="suggestion-detail-status fw-bold mb-2 suggestion-detail-suggestion">
+                        Set Status
+                    </div>
+                    @if (string.IsNullOrWhiteSpace(settingStatus))
+                    {
+                        <div class="admin-set-statuses">
+                            <button @onclick="@(() => settingStatus = "completed")" class="btn suggestion-entry-text-category btn_archive btn-status-completed">completed</button>
+                            <button @onclick="@(() => settingStatus = "watching")" class="btn suggestion-entry-text-category btn_archive btn-status-watching">watching</button>
+                            <button @onclick="@(() => settingStatus = "upcoming")" class="btn suggestion-entry-text-category btn_archive btn-status-upcoming">upcoming</button>
+                            <button @onclick="@(() => settingStatus = "dismissed")" class="btn suggestion-entry-text-category btn_archive btn-status-dismissed">dismissed</button>
+                        </div>
+                    }
+                    else if(settingStatus == "completed")
+                    {
+                        <div>
+                            <input @bind="urlText" class="form-control rounded-control" type="text" placeholder="Url" aria-label="Content URL">
+                        </div>
+                        <div class="suggestion-entry-bottom">
+                            <button class="btn btn-archive btn-archive-confirm" @onclick="CompleteSetStatus">confirm</button>
+                            <button class="btn btn-archive btn-archive-reject" @onclick="(() => settingStatus = null)">cancel</button>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="suggestion-entry-bottom">
+                            <button class="btn btn-archive btn-archive-confirm" @onclick="CompleteSetStatus">confirm</button>
+                            <button class="btn btn-archive btn-archive-reject" @onclick="(() => settingStatus = null)">cancel</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </AuthorizeView>
+}
+
 @code {
     [Parameter]
     public string Id { get; set; }
 
     private SuggestionModel suggestion;
     private UserModel loggedInUser;
+    private List<StatusModel> statuses;
+    private string settingStatus = "";
+    private string urlText = "";
 
     protected override async Task OnInitializedAsync()
     {
         suggestion = await suggestionData.GetSuggestion(Id);
         loggedInUser = await authProvider.GetUserFromAuth(userData);
+        statuses = await statusData.GetAllStatuses();
+    }
+
+    private async Task CompleteSetStatus()
+    {
+        switch (settingStatus)
+        {
+            case "completed":
+                if (string.IsNullOrWhiteSpace(urlText))
+                {
+                    return;   
+                }
+                suggestion.SuggestionStatus = statuses.Where(s => s.StatusName.ToLower() == settingStatus.ToLower()).First();
+                suggestion.OwnerNotes = $"The url text is: {urlText}";
+                break;
+            case "watching":
+                suggestion.SuggestionStatus = statuses.Where(s => s.StatusName.ToLower() == settingStatus.ToLower()).First();
+                suggestion.OwnerNotes = $"Whe notice the interest";
+                break;
+            case "upcoming":
+                suggestion.SuggestionStatus = statuses.Where(s => s.StatusName.ToLower() == settingStatus.ToLower()).First();
+                suggestion.OwnerNotes = $"Great suggestion";
+                break;
+            case "dismissed":
+                suggestion.SuggestionStatus = statuses.Where(s => s.StatusName.ToLower() == settingStatus.ToLower()).First();
+                suggestion.OwnerNotes = $"Sometimes a good idea";
+                break;
+            default:
+                return;
+        }
+
+        settingStatus = null;
+        await suggestionData.UpdateSuggestion(suggestion);
     }
 
     private void Closepage()
