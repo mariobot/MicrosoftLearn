@@ -592,3 +592,28 @@ a, .btn-link {
     height: 2px;
     opacity: 1;
 }
+
+.suggestion-entry-bottom {
+    display:flex;
+}
+
+.btn-archive {
+    border:0;
+    background-color: # FFFFFF;
+    padding: 0 10px;
+    flex:unset;
+}
+
+.btn-archive-confirm,
+.btn-archive-reject {
+    text-transform:uppercase;
+    color:darkgray;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:0.8rem;
+    flex: 1;
+}
+
+.btn-archive-confirm {
+    color:#E9354C;
+}
