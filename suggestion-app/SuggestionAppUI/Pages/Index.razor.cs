@@ -283,7 +283,7 @@ public partial class Index
             "Completed" => "suggestion-entry-status-completed",
             "Watching" => "suggestion-entry-status-watching",
             "Upcoming" => "suggestion-entry-status-upcoming",
-            "Dimissed" => "suggestion-entry-status-completed",
+            "Dismissed" => "suggestion-entry-status-dismissed",
             _ => "suggestion-entry-status-none",
         };
         return output;
