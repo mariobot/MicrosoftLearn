@@ -119,6 +119,9 @@ A pratical tutorial from Youtube to create a basic pizzas webpage with the new r
 
 A pratical tutorial from Youtube using Test patterns Building a .NET 6 API Using TDD https://www.youtube.com/watch?v=ULJ3UEezisw
 
+## Suggestion App with Mongo, Blazor and A2BC (Suggestion App) [**_suggestion-app_**](suggestion-app)
+
+Welcome to the course on building a Suggestion Site App. In this course, we are going to design, build, and test a production-ready application using C#. Is possible to get the videos from this course for free here on YouTube https://www.youtube.com/watch?v=eEyAKk4NeSg&list=PLLWMQd6PeGY0cZFMqx5ijmdaD87sJKCsU.
 
 # Azure Services MAP
 
