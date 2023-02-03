@@ -123,6 +123,10 @@ A pratical tutorial from Youtube using Test patterns Building a .NET 6 API Using
 
 Welcome to the course on building a Suggestion Site App. In this course, we are going to design, build, and test a production-ready application using C#. Is possible to get the videos from this course for free here on YouTube https://www.youtube.com/watch?v=eEyAKk4NeSg&list=PLLWMQd6PeGY0cZFMqx5ijmdaD87sJKCsU.
 
+## Build web apps with Blazor [**_data-blazor_**](data-blazor)
+
+This folder hold the lab Build web apps with Blazor https://learn.microsoft.com/es-mx/training/paths/build-web-apps-with-blazor/
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
