@@ -20,3 +20,4 @@ module databases 'modules/database.bicep' = [for location in locations: {
     sqlServerAdministratorLoginPassword: sqlServerAdministratorLoginPassword
   }
 }]
+
