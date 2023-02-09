@@ -127,6 +127,10 @@ Welcome to the course on building a Suggestion Site App. In this course, we are 
 
 This folder hold the lab Build web apps with Blazor https://learn.microsoft.com/es-mx/training/paths/build-web-apps-with-blazor/
 
+## Bicep fundamentals Lab [**_bicep-lab_**](bicep-lab)
+
+This folder hold the lab Bicep Fundamentals https://learn.microsoft.com/es-mx/training/paths/fundamentals-bicep/
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
