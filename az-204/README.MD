@@ -26,3 +26,6 @@ This folder hold the lab to create and use Azure Container Instance https://docs
 
 ## Microsoft Authentication Library [**_microsoft-authentication-librarye_**](microsoft-authentication-library)
 This folder hold the lab to use Microsoft Auth Library (MSAL) https://docs.microsoft.com/es-mx/learn/modules/implement-authentication-by-using-microsoft-authentication-library/4-interactive-authentication-msal
+
+## Azure Key Value [**_implement-azure-key-vault_**](implement-azure-key-vault)
+This folder hold the lab to use Azure Key Value with CLI https://learn.microsoft.com/es-es/training/modules/implement-azure-key-vault/5-set-retrieve-secret-azure-key-vault
