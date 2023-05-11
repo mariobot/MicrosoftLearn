@@ -52,5 +52,16 @@ namespace SuperHeroAPI.Controllers
             
             return Ok(heroes);
         }
+
+        [HttpDelete]
+        public async Task<ActionResult<List<SuperHero>>> Delete(int id)
+        {
+            var hero = heroes.Find(x => x.Id == id);
+            if (hero == null)
+                return BadRequest("Heroe not found");
+            
+            heroes.Remove(hero);
+            return Ok(heroes);
+        }
     }
 }
