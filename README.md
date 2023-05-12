@@ -131,6 +131,10 @@ This folder hold the lab Build web apps with Blazor https://learn.microsoft.com/
 
 This folder hold the lab Bicep Fundamentals https://learn.microsoft.com/es-mx/training/paths/fundamentals-bicep/
 
+## CRUD with a .NET 6 Web API [**_super-hero-api_**](super-hero-api)
+
+This folder hold the lab to create a basic api in asp core 6 https://www.youtube.com/watch?v=Fbf_ua2t6v4
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
