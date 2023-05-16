@@ -1,9 +1,11 @@
+using BlazorSyncfusionCmr.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 
