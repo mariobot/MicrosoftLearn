@@ -1,0 +1,65 @@
+﻿@page "/contacts"
+@inject NavigationManager NavigationManager
+
+<h3>Contacts</h3>
+
+<SfGrid DataSource="GridData" AllowFiltering="true" Toolbar="@( new List<string>() { "Search"})">
+    <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.CheckBox"></GridFilterSettings>
+    <GridColumns>
+    
+    <GridColumn Width="60">
+        <Template>
+            @{
+                var contact = context as Contact;
+                <SfButton CssClass="e-inherit" IconCss="e-icons e-edit" 
+                    OnClick="@(() => EditContact(contact!.Id))">
+                </SfButton>
+            }
+        </Template>
+    </GridColumn>
+    <GridColumn Field="FirstName" HeaderText="First Name"></GridColumn>
+    <GridColumn Field="LastName" HeaderText="Last Name"></GridColumn>
+    <GridColumn Field="NickName" HeaderText="Nick Name"></GridColumn>
+    <GridColumn Field="Place" HeaderText="Place"></GridColumn>
+    <GridColumn Field="DateOfBirth" HeaderText="Date of birth" Format="yyyy-MM-dd"></GridColumn>
+
+    </GridColumns>
+</SfGrid>
+
+@code {
+    public List<Contact> GridData { get; set; } = new List<Contact>
+    {
+        new Contact
+        {
+            Id = 1,
+            FirstName = "Peter",
+            LastName = "Parker",
+            NickName = "Spider Man",
+            Place = "NYC",
+            DateOfBirth = new DateTime(2001,8,1)
+        },
+        new Contact
+        {
+            Id = 2,
+            FirstName = "Tony",
+            LastName = "Stark",
+            NickName = "Iron Man",
+            Place = "LA",
+            DateOfBirth = new DateTime(1975,8,1)
+        },
+        new Contact
+        {
+            Id = 3,
+            FirstName = "Clark",
+            LastName = "Kent",
+            NickName = "Superman",
+            Place = "NYC",
+            DateOfBirth = new DateTime(1950,8,1)
+        }
+    };
+
+    void EditContact(int id)
+    {
+        NavigationManager.NavigateTo($"contacts/edit/{id}");
+    }
+}

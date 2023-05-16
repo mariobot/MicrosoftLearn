@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSyncfusionCmr.Server", "Server\BlazorSyncfusionCmr.Server.csproj", "{84E759F5-8A79-48AD-9B61-BA6C1117B981}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSyncfusionCmr.Server", "Server\BlazorSyncfusionCmr.Server.csproj", "{84E759F5-8A79-48AD-9B61-BA6C1117B981}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSyncfusionCmr.Client", "Client\BlazorSyncfusionCmr.Client.csproj", "{3400297D-A7BA-4168-B281-5EB743DF2BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSyncfusionCmr.Client", "Client\BlazorSyncfusionCmr.Client.csproj", "{3400297D-A7BA-4168-B281-5EB743DF2BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSyncfusionCmr.Shared", "Shared\BlazorSyncfusionCmr.Shared.csproj", "{8A125943-9492-4E10-9AFF-A708F031ABCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSyncfusionCmr.Shared", "Shared\BlazorSyncfusionCmr.Shared.csproj", "{8A125943-9492-4E10-9AFF-A708F031ABCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
