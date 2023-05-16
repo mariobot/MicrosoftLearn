@@ -1,7 +1,10 @@
-﻿namespace BlazorSyncfusionCmr.Shared
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlazorSyncfusionCmr.Shared
 {
     public class Note
     {
+        [Key]
         public int Id { get; set; }
         public required string Text { get; set; }
         public int? ContactId { get; set; }

@@ -1,5 +1,4 @@
-﻿using BlazorSyncfusionCmr.Client.Pages;
-using BlazorSyncfusionCmr.Shared;
+﻿using BlazorSyncfusionCmr.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlazorSyncfusionCmr.Server.Data
@@ -53,7 +52,7 @@ namespace BlazorSyncfusionCmr.Server.Data
                 new Note { Id = 3, ContactId = 3, Text = "To the infinite" });
         }
 
-        public DbSet<Contacts> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<Note> Notes { get; set; }
     }
