@@ -41,6 +41,27 @@ else
 
     public Contact contact { get; set; } = new Contact();
 
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id is not null)
+        {
+            var result = await HttpClient.GetAsync($"api/contacts/{Id}");
+
+            if (result.IsSuccessStatusCode)
+            {
+                var jsonResult = await result.Content.ReadFromJsonAsync<Contact>();
+
+                if (jsonResult is not null)
+                    contact = jsonResult;
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/contacts/new");
+
+            }
+        }
+    }
+
     async Task HandleSubmit()
     {
         

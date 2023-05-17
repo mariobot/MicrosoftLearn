@@ -22,5 +22,19 @@ namespace BlazorSyncfusionCmr.Server.Controllers
         {
             return await this.dataContext.Contacts.Where(c => !c.IsDeleted).ToListAsync();        
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<Contact>> GetContactById(int id)
+        {
+            var result = await this.dataContext.Contacts.FindAsync(id);
+
+            if (result is null)
+            {
+                return NotFound("Contact not found");
+            }
+
+            return result;
+        }
     }
 }
