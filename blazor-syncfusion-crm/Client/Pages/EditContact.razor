@@ -1,0 +1,24 @@
+﻿@page "/contacts/edit/{id:int}"
+@page "/contacts/new"
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+@if (Id is not null)
+{
+    <h3>Edit @contact.NickName</h3>
+}
+else
+{
+    <h3>Create a new contact</h3>
+}
+
+
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    public Contact contact { get; set; } = new Contact();
+
+}
