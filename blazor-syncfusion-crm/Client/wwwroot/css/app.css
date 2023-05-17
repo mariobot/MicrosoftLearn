@@ -8,6 +8,11 @@ main {
     margin: 12px
 }
 
+.validation-message {
+    font-size: 12px !important;
+    font-family: system-ui;
+}
+
 h1:focus {
     outline: none;
 }
