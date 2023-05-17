@@ -13,6 +13,24 @@ else
     <h3>Create a new contact</h3>
 }
 
+<div>
+    <EditForm Model="contact" OnInvalidSubmit="HandleSubmit">
+        <SfTextBox CssClass="e-outline" Placeholder="First Name" 
+        FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.FirstName"></SfTextBox>
+        <SfTextBox CssClass="e-outline" Placeholder="Last Name"
+                   FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.LastName"></SfTextBox>
+        <SfTextBox CssClass="e-outline" Placeholder="Nick Name"
+                   FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.NickName"></SfTextBox>
+        <SfTextBox CssClass="e-outline" Placeholder="Place"
+                   FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.Place"></SfTextBox>
+        <SfDatePicker CssClass="e-outline" TValue="DateTime?" Placeholder="Date of Birth"
+                   FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.DateOfBirth"
+                   Format="MM/dd/yyyy"></SfDatePicker>
+        <hr />
+        <SfButton CssClass="e-primary" IconCss="e-icons e-save" Content="Save" type="submit"></SfButton>
+    </EditForm>
+</div>
+
 
 
 @code {
@@ -20,5 +38,10 @@ else
     public int? Id { get; set; }
 
     public Contact contact { get; set; } = new Contact();
+
+    async Task HandleSubmit()
+    {
+        
+    }
 
 }
