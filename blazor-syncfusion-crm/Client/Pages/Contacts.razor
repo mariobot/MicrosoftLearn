@@ -1,5 +1,6 @@
 ﻿@page "/contacts"
 @inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
 
 <h3>Contacts</h3>
 
@@ -27,10 +28,18 @@
 </SfGrid>
 
 @code {
-    public List<Contact> GridData { get; set; } = new List<Contact>
+
+    public List<Contact> GridData { get; set; } = new List<Contact>();
+
+    protected override async Task OnInitializedAsync()
     {
-        
-    };
+        var result = await HttpClient.GetFromJsonAsync<List<Contact>>("api/contacts");
+
+        if (result is not null)
+        {
+            GridData = result;
+        }
+    }
 
     void EditContact(int id)
     {
