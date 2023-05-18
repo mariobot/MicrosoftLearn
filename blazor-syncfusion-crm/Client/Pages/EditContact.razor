@@ -31,6 +31,14 @@ else
         <hr />
         <SfButton CssClass="e-primary" IconCss="e-icons e-save" Content="Save" type="submit" />
     </EditForm>
+    <p>
+        <SfMessage Severity="MessageSeverity.Success" Visible="showSuccessMessage" >
+            Contact save succesfully.
+        </SfMessage>
+        <SfMessage Severity="MessageSeverity.Error" Visible="showErrorMessage" >
+            Opps, something went wrong.
+        </SfMessage>
+    </p>
 </div>
 
 
@@ -40,6 +48,9 @@ else
     public int? Id { get; set; }
 
     public Contact contact { get; set; } = new Contact();
+
+    bool showSuccessMessage = false;
+    bool showErrorMessage = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,7 +88,12 @@ else
             if (jsonResult is not null)
             {
                 contact = jsonResult;
+                showSuccessMessage = true;
             }
+        }
+        else
+        {
+            showErrorMessage = true;
         }
     }
 
