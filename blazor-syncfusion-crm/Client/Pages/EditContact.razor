@@ -14,7 +14,7 @@ else
 }
 
 <div>
-    <EditForm Model="contact" OnInvalidSubmit="HandleSubmit">
+    <EditForm Model="contact" OnValidSubmit="HandleSubmit">
         <DataAnnotationsValidator></DataAnnotationsValidator>
         <SfTextBox CssClass="e-outline" Placeholder="First Name" 
                    FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.FirstName"></SfTextBox>
@@ -29,7 +29,7 @@ else
                    FloatLabelType="@FloatLabelType.Auto" @bind-Value="contact.DateOfBirth"
                    Format="MM/dd/yyyy"></SfDatePicker>
         <hr />
-        <SfButton CssClass="e-primary" IconCss="e-icons e-save" Content="Save" type="submit"></SfButton>
+        <SfButton CssClass="e-primary" IconCss="e-icons e-save" Content="Save" type="submit" />
     </EditForm>
 </div>
 
@@ -64,7 +64,21 @@ else
 
     async Task HandleSubmit()
     {
-        
+        HttpResponseMessage result;
+
+        if (Id is not null)
+            result = await HttpClient.PutAsJsonAsync($"api/contacts/{contact.Id}", contact);
+        else
+            result = await HttpClient.PostAsJsonAsync($"api/contacts", contact);
+
+        if (result.IsSuccessStatusCode)
+        {
+            var jsonResult = await result.Content.ReadFromJsonAsync<Contact>();
+            if (jsonResult is not null)
+            {
+                contact = jsonResult;
+            }
+        }
     }
 
 }
