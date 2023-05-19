@@ -67,5 +67,23 @@ namespace BlazorSyncfusionCmr.Server.Controllers
 
             return result;
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<Contact>>> DeleteContacts(int id)
+        {
+            var result = await this.dataContext.Contacts.FindAsync(id);
+
+            if (result is null)
+            {
+                return NotFound("Contact not found");
+            }
+
+            result.IsDeleted = true;
+            result.DateDeleted = DateTime.Now;
+
+            await this.dataContext.SaveChangesAsync();
+
+            return await GetAllContacts();
+        }
     }
 }
