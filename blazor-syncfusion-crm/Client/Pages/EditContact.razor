@@ -39,6 +39,27 @@ else
             Opps, something went wrong.
         </SfMessage>
     </p>
+    @if (Id is not null)
+    {
+        <h3>Notes</h3>
+        <SfTextBox CssClass="e-outline" Placeholder="New Note" Multiline="true"
+            FloatLabelType="@FloatLabelType.Auto" @bind-Value="newNote.Text"></SfTextBox>
+        <SfButton CssClass="e-inherit" Content="Add Note" OnClick="CreateNote"/>
+
+        <hr/>
+
+        <p>
+            <SfButton IsPrimary="true" Content="Load All Notes" OnClick="LoadNotes" />
+        </p>
+
+        @foreach (var note in notes)
+        {
+            <SfCard>
+                <CardHeader Title="@note.DateCreated.ToString()"></CardHeader>
+                <CardContent Content="@note.Text"></CardContent>
+            </SfCard>
+        }
+    }
 </div>
 
 
@@ -48,6 +69,8 @@ else
     public int? Id { get; set; }
 
     public Contact contact { get; set; } = new Contact();
+    public List<Note> notes { get; set; } = new List<Note>();
+    public Note newNote { get; set; } = new Note { Text = string.Empty };
 
     bool showSuccessMessage = false;
     bool showErrorMessage = false;
@@ -95,6 +118,32 @@ else
         {
             showErrorMessage = true;
         }
+    }
+
+    async Task CreateNote()
+    {
+        if (Id is null)
+            return;
+
+        newNote.ContactId = Id;
+        var result = await HttpClient.PostAsJsonAsync("api/notes", newNote);
+
+        if (result.IsSuccessStatusCode)
+            await LoadNotes();
+    }
+
+    async Task DeleteNote(int noteId)
+    {
+        var result = await HttpClient.DeleteFromJsonAsync<List<Note>>($"api/notes/{noteId}");
+        if (result is not null)        
+            notes = result;
+    }
+
+    async Task LoadNotes()
+    {
+        var result = await HttpClient.GetFromJsonAsync<List<Note>>($"api/notes/{contact.Id}");
+        if (result is not null)
+            notes = result;
     }
 
 }
