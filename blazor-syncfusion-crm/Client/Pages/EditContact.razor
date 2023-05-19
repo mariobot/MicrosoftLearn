@@ -57,6 +57,11 @@ else
             <SfCard>
                 <CardHeader Title="@note.DateCreated.ToString()"></CardHeader>
                 <CardContent Content="@note.Text"></CardContent>
+                <CardFooter>
+                    <CardFooterContent>
+                        <SfButton Content="Delete" IsPrimary="true" OnClick="@(() => DeleteNote(note.Id))"></SfButton>
+                    </CardFooterContent>
+                </CardFooter>
             </SfCard>
         }
     }
