@@ -90,6 +90,14 @@ namespace BlazorSyncfusionCmr.Server.Controllers
             return await GetAllContacts();
         }
 
+        [HttpGet("map")]
+        public async Task<ActionResult<List<Contact>>> GetMapContacts()
+        {
+            return await dataContext.Contacts
+                    .Where(c => !c.IsDeleted && c.Latitude != null && c.Longitude != null)
+                    .ToListAsync();        
+        }
+
         MapPoint? GetLocations(Contact contact)
         {
             try
