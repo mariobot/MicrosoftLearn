@@ -102,7 +102,7 @@ namespace BlazorSyncfusionCmr.Server.Controllers
         {
             try
             {
-                var gls = new GoogleLocationService("AIzaSyAjE2PQ35Q2miaY4AJ3aGwV8IU9ePuqoMg");
+                var gls = new GoogleLocationService("APP_KEY");
                 var latlong = gls.GetLatLongFromAddress(contact.Place);
                 return latlong;
             }
