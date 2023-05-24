@@ -135,6 +135,10 @@ This folder hold the lab Bicep Fundamentals https://learn.microsoft.com/es-mx/tr
 
 This folder hold the lab to create a basic api in asp core 6 https://www.youtube.com/watch?v=Fbf_ua2t6v4
 
+## Create a basic CRM system using Blazor Syncfusion [**_blazor-syncfusion-crm_**](blazor-syncfusion-crm)
+
+This folder hold the lab to create a basic CRM app using Blazor Syncfusion https://www.youtube.com/watch?v=M54UdG45dwM 
+
 # Azure Services MAP
 
 ![Azure Map](services.png)
