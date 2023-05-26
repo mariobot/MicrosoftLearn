@@ -7,5 +7,12 @@ namespace JwtWebApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        public static User user = new();
+
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> Register(UserDto request)
+        {
+            return null;
+        }
     }
 }
