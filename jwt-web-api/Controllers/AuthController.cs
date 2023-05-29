@@ -25,9 +25,14 @@ namespace JwtWebApi.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(UserDto request)
         {
-            if (user.Username == request.Username)
+            if (user.Username != request.Username)
             {
                 return BadRequest("User not found");
+            }
+
+            if (!VerifyPasswordHash(request.Password,user.PasswordHash, user.PasswordSalt))
+            {
+                return BadRequest("Wrong password");
             }
 
             return Ok("MY CRAZY TOKEN");
