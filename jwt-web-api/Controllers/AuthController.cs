@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -66,16 +65,6 @@ namespace JwtWebApi.Controllers
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: cred);
 
-            try
-            {
-                var jwt2 = new JwtSecurityTokenHandler().WriteToken(token);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
             return jwt;
@@ -88,9 +77,7 @@ namespace JwtWebApi.Controllers
             {
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-
             }
-        
         }
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
