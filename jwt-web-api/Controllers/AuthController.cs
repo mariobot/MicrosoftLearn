@@ -46,7 +46,7 @@ namespace JwtWebApi.Controllers
 
             string token = CreateToken(user);
 
-            return Ok("MY CRAZY TOKEN");
+            return Ok(token);
         
         }
 
@@ -65,6 +65,16 @@ namespace JwtWebApi.Controllers
                 claims: claims,
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: cred);
+
+            try
+            {
+                var jwt2 = new JwtSecurityTokenHandler().WriteToken(token);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
