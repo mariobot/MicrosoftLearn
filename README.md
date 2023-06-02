@@ -139,6 +139,10 @@ This folder hold the lab to create a basic api in asp core 6 https://www.youtube
 
 This folder hold the lab to create a basic CRM app using Blazor Syncfusion https://www.youtube.com/watch?v=M54UdG45dwM 
 
+## Make a basic JWT auth page with register, login and JWT token [**_jwt-web-api_**](jwt-web-api)
+
+This folder hold the lab to create JSON Web Tokens (JWT) - User Registration / Login / Authentication https://www.youtube.com/watch?v=v7q3pEK1EA0 
+
 # Azure Services MAP
 
 ![Azure Map](services.png)

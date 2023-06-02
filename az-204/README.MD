@@ -29,3 +29,5 @@ This folder hold the lab to use Microsoft Auth Library (MSAL) https://docs.micro
 
 ## Azure Key Value [**_implement-azure-key-vault_**](implement-azure-key-vault)
 This folder hold the lab to use Azure Key Value with CLI https://learn.microsoft.com/es-es/training/modules/implement-azure-key-vault/5-set-retrieve-secret-azure-key-vault
+
+
