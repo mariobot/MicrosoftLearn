@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -17,6 +18,22 @@ namespace JwtWebApi.Controllers
         {
             this.configuration = configuration;
         }
+
+        [HttpGet, Authorize]
+        public ActionResult<string> GetMyName()
+        {
+            return Ok("OK");
+
+            //var userName = User?.Identity?.Name;
+            //var roleClaims = User?.FindAll(ClaimTypes.Role);
+            //var roles = roleClaims?.Select(c => c.Value).ToList();
+            //var roles2 = User?.Claims
+            //    .Where(c => c.Type == ClaimTypes.Role)
+            //    .Select(c => c.Value)
+            //    .ToList();
+            //return Ok(new { userName, roles, roles2 });
+        }
+
 
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register(UserDto request)
