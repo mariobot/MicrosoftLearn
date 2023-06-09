@@ -13,16 +13,18 @@ namespace JwtWebApi.Controllers
     {
         public static User user = new();
         private readonly IConfiguration configuration;
+        private readonly IUserService userService;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration, IUserService userService)
         {
             this.configuration = configuration;
+            this.userService = userService;
         }
 
         [HttpGet, Authorize]
         public ActionResult<string> GetMyName()
-        {
-            return Ok("OK");
+        {   
+            return Ok(this.userService.GetUsername());
 
             //var userName = User?.Identity?.Name;
             //var roleClaims = User?.FindAll(ClaimTypes.Role);
