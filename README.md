@@ -141,7 +141,9 @@ This folder hold the lab to create a basic CRM app using Blazor Syncfusion https
 
 ## Make a basic JWT auth page with register, login and JWT token [**_jwt-web-api_**](jwt-web-api)
 
-This folder hold the lab to create JSON Web Tokens (JWT) - User Registration / Login / Authentication https://www.youtube.com/watch?v=v7q3pEK1EA0 
+This folder hold the lab to create JSON Web Tokens (JWT) - User Registration / Login / Authentication https://www.youtube.com/watch?v=v7q3pEK1EA0 Role-Based Authorization with JSON Web Tokens https://www.youtube.com/watch?v=6sMPvucWNRE
+
+
 
 # Azure Services MAP
 
