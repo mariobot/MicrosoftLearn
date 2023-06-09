@@ -9,7 +9,7 @@ namespace JwtWebApi.Controllers
     public class DashboardController : ControllerBase
     {
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin,User")]
         public ActionResult GetDashboard() 
         {
             return Ok("Dashboard page");        
