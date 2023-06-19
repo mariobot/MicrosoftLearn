@@ -58,8 +58,28 @@ namespace JwtWebApi.Controllers
             var refreshToken = GenerateRefreshToken();
             SetRefreshToken(refreshToken);
 
-            return Ok(token);
-        
+            return Ok(token);        
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<string>> RefreshToken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+
+            if (!user.RefreshToken.Equals(refreshToken))
+            {
+                return Unauthorized("Invalid Refresh Token.");
+            }
+            else if (user.TokenExpires < DateTime.Now)
+            {
+                return Unauthorized("Token expired");            
+            }
+
+            string token = CreateToken(user);
+            var refreshTokenHash = GenerateRefreshToken();
+            SetRefreshToken(refreshTokenHash);
+
+            return Ok(token);        
         }
 
         private RefreshToken GenerateRefreshToken() 
@@ -99,7 +119,7 @@ namespace JwtWebApi.Controllers
                 new Claim(ClaimTypes.Role, "User")
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(configuration.GetSection("AppSettings:Token").Value));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(this.configuration.GetSection("AppSettings:Token").Value));
 
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
