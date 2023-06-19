@@ -25,15 +25,6 @@ namespace JwtWebApi.Controllers
         public ActionResult<string> GetMyName()
         {   
             return Ok(this.userService.GetUsername());
-
-            //var userName = User?.Identity?.Name;
-            //var roleClaims = User?.FindAll(ClaimTypes.Role);
-            //var roles = roleClaims?.Select(c => c.Value).ToList();
-            //var roles2 = User?.Claims
-            //    .Where(c => c.Type == ClaimTypes.Role)
-            //    .Select(c => c.Value)
-            //    .ToList();
-            //return Ok(new { userName, roles, roles2 });
         }
 
 
