@@ -144,3 +144,4 @@ This folder hold the lab to create a basic CRM app using Blazor Syncfusion https
 - JSON Web Tokens (JWT) - User Registration / Login / Authentication https://www.youtube.com/watch?v=v7q3pEK1EA0 
 - Role-Based Authorization with JSON Web Tokens https://www.youtube.com/watch?v=6sMPvucWNRE 
 - Read JWT Authorization Claims of a User https://www.youtube.com/watch?v=fhWIkbF18lM
+- Refresh Tokens with a .NET 6 Web API https://www.youtube.com/watch?v=HGIdAn2h8BA&t=0s
