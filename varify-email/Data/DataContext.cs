@@ -14,7 +14,7 @@ namespace VarifyEmail.Data
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder
-                .UseSqlServer("Data Source=MBOTERO\\MBOTERO;Integrated Security=True");
+                .UseSqlServer("Data Source = MBOTERO\\MBOTERO;Initial Catalog = securemail;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
         }
 
         public DbSet<User> Users => Set<User>();
