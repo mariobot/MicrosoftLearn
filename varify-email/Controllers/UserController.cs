@@ -26,6 +26,19 @@ namespace VarifyEmail.Controllers
             }
 
             CreatePasswordHash(userRegisterRequest.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            var user = new User
+            {
+                Email = userRegisterRequest.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                VerificationToken = CreateRandomToken()
+            };
+
+            this.dataContext.Users.Add(user);
+            await this.dataContext.SaveChangesAsync();
+
+            return Ok("User successfully created!");
         
         }
 
@@ -36,6 +49,11 @@ namespace VarifyEmail.Controllers
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }        
+        }
+
+        private string CreateRandomToken()
+        {
+            return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));        
         }
     }
 }
