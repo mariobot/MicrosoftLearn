@@ -51,14 +51,14 @@ namespace VarifyEmail.Controllers
                 return BadRequest("User not found");
             }
 
-            if (user.VerifiedAt == null)
-            {
-                return BadRequest("Not verified!");
-            }
-
             if (!VerifyPasswordHash(userLoginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return BadRequest("Password is incorrect.");
+            }
+
+            if (user.VerifiedAt == null)
+            {
+                return BadRequest("Not verified!");
             }
 
             return Ok($"Welcome back, {user.Email}!");
