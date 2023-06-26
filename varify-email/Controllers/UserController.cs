@@ -41,6 +41,29 @@ namespace VarifyEmail.Controllers
         
         }
 
+        [HttpPost("login")]
+        public async Task<ActionResult> Login(UserLoginRequest userLoginRequest)
+        {
+            var user = await this.dataContext.Users.FirstOrDefaultAsync(x => x.Email == userLoginRequest.Email);
+
+            if (user == null) 
+            {
+                return BadRequest("User not found");
+            }
+
+            if (user.VerifiedAt == null)
+            {
+                return BadRequest("Not verified!");
+            }
+
+            if (!VerifyPasswordHash(userLoginRequest.Password, user.PasswordHash, user.PasswordSalt))
+            {
+                return BadRequest("Password is incorrect.");
+            }
+
+            return Ok($"Welcome back, {user.Email}!");
+        }
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
@@ -48,6 +71,16 @@ namespace VarifyEmail.Controllers
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }        
+        }
+
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+                return computedHash.SequenceEqual(passwordHash);
+            }
         }
 
         private string CreateRandomToken()
