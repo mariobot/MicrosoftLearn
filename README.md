@@ -146,6 +146,6 @@ This folder hold the lab to create a basic CRM app using Blazor Syncfusion https
 - Read JWT Authorization Claims of a User https://www.youtube.com/watch?v=fhWIkbF18lM
 - Refresh Tokens with a .NET 6 Web API https://www.youtube.com/watch?v=HGIdAn2h8BA&t=0s
 
-## User Sign-Up Verify/Confirm Email & Forgot/Reset Password with a .NET 6 Web API [**_verify-email_**][verify-email]
+## User Sign-Up Verify/Confirm Email & Forgot/Reset Password with a .NET 6 Web API [**_verify-email_**](verify-email)
 
 This folder hold the lab to create a basic auth action in a basic solution https://www.youtube.com/watch?v=2Q9Uh-5O8Sk&t=2546s
