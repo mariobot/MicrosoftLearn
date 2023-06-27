@@ -64,6 +64,22 @@ namespace VarifyEmail.Controllers
             return Ok($"Welcome back, {user.Email}!");
         }
 
+        [HttpPost("verify")]
+        public async Task<ActionResult> Verify(string token)
+        {
+            var user = await this.dataContext.Users.FirstOrDefaultAsync(x => x.VerificationToken == token);
+
+            if (user == null)
+            {
+                return BadRequest("Invalid token.");
+            }
+
+            user.VerifiedAt = DateTime.UtcNow;
+            await this.dataContext.SaveChangesAsync();
+
+            return Ok($"User verified!");
+        }
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
