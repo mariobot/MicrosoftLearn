@@ -97,6 +97,27 @@ namespace VarifyEmail.Controllers
             return Ok($"You may now reset your password!");
         }
 
+        [HttpPost("reset-password")]
+        public async Task<ActionResult> ResetPassword(ResetPasswordRequest resetPasswordRequest)
+        {
+            var user = await this.dataContext.Users.FirstOrDefaultAsync(x => x.PasswordResetToken == resetPasswordRequest.Token);
+
+            if (user == null || user.ResetTokenExpires < DateTime.Now)
+            {
+                return BadRequest("Invalid Token.");
+            }
+
+            CreatePasswordHash(resetPasswordRequest.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            user.PasswordResetToken = null;
+            user.ResetTokenExpires = null;
+            await this.dataContext.SaveChangesAsync();
+
+            return Ok($"Password successfully reset.");
+        }
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
