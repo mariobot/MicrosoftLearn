@@ -80,6 +80,23 @@ namespace VarifyEmail.Controllers
             return Ok($"User verified!");
         }
 
+        [HttpPost("forogot-password")]
+        public async Task<ActionResult> ForgotPassword(string email)
+        {
+            var user = await this.dataContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+
+            if (user == null)
+            {
+                return BadRequest("User not found.");
+            }
+            
+            user.PasswordResetToken = CreateRandomToken();
+            user.ResetTokenExpires = DateTime.UtcNow.AddDays(1);
+            await this.dataContext.SaveChangesAsync();
+
+            return Ok($"You may now reset your password!");
+        }
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
