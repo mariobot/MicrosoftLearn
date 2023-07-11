@@ -12,9 +12,9 @@ namespace Ef7JsonColumns.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("\"Data Source = MBOTERO\\\\MBOTERO;Initial Catalog = securemail;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;\"")
+            optionsBuilder.UseSqlServer("Data Source = MBOTERO\\MBOTERO;Initial Catalog = jsoncolumn;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
         }
 
-
+        public DbSet<SuperHero> Heroes { get; set; }
     }
 }
