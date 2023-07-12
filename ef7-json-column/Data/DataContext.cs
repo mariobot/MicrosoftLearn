@@ -15,6 +15,14 @@ namespace Ef7JsonColumns.Data
             optionsBuilder.UseSqlServer("Data Source = MBOTERO\\MBOTERO;Initial Catalog = jsoncolumn;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SuperHero>().OwnsOne(sh => sh.Details, navigationBuilder => 
+            { 
+                navigationBuilder.ToJson();
+            });
+        }
+
         public DbSet<SuperHero> Heroes { get; set; }
     }
 }
