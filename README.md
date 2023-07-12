@@ -149,3 +149,7 @@ This folder hold the lab to create a basic CRM app using Blazor Syncfusion https
 ## User Sign-Up Verify/Confirm Email & Forgot/Reset Password with a .NET 6 Web API [**_verify-email_**](verify-email)
 
 This folder hold the lab to create a basic auth action in a basic solution https://www.youtube.com/watch?v=2Q9Uh-5O8Sk&t=2546s
+
+## JSON Columns with Entity Framework 7 / EF 7 [**_ef7-json-column_**](ef7-json-column)
+
+This folder hold the lab to create a basic relationship between an entity and json column info https://www.youtube.com/watch?v=C5AkBDp_YjI&t=1409s
