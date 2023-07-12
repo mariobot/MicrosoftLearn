@@ -18,20 +18,20 @@ namespace Ef7JsonColumns.Controllers
 
         [HttpPost]
         public async Task<ActionResult<List<SuperHero>>> AddHeroes(List<SuperHero> heroes)
-        { 
+        {
 
-            this.dataContext.AddRange(heroes);
+            this.dataContext.Heroes.AddRange(heroes);
 
             await this.dataContext.SaveChangesAsync();
 
-            return Ok(await this.dataContext.Heroes.ToListAsync());        
+            return Ok(await this.dataContext.Heroes.ToListAsync());
         }
 
         [HttpGet("{city}")]
         public async Task<ActionResult<List<SuperHero>>> GetHeroes(string city)
         {
 
-            var heroes = await this.dataContext.Heroes.Where(x => x.Details.City.Contains(city)).ToListAsync();            
+            var heroes = await this.dataContext.Heroes.Include(x => x.Details).Where(x => x.Details.City.Contains(city)).ToListAsync();
 
             return Ok(heroes);
         }
