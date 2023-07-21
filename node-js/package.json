@@ -1,0 +1,31 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "Curso de node.js by midudev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariobot/MicrosoftLearn.git#master"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs",
+    "mariobot"
+  ],
+  "author": "Mario Botero - mariobot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariobot/MicrosoftLearn/issues"
+  },
+  "homepage": "https://github.com/mariobot/MicrosoftLearn/tree/master#readme",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}
