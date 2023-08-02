@@ -1,0 +1,14 @@
+### Get pakemon list
+GET http://localhost:3000/pokemon/ditto
+
+### Create pokemon
+POST http://localhost:3000/pokemon
+Content-Type: application/json
+
+{
+    "name": "ditto",
+    "type": "normal",
+    "moves": [
+        "transform"
+    ]
+}
