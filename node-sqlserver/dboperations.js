@@ -5,7 +5,7 @@ async function getOrders(){
     try{
         let pool = await sql.connect(config)
         let products = await pool.request().query("SELECT * FROM Orders")
-        return products
+        return products.recordsets
     }
     catch(error){
         console.log(error)
@@ -18,7 +18,7 @@ async function getOrder(productId){
         let product = await pool.request()
         .input('input_parameter', sql.Int, productId)
         .query("SELECT * FROM Orders WHERE Id = @input_parameter")
-        return product
+        return product.recordsets
     }
     catch(error){
         console.log(error)
@@ -28,14 +28,13 @@ async function getOrder(productId){
 async function addOrder(order){
     try{
         let pool = await sql.connect(config)
-        let insertProduct = await pool.request()
-        .input('Id', sql.Int, order.Id)
+        let insertProduct = await pool.request()        
         .input('Title', sql.NVarChar, order.Title)
         .input('Quantity',sql.Int,order.Quantity)
         .input('Message',sql.NVarChar,order.Message)
         .input('City',sql.NVarChar,order.City)
-        .query('INSERT INTO Orders (Id,Title,Quantity,Message,City) VALUES (@Id,@Title,@Quantity,@Message,@City)')
-        return insertProduct.recordsets
+        .query('INSERT INTO Orders (Title,Quantity,Message,City) VALUES (@Title,@Quantity,@Message,@City)')                
+        return order
     }
     catch(error){
         console.log(error)
@@ -43,7 +42,7 @@ async function addOrder(order){
 }
 
 module.exports = {
-    getOrders,
-    getOrder,
-    addOrder
+    getOrders: getOrders,
+    getOrder: getOrder,
+    addOrder: addOrder
 }

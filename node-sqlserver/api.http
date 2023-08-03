@@ -1,1 +1,16 @@
-GET http://localhost:8000/api/orders
+### Get Orders
+GET http://localhost:31500/api/orders
+
+### Get Order by Id
+GET http://localhost:31500/api/orders/3
+
+### Create a Order
+POST http://localhost:31500/api/orders
+Content-Type: application/json
+
+{
+    "Title": "Frizzer",
+    "Quantity": 2,
+    "Message": "Black",
+    "City": "New York"
+}
