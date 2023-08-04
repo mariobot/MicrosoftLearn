@@ -1,10 +1,10 @@
-##Learn to build a REST API in Node.js that performs read and write operations on a database in SQL Server.
+## Learn to build a REST API in Node.js that performs read and write operations on a database in SQL Server.
 
 In this article, we’ll take a step-by-step approach to help you in building a REST API in Node.js that performs read and write operations on a database in SQL Server.
 
 At the end of this article, you should able to create a Node.js REST API performing CRUD operations on a database in SQL Server.
 
-##API Architecture
+## API Architecture
 
 SQL Server Database has a two-directional arrow pointing back and forth to the Node.js REST API. The API has several small arrows pointing to Clients.
 Installations
@@ -34,7 +34,7 @@ Next, open SQL Server Management Studio and run the command:
 
 ```select  distinct local_net_address, local_tcp_port from  sys.dm_exec_connections  where local_net_address is  not  null```
 
-SQL
+## SQL
 
 It should return local_net_address and local_tcp_port.
 
@@ -44,7 +44,7 @@ You need these two values in the Node.js to connect to the SQL Server database. 
 
 query result of table data
 
-table schema
+## table schema
 
 We will perform read and write operations on the above table. Besides the above configurations, note the SQL Server instance name and the SQL user information.
 Creating the API Project
