@@ -45,6 +45,19 @@ router.route('/orders').post((request,response) =>{
     })
 })
 
+router.route('/orders/:id').delete((request,response) =>{
+    Db.deleteOrder(request.params.id).then((data) =>{
+        response.status(201).json(data)
+    })
+})
+
+router.route('/orders').put((request, response) =>{
+    let order = { ...request.body }
+    Db.updateOrder(order).then((data) =>{
+        response.status(201).json(data)
+    })
+})
+
 var port = process.env.PORT ?? 31500
 app.listen(port)
 console.log(`API listenin in the route: http://localhost:${port}/api`)
