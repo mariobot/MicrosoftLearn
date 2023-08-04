@@ -379,3 +379,5 @@ On successful insertion of record, you will find a newly inserted row is returne
 Summary
 
 In this article, in a step-by-step manner, you learned to create a Node.js-based API, that performs Create and Read operations on a table in the SQL Server database. I hope you find it useful. Thanks for reading.
+
+This exersice was taked from the webpage [Telerik](https://www.telerik.com/blogs/step-by-step-create-node-js-rest-api-sql-server-database)
