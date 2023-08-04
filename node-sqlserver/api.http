@@ -14,3 +14,18 @@ Content-Type: application/json
     "Message": "Black",
     "City": "New York"
 }
+
+### Delete a Order
+DELETE http://localhost:31500/api/orders/11
+
+### Update a Order
+PUT http://localhost:31500/api/orders
+Content-Type: application/json
+
+{
+    "Id": 10,
+    "Title": "Plasma TV",
+    "Quantity": 6,
+    "Message": "Sony Brand",
+    "City": "New York"
+}
