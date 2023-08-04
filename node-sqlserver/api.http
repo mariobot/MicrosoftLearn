@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ### Delete a Order
-DELETE http://localhost:31500/api/orders/11
+DELETE http://localhost:31500/api/orders/12
 
 ### Update a Order
 PUT http://localhost:31500/api/orders
