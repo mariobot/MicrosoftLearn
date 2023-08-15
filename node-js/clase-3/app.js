@@ -1,13 +1,15 @@
 const express = require('express')
 const crypto = require('node:crypto')
+const cors = require('cors')
 const movies = require('./movies.json')
 const movie = require('./movie')
 
 const app = express()
-app.disable('x-powered-by')
 app.use(express.json())
+app.use(cors())
+app.disable('x-powered-by')
 
-app.get('/movies', (req,res) =>{
+app.get('/movies', (req,res) =>{    
     const { genre } = req.query
     if( genre ){
         const moviesByGenre = movies.filter(movie => movie.genre.some(g => g.toLocaleLowerCase() == genre.toLocaleLowerCase()))
