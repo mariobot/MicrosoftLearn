@@ -1,11 +1,15 @@
-const express = require('express')
-const crypto = require('node:crypto')
-const cors = require('cors')
+import express, { json } from 'express'
+import { randomUUID } from 'node:crypto'
+import cors from 'cors'
+import { ValidateMovie, ValidatePartialMovie } from './movie.js'
+
+// Como leer un json en ESModules
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
 const movies = require('./movies.json')
-const movie = require('./movie')
 
 const app = express()
-app.use(express.json())
+app.use(json())
 app.use(cors())
 app.disable('x-powered-by')
 
@@ -26,14 +30,14 @@ app.get('/movies/:id', (req, res) =>{ //path-to-regex
 })
 
 app.post('/movies/', (req, res) =>{        
-    const result = movie.ValidateMovie(req.body)
+    const result = ValidateMovie(req.body)
 
     if(result.error){
         return res.status(400).json({error: JSON.parse(result.error.message)})
     }
     
     const newMovie = {
-        id: crypto.randomUUID(), // generate the GUID
+        id: randomUUID(), // generate the GUID
         ...result.data
     }   
 
@@ -43,7 +47,7 @@ app.post('/movies/', (req, res) =>{
 })
 
 app.patch('/movies/:id', (req, res) =>{    
-    const result = movie.ValidatePartialMovie(req.body)  
+    const result = ValidatePartialMovie(req.body)  
     if(result.error){
         return res.status(400).json({error: JSON.parse(result.error.message)})
     }   
