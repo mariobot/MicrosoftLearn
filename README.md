@@ -154,7 +154,7 @@ This folder hold the lab to create a basic auth action in a basic solution https
 
 This folder hold the lab to create a basic relationship between an entity and json column info https://www.youtube.com/watch?v=C5AkBDp_YjI&t=1409s
 
-## Node JS MiduDev Course () [**_node-js_**](node-js)
+## Node JS MiduDev Course [**_node-js_**](node-js)
 
 This folder hold all practic clases to learn Node JS with a practical excersices to handle the basic concepts
 
