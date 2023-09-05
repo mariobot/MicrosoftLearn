@@ -157,8 +157,9 @@ This folder hold the lab to create a basic relationship between an entity and js
 ## Node JS MiduDev Course () [**_node-js_**](node-js)
 
 This folder hold all practic clases to learn Node JS with a practical excersices to handle the basic concepts
-Class 1 - Introduction and first steps https://www.youtube.com/watch?v=yB4n_K7dZV8&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=1
-Class 2 - Create an API with Express https://www.youtube.com/watch?v=YmZE1HXjpd4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=2
-Class 3 - Use CORS in API with Express https://www.youtube.com/watch?v=-9d3KhCqOtU&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=3
-Class 4 - Architecture MVC Project with Node JS https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4
+
+* Class 1 - Introduction and first steps https://www.youtube.com/watch?v=yB4n_K7dZV8&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=1
+* Class 2 - Create an API with Express https://www.youtube.com/watch?v=YmZE1HXjpd4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=2
+* Class 3 - Use CORS in API with Express https://www.youtube.com/watch?v=-9d3KhCqOtU&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=3
+* Class 4 - Architecture MVC Project with Node JS https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4
 
