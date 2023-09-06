@@ -163,3 +163,6 @@ This folder hold all practic clases to learn Node JS with a practical excersices
 * Class 3 - Use CORS in API with Express https://www.youtube.com/watch?v=-9d3KhCqOtU&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=3
 * Class 4 - Architecture MVC Project with Node JS https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4
 
+## Learn to build a REST API in Node.js [**_node-sqlserver_**](node-sqlserver)
+
+This folter hold a practical project to create a basic API with SQL Server database. More info in the next tutorial https://www.telerik.com/blogs/step-by-step-create-node-js-rest-api-sql-server-database 
