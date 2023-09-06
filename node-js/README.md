@@ -39,7 +39,7 @@ node app.js
 ```
 Use the file api.http to make the HTTP JSON Request
 
-## Class 3 [The power of MVC Architecture](https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4)
+## Class 4 [The power of MVC Architecture](https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4)
 
 Open the carpet clase-4
 ```
