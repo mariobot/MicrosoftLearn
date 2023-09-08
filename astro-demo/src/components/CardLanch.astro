@@ -1,0 +1,43 @@
+---
+interface Props {
+    id: string,
+    details: string | null,
+    img: string,
+    success: boolean,
+    fligthNumber: number
+}
+
+const { success, fligthNumber, img, id, details } = Astro.props
+const successText = success ? 'Success' : 'Fail'
+---
+
+<a 
+    href={`/launch/${id}`}
+    class="rounded-lg border shadow-md bg-gray-800 border-gray-700 flex flex-col"
+>
+    <picture class="flex justify-center p-4">
+        <img class="mb-5 rounded-lg" src={img} alt={`Patch for launch ${id}`}>
+    </picture>
+
+    <header class="p-4 flex-grow">
+        <span
+            class:list={[
+                "text-xs font-semibold mr-2 px-2.5 py-0.5 rounded",
+                {
+                    "bg-green-400 text-green-900": success,
+                    "bg-red-400 text-red-900": !success
+                }
+            ]}
+        >{successText}
+        </span>
+
+        <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
+            Fligth #{fligthNumber}
+        </h2>
+
+        <p class="mb-4 font-light text-gray-400">
+            {details !== null && details?.length > 100 ? details.slice(0,100) + '...' : details}
+        </p>
+
+    </header>
+</a>
