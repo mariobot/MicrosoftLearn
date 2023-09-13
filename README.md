@@ -166,3 +166,7 @@ This folder hold all practic clases to learn Node JS with a practical excersices
 ## Learn to build a REST API in Node.js [**_node-sqlserver_**](node-sqlserver)
 
 This folter hold a practical project to create a basic API with SQL Server database. More info in the next tutorial https://www.telerik.com/blogs/step-by-step-create-node-js-rest-api-sql-server-database 
+
+## Build an SpaceX Launch site with Astro [**_astro-demo_**](astro-demo)
+
+This folder hold a practical course to understand the principales features provides by astro.build. More information and video tutorial in https://www.youtube.com/watch?v=RB5tR_nqUEw
