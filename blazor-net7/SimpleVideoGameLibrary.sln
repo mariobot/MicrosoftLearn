@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleVideoGameLibrary.Server", "Server\SimpleVideoGameLibrary.Server.csproj", "{208BED85-0ED2-4E05-A2F0-3B82BD7F015C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleVideoGameLibrary.Server", "Server\SimpleVideoGameLibrary.Server.csproj", "{208BED85-0ED2-4E05-A2F0-3B82BD7F015C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleVideoGameLibrary.Client", "Client\SimpleVideoGameLibrary.Client.csproj", "{DC5F7DB0-7856-4ADB-BEC6-5F157571411E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleVideoGameLibrary.Client", "Client\SimpleVideoGameLibrary.Client.csproj", "{DC5F7DB0-7856-4ADB-BEC6-5F157571411E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleVideoGameLibrary.Shared", "Shared\SimpleVideoGameLibrary.Shared.csproj", "{D778E293-7286-4AFC-974A-DCBE7CEB2E70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleVideoGameLibrary.Shared", "Shared\SimpleVideoGameLibrary.Shared.csproj", "{D778E293-7286-4AFC-974A-DCBE7CEB2E70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
