@@ -1,6 +1,30 @@
 ﻿@page "/videogames"
-<h3>VideoGames</h3>
+@inject HttpClient httpClient
+
+<h3>Video Games</h3>
+
+@if (games.Count <= 0)
+{
+    <span>Loading Video Games..</span>
+}
+else
+{
+    <ul>
+        @foreach (var game in games)
+        {
+            <li>@game.Title - @game.Publisher - @game.ReleaseYear</li>
+        }
+    </ul>
+}
 
 @code {
+    List<VideoGame> games = new List<VideoGame>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await httpClient.GetFromJsonAsync<List<VideoGame>>("api/videogame");
+
+        if (result != null)
+            games = result;
+    }
 }
