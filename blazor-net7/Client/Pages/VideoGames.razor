@@ -9,12 +9,11 @@
 }
 else
 {
-    <ul>
-        @foreach (var game in games)
-        {
-            <li>@game.Title - @game.Publisher - @game.ReleaseYear</li>
-        }
-    </ul>
+    <QuickGrid Items="games.AsQueryable()">
+        <PropertyColumn Property="g => g.Title"></PropertyColumn>
+        <PropertyColumn Property="g => g.Publisher"></PropertyColumn>
+        <PropertyColumn Property="g => g.ReleaseYear"></PropertyColumn>
+    </QuickGrid>
 }
 
 @code {
