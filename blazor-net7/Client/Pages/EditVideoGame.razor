@@ -1,5 +1,6 @@
 ﻿@page "/videogame"
 @page "/videogame/{id:int}"
+@inject NavigationManager navigationManager
 
 @if(Id is null)
 {
@@ -8,9 +9,11 @@
 }
 else
 {
-    <PageTitle>Create a New Video Game</PageTitle>
-    <h3>Create a New Video Game</h3>
+    <PageTitle>Edit a Video Game</PageTitle>
+    <h3>Edit a Video Game</h3>
 }
+
+<button class="btn btn-primary" onclick="@AddVideoGame">Add Video Game</button>
 
 <EditForm Model="game" OnSubmit="HandleSubmit">
     <div>
@@ -40,6 +43,11 @@ else
     public int? Id { get; set; }
 
     VideoGame game = new VideoGame { Title = "New Game " };
+
+    public void AddVideoGame()
+    {
+        navigationManager.NavigateTo("/videogame");
+    }
 
     async Task HandleSubmit()
     {
