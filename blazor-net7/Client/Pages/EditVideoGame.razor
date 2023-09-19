@@ -1,0 +1,48 @@
+﻿@page "/videogame"
+@page "/videogame/{id:int}"
+
+@if(Id is null)
+{
+    <PageTitle>Create a New Video Game</PageTitle>
+    <h3>Create a New Video Game</h3>
+}
+else
+{
+    <PageTitle>Create a New Video Game</PageTitle>
+    <h3>Create a New Video Game</h3>
+}
+
+<EditForm Model="game" OnSubmit="HandleSubmit">
+    <div>
+        <label for="title">Title</label>
+        <InputText id="title" @bind-Value="game.Title" class="form-control" />
+    </div>
+
+    <div>
+        <label for="publisher">Publisher</label>
+        <InputText id="publisher" @bind-Value="game.Publisher" class="form-control" />
+    </div>
+
+    <div>
+        <label for="releaseYear">Release Year</label>
+        <InputNumber id="releaseYear" @bind-Value="game.ReleaseYear" class="form-control" />
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    VideoGame game = new VideoGame { Title = "New Game " };
+
+    async Task HandleSubmit()
+    {
+        
+    }
+}
