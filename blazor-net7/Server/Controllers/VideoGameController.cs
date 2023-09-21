@@ -22,5 +22,66 @@ namespace SimpleVideoGameLibrary.Server.Controllers
 
             return Ok(list);        
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<VideoGame>> GetVideoGame(int id)
+        {
+            var game = await context.VideoGames.FindAsync(id);
+
+            if (game == null)
+            {
+                return NotFound("This video game does not exist");
+            }
+
+            return Ok(game);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<VideoGame>> AddVideoGame(VideoGame videoGame)
+        { 
+            this.context.VideoGames.Add(videoGame);
+            await context.SaveChangesAsync();
+
+            return Ok(GetAllVideoGames());        
+        }
+
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<ActionResult<VideoGame>> UpdateVideoGame(int id, VideoGame videoGame)
+        {
+            var game = await context.VideoGames.FindAsync(id);
+
+            if (game == null)
+            {
+                return NotFound("This video game does not exist");
+            }
+
+            game.Title = videoGame.Title;
+            game.Publisher = videoGame.Publisher;
+            game.ReleaseYear = videoGame.ReleaseYear;
+            
+            await context.SaveChangesAsync();
+
+            return Ok(GetAllVideoGames());
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult<VideoGame>> DeleteVideoGame(int id)
+        {
+            var game = await context.VideoGames.FindAsync(id);
+
+            if (game == null)
+            {
+                return NotFound("This video game does not exist");
+            }
+
+            context.VideoGames.Remove(game);
+            await context.SaveChangesAsync();
+
+            return Ok(GetAllVideoGames());
+        }
     }
 }
