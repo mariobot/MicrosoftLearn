@@ -4,8 +4,8 @@
 
 @if(Id is null)
 {
-    <PageTitle>Create a New Video Game</PageTitle>
-    <h3>Create a New Video Game</h3>
+    <PageTitle>Add a New Video Game</PageTitle>
+    <h3>Add a New Video Game</h3>
 }
 else
 {
@@ -13,7 +13,7 @@ else
     <h3>Edit a Video Game</h3>
 }
 
-<button class="btn btn-primary" onclick="@AddVideoGame">Add Video Game</button>
+
 
 <EditForm Model="game" OnSubmit="HandleSubmit">
     <div>
@@ -42,12 +42,7 @@ else
     [Parameter]
     public int? Id { get; set; }
 
-    VideoGame game = new VideoGame { Title = "New Game " };
-
-    public void AddVideoGame()
-    {
-        navigationManager.NavigateTo("/videogame");
-    }
+    VideoGame game = new VideoGame { Title = "New Game " };    
 
     async Task HandleSubmit()
     {

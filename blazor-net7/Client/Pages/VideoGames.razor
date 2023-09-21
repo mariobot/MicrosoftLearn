@@ -1,9 +1,13 @@
 ﻿@page "/videogames"
 @inject HttpClient httpClient
+@inject NavigationManager navigationManager
 
 <h3>Video Games</h3>
 
-@if (games.Count <= 0)
+<button class="btn btn-primary" @onclick="AddVideoGame">Add Video Game</button>
+<br />
+
+@if (games is null)
 {
     <span>Loading Video Games..</span>
 }
@@ -13,11 +17,14 @@ else
         <PropertyColumn Property="g => g.Title"></PropertyColumn>
         <PropertyColumn Property="g => g.Publisher"></PropertyColumn>
         <PropertyColumn Property="g => g.ReleaseYear"></PropertyColumn>
+        <TemplateColumn>
+            <button class="btn btn-primary" @onclick="() => EditVideoGame(context.Id)">Edit</button>
+        </TemplateColumn>
     </QuickGrid>
 }
 
 @code {
-    List<VideoGame> games = new List<VideoGame>();
+    List<VideoGame>? games = new List<VideoGame>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -25,5 +32,15 @@ else
 
         if (result != null)
             games = result;
+    }
+
+    public void AddVideoGame()
+    {
+        navigationManager.NavigateTo("/videogame");
+    }
+
+    void EditVideoGame(int id)
+    {
+        navigationManager.NavigateTo($"/videogame/{id}");    
     }
 }
