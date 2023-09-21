@@ -174,5 +174,5 @@ This folder hold a practical course to understand the principales features provi
 ## .NET 7 Blazor WebAssembly Full-Stack Full Course Part (with a Web API, EF Core & SQL Server) [**_blazor-net7_**](blazor-net7)
 
 This folder hold the practical course to understand a basic concepts from Blazor in .Net 7
-Part 1 - https://www.youtube.com/watch?v=OmBb8SDoWYg
-Part 2 - https://www.youtube.com/watch?v=JTaCOvlEKEw&list=TLPQMjEwOTIwMjPQ7dG33zUGow&index=1
+* Part 1 - https://www.youtube.com/watch?v=OmBb8SDoWYg
+* Part 2 - https://www.youtube.com/watch?v=JTaCOvlEKEw&list=TLPQMjEwOTIwMjPQ7dG33zUGow&index=1
