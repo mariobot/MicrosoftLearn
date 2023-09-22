@@ -26,6 +26,8 @@ else
 
 app.UseHttpsRedirection();
 
+app.UseDeveloperExceptionPage();
+
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
