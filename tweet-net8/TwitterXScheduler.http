@@ -1,0 +1,6 @@
+@TwitterXScheduler_HostAddress = http://localhost:5191
+
+GET {{TwitterXScheduler_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
