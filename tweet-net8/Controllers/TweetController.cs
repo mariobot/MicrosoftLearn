@@ -1,10 +1,8 @@
 ﻿using Hangfire;
 using Mapster;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using Tweetinvi;
-using Tweetinvi.Core.Web;
 using Tweetinvi.Models;
 using TwitterXScheduler.Models;
 
@@ -19,6 +17,41 @@ namespace TwitterXScheduler.Controllers
         public TweetController(IConfiguration configuration)
         {
             this.configuration = configuration;
+        }
+
+        [HttpPost]
+        [Route("bulk")]
+        public IActionResult ScheduleTweets(PostScheduledTweetListRequestDto request)
+        {
+            var invalidTweets = new List<PostScheduleTweetRequestDto>();
+            int scheduledTweets = 0;
+
+            foreach (var tweet in request.Tweets)
+            {
+                TimeSpan delay = tweet.ScheduleFor - DateTime.UtcNow;
+
+                if (delay <= TimeSpan.Zero)
+                {
+                    invalidTweets.Add(tweet);
+                    continue;
+                }
+
+                BackgroundJob.Schedule(() => PostTweet(tweet.Adapt<PostTweetRequestDto>()), delay);
+                scheduledTweets++;
+            }
+
+            string message;
+            if (invalidTweets.Any())
+            {
+                message = $"{scheduledTweets} tweets scheduled successfully " +
+                          $"{invalidTweets.Count} tweets had invalid dates and were not scheduled;";
+            }
+            else 
+            {
+                message = $"All tweets scheduled successfully";
+            }
+
+            return Ok(message);        
         }
 
         [HttpPost]

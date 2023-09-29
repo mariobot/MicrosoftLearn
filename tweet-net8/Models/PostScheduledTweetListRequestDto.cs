@@ -2,6 +2,6 @@
 {
     public class PostScheduledTweetListRequestDto
     {
-        public List<PostScheduledTweetListRequestDto> Tweets { get; set; } = new List<PostScheduledTweetListRequestDto>();
+        public List<PostScheduleTweetRequestDto> Tweets { get; set; } = new List<PostScheduleTweetRequestDto>();
     }
 }
