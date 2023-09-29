@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Hangfire;
+using Mapster;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using Tweetinvi;
@@ -20,6 +22,24 @@ namespace TwitterXScheduler.Controllers
         }
 
         [HttpPost]
+        [Route("schedule")]
+        public IActionResult ScheduleTweet(PostScheduleTweetRequestDto newTweet)
+        {
+            var delay = newTweet.ScheduleFor - DateTime.UtcNow;
+
+            if (delay > TimeSpan.Zero)
+            {
+                BackgroundJob.Schedule(() => PostTweet(newTweet.Adapt<PostTweetRequestDto>()), delay);
+                return Ok("Tweet scheduled");
+            }
+            else 
+            {
+                return BadRequest("Please enter a valid date and tiem");            
+            }        
+        }
+
+        [HttpPost]
+        [AutomaticRetry(Attempts = 0)]
         public async Task<IActionResult> PostTweet(PostTweetRequestDto newTweet)
         {
             var apiKey = configuration.GetValue<string>("ApiKey");
