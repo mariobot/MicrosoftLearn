@@ -8,7 +8,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddHangfire(configuration => configuration.UseSqlServerStorage("Data Source = MBOTERO\\MBOTERO;Initial Catalog = hangfire;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
+builder.Services.AddHangfire(configuration => 
+    configuration.UseSqlServerStorage(builder.Configuration.GetValue<string>("ConnectionString")));
 builder.Services.AddHangfireServer();
 
 var app = builder.Build();
