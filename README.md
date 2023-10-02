@@ -176,3 +176,9 @@ This folder hold a practical course to understand the principales features provi
 This folder hold the practical course to understand a basic concepts from Blazor in .Net 7
 * Part 1 - https://www.youtube.com/watch?v=OmBb8SDoWYg
 * Part 2 - https://www.youtube.com/watch?v=JTaCOvlEKEw&list=TLPQMjEwOTIwMjPQ7dG33zUGow&index=1
+
+## Tweet Using a .NET 8  (api client and scheduler solution with hangfire) [**_tweet-net8_**](tweet-net8)
+
+This folder hold the practical course to understand a basic concepts from .Net 8 using to make a Twitter client and scheduler client
+* Part 1 - https://www.youtube.com/watch?v=U69cDi9KLRU
+* Part 2 - https://www.youtube.com/watch?v=nnNbY5fX7eA
