@@ -1,6 +1,29 @@
 @DotNet8Authentication_HostAddress = http://localhost:5054
+@Token = CfDJ8N4tmoekzlZArssccUV8TK5qw6nCuCdWz4R-4bn_tDK2Pu1Rrk_JXdiZ47wCJZqNOhIPshxm2eUWsClI3KqgHMw3ljQaWi5PHRihy3ljQmuOQLRV-ninOPp88SWJ0Ur2MLEZAw5ci5MHiIcey69apDdANy14l5UmCnpHKxnVBTTKdjfgqoyJdZrjyRZ298jhBHcNbbngNvNiiOQWpxGhkeDN8HAZCwehyBKm6RvVeou__ya8wJ1PGsz8Gr3DPe9kj0vfUOO6-ihACAQbCu-wGInF-agjIRBsVGEeJnHIYXldkoefprPvFOzPy7yUaCMIHYUdKPgPe7THZct6iLFASy5ZSGlHFYKPs9ErIMcDCQwe-qtkz5x6SqFcAnXJpno-ihEtueeGrMrKkMsrAMQpUHkPHLR4vHKLGrZJcgebYsZ5-0O1uE62_SIwQgJpMH25ZNB-v7MLxF5hLfCEnLKMAAJwFLfze-RHWf_qddksv_0SSipddoZGGQ3hv6JJ8VyvXOQWJrtLQCdRInBWJBQJbst-Dina6e9AWfNH_HQh3iHOxSHbXDZa-i_9WAvs3rfIuom_SxtN_tY8NMQ9LEu3BitmtORwJmQf8vmgP7UNe6xI2yRor3GUOn6RaDEPIkTbIdW1xE2ENE89SboCHD6fqzaHzb5_iksyejfCtNvyypLjXy9G7VEEQGpTuSgc1UOFdQ
 
 GET {{DotNet8Authentication_HostAddress}}/weatherforecast/
-Accept: application/json
-
+Content-Type: application/json
+Authorization: Bearer {{Token}}
 ###
+
+POST {{DotNet8Authentication_HostAddress}}/register
+Content-Type: application/json
+
+{
+  "email": "mariot2@mail.com",
+  "password": "H1World*"
+}
+###
+
+POST {{DotNet8Authentication_HostAddress}}/login
+Content-Type: application/json
+
+{
+  "email": "mariot2@mail.com",
+  "password": "H1World*"
+}
+###
+
+GET {{DotNet8Authentication_HostAddress}}/manage/info
+Content-Type: application/json
+Authorization: Bearer {{Token}}

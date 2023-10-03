@@ -27,7 +27,8 @@
       "applicationUrl": "https://localhost:7081;http://localhost:5054",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "httpPort": 7081
     },
     "IIS Express": {
       "commandName": "IISExpress",
