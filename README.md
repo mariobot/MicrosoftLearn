@@ -182,3 +182,8 @@ This folder hold the practical course to understand a basic concepts from Blazor
 This folder hold the practical course to understand a basic concepts from .Net 8 using to make a Twitter client and scheduler client
 * Part 1 - https://www.youtube.com/watch?v=U69cDi9KLRU
 * Part 2 - https://www.youtube.com/watch?v=nnNbY5fX7eA
+
+## .NET 8 Authentication with Identity in a Web API with Bearer Tokens & Cookies [**_auth-net8_**](auth-net8)
+
+This folder hold the practical course to create a basic api with identity features provides from .Net 8
+* More information and video tutorial https://www.youtube.com/watch?v=8J3nuUegtL4 
