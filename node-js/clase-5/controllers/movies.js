@@ -1,5 +1,6 @@
 import { any } from 'zod';
-import { MovieModel } from '../models/movie.js'
+// import { MovieModel } from '../models/movie.js' // from file system
+import { MovieModel } from '../models/mysql/movie.js' // from mysql
 import { ValidateMovie, ValidatePartialMovie } from '../movie.js'
 
 export class MovieController {
