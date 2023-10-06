@@ -20,17 +20,37 @@ const connection = await mysql.createConnection(DATABASE_URL)
 export class MovieModel {
     static async getAll ({genre}) { 
         const [movies] = await connection.query(
-            'SELECT title, year, director, duration, poster, id FROM movie'
+            'SELECT title, year, director, duration, poster, rate, id FROM movie'
         )
 
         return movies
     }
 
-    static async getById({id}){
-        
+    static async getById({id}){        
+        const [movie] = await connection.query(
+            'SELECT title, year, director, duration, poster, rate, id FROM movie WHERE id = ?',
+            [id]
+        )
+
+        if(movie.length === 0)
+            return null
+
+        return movie[0]
     }
 
     static async createMovie(input){
+        const {            
+            title,
+            year,
+            duration,
+            director,
+            rate,
+            porter
+        } = input
+
+        const result = await connection.query('INSERT INTO movie (id, title, year, director, duration, poster, rate) values (?,?,?,?,?,?,?)',
+            [id, title, year, director, duration, porter, rate]
+        )
 
     }    
 
