@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34219.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8", "BlazorCrudDotNet8\BlazorCrudDotNet8.csproj", "{1EA8DCD4-61D9-48EF-9BC3-AA24636922BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCrudDotNet8", "BlazorCrudDotNet8\BlazorCrudDotNet8.csproj", "{1EA8DCD4-61D9-48EF-9BC3-AA24636922BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.Client", "BlazorCrudDotNet8.Client\BlazorCrudDotNet8.Client.csproj", "{1ED8D59B-4004-44BF-81FD-12FED72AAC12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCrudDotNet8.Client", "BlazorCrudDotNet8.Client\BlazorCrudDotNet8.Client.csproj", "{1ED8D59B-4004-44BF-81FD-12FED72AAC12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
