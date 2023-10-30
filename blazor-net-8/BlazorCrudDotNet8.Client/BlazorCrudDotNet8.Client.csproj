@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorCrudDotNet.Shared\BlazorCrudDotNet.Shared.csproj" />
+    <ProjectReference Include="..\BlazorCrudDotNet.Shared\BlazorCrudDotNet8.Shared.csproj" />
   </ItemGroup>
 
 </Project>
