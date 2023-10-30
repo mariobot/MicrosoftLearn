@@ -1,7 +1,7 @@
 using BlazorCrudDotNet8.Client.Pages;
 using BlazorCrudDotNet8.Components;
-using BlazorCrudDotNet8.Data;
-using BlazorCrudDotNet8.Services;
+using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
