@@ -11,8 +11,15 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddControllers();
+
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped(http => new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration.GetSection("BaseUri").Value!)
+});
 
 builder.Services.AddScoped<IGameService, GameService>();
 
@@ -31,6 +38,8 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
