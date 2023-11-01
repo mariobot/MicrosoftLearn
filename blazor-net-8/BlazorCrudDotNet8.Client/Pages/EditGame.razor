@@ -17,6 +17,10 @@ else
     <label>Name</label>
     <InputText @bind-Value="game.Name">@game.Name</InputText>
     <button type="submit" class="btn btn-primary">Submit</button>
+    @if (Id is not null)
+    {
+        <button type="button" @onclick="DeleteGame" class="btn btn-danger">Delete</button>
+    }
 </EditForm>
 
     @code {
@@ -28,11 +32,26 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        game = await gameService.GetGameById((int)Id);
+        if (Id is not null)
+        {
+            game = await gameService.GetGameById((int)Id);
+        }
     }
 
     async Task HandleSubmit()
     {
-        await gameService.AddGame(game);
+        if (Id is null)
+        {
+            await gameService.AddGame(game);
+        }
+        else
+        {
+            await gameService.EditGame((int)Id, game);        
+        }
+    }
+
+    async Task DeleteGame()
+    {
+        await gameService.DeleteGame((int)Id);    
     }
 }
