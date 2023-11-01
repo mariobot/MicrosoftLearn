@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlazorCrudDotNet8.Shared.Services
 {
@@ -24,6 +22,12 @@ namespace BlazorCrudDotNet8.Shared.Services
             return null;
             //var result = await this.httpClient.GetAsync("/games");
             //return await result.Content.ReadFromJsonAsAsyncEnumerable<Game>();
+        }
+
+        public async Task<Game> GetGameById(int id) 
+        {
+            var result = await this.httpClient.GetFromJsonAsync<Game>($"/api/game/{id}");
+            return result;
         }
 
         public async Task<Game> AddGame(Game game)

@@ -6,5 +6,6 @@ namespace BlazorCrudDotNet8.Shared.Services
     {
         Task<List<Game>> GetAllGames();
         Task<Game> AddGame(Game game);
+        Task<Game> GetGameById(int id);
     }
 }
