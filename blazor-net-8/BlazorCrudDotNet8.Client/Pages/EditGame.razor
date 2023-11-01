@@ -3,7 +3,15 @@
 @inject IGameService gameService
 @attribute [RenderModeInteractiveWebAssembly]
 
-<h3>EditGame</h3>
+@if (Id is null)
+{
+    <h3>Create a Game</h3>
+}
+else
+{
+    <h3>Edit @game.Name</h3>
+}
+
 
 <EditForm Model="game" OnSubmit="HandleSubmit">
     <label>Name</label>
@@ -15,8 +23,13 @@
 
     [Parameter]
     public int? Id { get; set; }
-    
+
     Game game { get; set; } = new Game { Name = string.Empty };
+
+    protected override async Task OnParametersSetAsync()
+    {
+        game = await gameService.GetGameById((int)Id);
+    }
 
     async Task HandleSubmit()
     {

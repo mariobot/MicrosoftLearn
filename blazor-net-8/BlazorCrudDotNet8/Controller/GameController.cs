@@ -21,5 +21,13 @@ namespace BlazorCrudDotNet8.Controller
             var addGame = await this.gameService.AddGame(game);
             return Ok(addGame);
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<Game>> GetGameById(int id)
+        { 
+            var game = await this.gameService.GetGameById(id);
+            return Ok(game);
+        }
     }
 }
