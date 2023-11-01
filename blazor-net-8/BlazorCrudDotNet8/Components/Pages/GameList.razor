@@ -20,7 +20,7 @@ else
     <ul>
         @foreach(var game in games)
         {
-            <li>@game.Name</li>
+            <li>@game.Name <EditGameButton Id="@game.Id"></EditGameButton></li>
         }
     </ul>    
 }
