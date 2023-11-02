@@ -187,3 +187,8 @@ This folder hold the practical course to understand a basic concepts from .Net 8
 
 This folder hold the practical course to create a basic api with identity features provides from .Net 8
 * More information and video tutorial https://www.youtube.com/watch?v=8J3nuUegtL4 
+
+## CRUD w/ Blazor in .NET 8 All Render Modes (SSR, Server, Wasm, Auto), Entity Framework & SQL Server [**_blazor-net-8_**](blazor-net-8)
+
+This folder hold a practical lab to understand all render modes (SSR, Server, Wasm, Auto) in .Net 8 with Blazor. 
+* Original video on https://www.youtube.com/watch?v=w8imy7LT9zY&t=468s
