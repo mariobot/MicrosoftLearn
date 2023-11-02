@@ -5,3 +5,19 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<FluentStack HorizontalGap="10">
+    <FluentButton>Button</FluentButton>
+    <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+    <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+    <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+    <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+    <FluentButton Appearance="Appearance.Filled">Filled</FluentButton>
+    <FluentButton BackgroundColor="var(--highlight-bg)" Color="var(--info)">Colored</FluentButton>
+</FluentStack>
+
+@code {
+
+    bool loading = false;
+}
+
