@@ -1,5 +1,6 @@
 using FluentUiBlazor.Client.Pages;
 using FluentUiBlazor.Components;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddFluentUIComponents(options => {
+    options.HostingModel = BlazorHostingModel.Hybrid;
+});
 
 var app = builder.Build();
 
@@ -27,9 +34,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Counter).Assembly);
+    .AddAdditionalAssemblies(typeof(Counter).Assembly,typeof(FluentButton).Assembly);
 
 app.Run();
