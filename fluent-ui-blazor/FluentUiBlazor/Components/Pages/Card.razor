@@ -1,0 +1,27 @@
+﻿@page "/card"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Card</h3>
+<FluentCard Width="400px" Height="400px">
+    <p>Just some content in a card (with a button that does not do anything).</p>
+    <FluentButton Appearance="Appearance.Accent">Hello</FluentButton>
+</FluentCard>
+
+<h3>Two Cards</h3>
+
+<FluentStack>
+    <FluentCard Width="300px" Height="300px">
+        <p>This card's content is for the First Card</p>
+        <label for="people-listbox">Information First Card</label>        
+
+    </FluentCard>
+    <FluentCard Width="300px" Height="300px" AreaRestricted="false">
+        <p>This card's content is for the Second Card</p>
+        <label for="people-listbox">Information Second Card</label>
+    </FluentCard>
+</FluentStack>
+
+@code {
+
+}
