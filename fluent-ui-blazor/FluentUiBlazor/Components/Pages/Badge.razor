@@ -38,7 +38,130 @@
     <FluentBadge Appearance="Appearance.Accent" slot="end" BackgroundColor="#ffd800">New!</FluentBadge>
 </FluentButton>
 
+<h3>Counter Budge</h3>
 
+<FluentCounterBadge Count="100" Appearance="Appearance.Accent">
+    <FluentButton>
+        <FluentIcon Icon="Icons.Regular.Size24.Alert" Color="@Color.Neutral" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentCounterBadge Count="5" Appearance="Appearance.Neutral">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Icon="Icons.Regular.Size24.Alert" Color="@Color.Fill" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentCounterBadge Count="5" Appearance="Appearance.Lightweight">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Icon="Icons.Regular.Size24.Alert" Color="@Color.Fill" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentCounterBadge Count="5" Appearance="Appearance.Lightweight" BackgroundColor="Color.Lightweight" Color="Color.Error">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Icon="Icons.Regular.Size24.Alert" Color="@Color.Fill" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<FluentSpacer Width="25" />
+
+
+<FluentCounterBadge Count="9" BackgroundColor="@Color.Error" Color="Color.Fill">
+    <FluentButton Appearance="Appearance.Filled">
+        <FluentIcon Icon="Icons.Regular.Size24.Mail" Color="@Color.FillInverse" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentCounterBadge Count="0" Appearance="Appearance.Accent" ShowZero=true>
+    <FluentButton>
+        <FluentIcon Icon="Icons.Regular.Size24.Alert" Color="@Color.Neutral" />
+    </FluentButton>
+</FluentCounterBadge>
+
+<h3>Presence Badge</h3>
+
+<FluentPresenceBadge Status="PresenceStatus.Available" Size="PresenceBadgeSize.Tiny">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" Width="24px" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge Status="PresenceStatus.Available" Size="PresenceBadgeSize.ExtraSmall">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" Width="32px" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge Status="PresenceStatus.Available" Size="PresenceBadgeSize.Small">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" Width="36px" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge Status="PresenceStatus.Available" Size="PresenceBadgeSize.Medium">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" Width="48px" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge Status="PresenceStatus.Available" Size="PresenceBadgeSize.Large">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" Width="64px" />
+</FluentPresenceBadge>
+
+
+<h3>Out of office options</h3>
+
+
+@namespace FluentUI.Demo.Shared
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.Available">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.Away">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.Busy">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.DoNotDisturb">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.Offline">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.OutOfOffice">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
+
+<FluentSpacer Width="25" />
+
+<FluentPresenceBadge OutOfOffice=true Status="PresenceStatus.Unknown">
+    <FluentIcon Icon="Icons.Regular.Size24.Person" />
+</FluentPresenceBadge>
 
 
 @code {
