@@ -9,14 +9,24 @@
 
         <NavMenu />
 
-        <FluentBodyContent>
+        <FluentBodyContent> 
             @Body
         </FluentBodyContent>
 
     </FluentStack>
 
-    <FluentFooter>
-        <FluentAnchor Href="http://www.github.com/mariobot">@@MaRioBoT</FluentAnchor>
+    <FluentFooter Style="position: fixed;left: 0; bottom: 0; width: 100%; text-align: center;">
+        <FluentGrid>
+            <FluentGridItem xs="4">
+                <FluentAnchor Appearance="Appearance.Lightweight" Href="http://www.github.com/mariobot" Target="_blank">@@MaRioBoT</FluentAnchor>
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentAnchor Appearance="Appearance.Lightweight" Href="https://www.fluentui-blazor.net" Target="_blank">www.fluentui-blazor.net Documentation</FluentAnchor>
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentAnchor Appearance="Appearance.Lightweight" Href="https://github.com/microsoft/fluentui-blazor#microsoft-fluent-ui-blazor-components" Target="_blank">Install FluentUi Guide</FluentAnchor>
+            </FluentGridItem>
+        </FluentGrid>
     </FluentFooter>
 
     <div id="blazor-error-ui">
