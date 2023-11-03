@@ -1,0 +1,46 @@
+﻿@page "/badge"
+
+
+<h3>Badge</h3>
+
+<FluentBadge Appearance="Appearance.Lightweight" OnClick="@((e) => null)">
+    Lightweight
+</FluentBadge>
+
+<FluentBadge Appearance="Appearance.Accent">
+    Accent
+</FluentBadge>
+
+<FluentBadge Appearance="Appearance.Neutral">
+    Neutral
+</FluentBadge>
+
+<FluentBadge Fill="somevalue" BackgroundColor="red" Color="white">Red and White</FluentBadge>
+
+<FluentBadge Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Highlight</FluentBadge>
+
+<FluentBadge Appearance="Appearance.Neutral" Fill="lowlight" BackgroundColor="#000" Color="#fff">Lowlight</FluentBadge>
+
+<h3>Circular</h3>
+
+<FluentBadge Circular=true Appearance="Appearance.Accent" BackgroundColor="#ffd800">
+    Circular
+</FluentBadge>
+
+<FluentBadge Circular=true Appearance="Appearance.Neutral" BackgroundColor="#ffd800">
+    Circular
+</FluentBadge>
+
+<h3>In a slot</h3>
+
+<FluentButton Appearance="Appearance.Neutral">
+    More options...
+    <FluentBadge Appearance="Appearance.Accent" slot="end" BackgroundColor="#ffd800">New!</FluentBadge>
+</FluentButton>
+
+
+
+
+@code {
+
+}
