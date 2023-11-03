@@ -1,0 +1,37 @@
+﻿@page "/autocomplete"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Autocomplete</h3>
+
+<FluentAutocomplete TOption="City"
+                    Label="Select a Colombian city"
+                    Width="250px"
+                    Placeholder="Select a city"
+                    OnOptionsSearch="@OnSearch"
+                    MaximumSelectedOptions="3"
+                    OptionText="@(item => item.Name)"
+                    @bind-SelectedOptions="@SelectedItems" />
+
+<p>
+    <b>Selected</b>: @(String.Join(" - ", SelectedItems.Select(i => i.Name)))
+</p>
+
+@code
+{
+    IEnumerable<City> data = new List<City>() { new City() { Name = "Bogota" }, new City() { Name = "Medellin" }, new City() { Name = "Cali" }, new City() { Name = "Manizales" }, new City() { Name = "Pereira" } };
+
+    IEnumerable<City> SelectedItems = Array.Empty<City>();
+
+    private void OnSearch(OptionsSearchEventArgs<City> e)
+    {
+        var allCountries = data;
+        e.Items = allCountries.Where(i => i.Name.StartsWith(e.Text, StringComparison.OrdinalIgnoreCase))
+                              .OrderBy(i => i.Name);
+    }    
+
+    public class City()
+    {
+        public string Name { get; set; }        
+    }
+}
