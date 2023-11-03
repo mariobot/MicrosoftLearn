@@ -1,7 +1,12 @@
 ﻿
 <FluentNavMenu Width="250">
-    <FluentNavLink Icon="@(new Icons.Regular.Size24.Home())" Match="NavLinkMatch.All" Href="">Home</FluentNavLink>
+    <FluentNavLink Icon="@(new Icons.Regular.Size24.Home())" Match="NavLinkMatch.All" Href="/">Home</FluentNavLink>
     <FluentNavLink Icon="@(new Icons.Regular.Size24.Calculator())" Href="counter">Counter</FluentNavLink>
+    <FluentNavLink Icon="@(new Icons.Regular.Size24.RowTriple())" Href="accordion">Accordion</FluentNavLink>
+    <FluentNavGroup Title="Item 3">        
+        
+        <FluentNavLink Icon="@(new Icons.Regular.Size24.LeafTwo())">Item 3.2</FluentNavLink>
+    </FluentNavGroup>
     <FluentNavGroup Title="Item 3">
         <FluentNavLink Icon="@(new Icons.Regular.Size24.LeafOne())">Item 3.1</FluentNavLink>
         <FluentNavLink Icon="@(new Icons.Regular.Size24.LeafTwo())">Item 3.2</FluentNavLink>
