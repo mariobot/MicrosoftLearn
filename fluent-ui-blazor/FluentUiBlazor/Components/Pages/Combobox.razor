@@ -1,0 +1,36 @@
+﻿@page "/combobox"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Combobox</h3>
+
+<h4>Select the best song from the list or type your own</h4>
+<FluentCombobox Label="Best song" Items="@Hits" OptionText="@(i => i.Name)" OptionValue="@(i => i.Name)" @bind-Value="@hit" Height="200px" />
+<p>
+    Selected hit: @hit
+</p>
+
+<h4>Pre-selected option</h4>
+<FluentCombobox AriaLabel="Pre-selected option" Items="@Sizes" OptionText="@(i => i.Name)" OptionValue="@(i => i.Name)" @bind-Value="@size" Height="200px" />
+<p>
+    Selected size: @size 
+</p>
+
+<h4>With Placeholder</h4>
+<FluentCombobox Placeholder="Please select a size" Items="new List<int>(){1,100,1000,10000}" @bind-Value="@number" Height="200px" />
+<p>
+    Selected number: @number
+</p>
+
+@code {
+    string? hit = "Black Album";
+    string? size = "M";
+    string? number = null;
+    
+
+    public List<Hit> Hits = new List<Hit>() { new Hit() { Name = "Black Album" }, new Hit() { Name = "Wonderfull" }, new Hit() { Name = "The Magic" } };
+    public List<Size> Sizes = new List<Size>() { new Size() { Name = "S" }, new Size() { Name = "M" }, new Size() { Name = "L" }, new Size() { Name = "XL" }, new Size() { Name = "XLL" } };
+
+    public class Hit() { public string Name { get; set; }};
+    public class Size() { public string Name { get; set; }}
+}
