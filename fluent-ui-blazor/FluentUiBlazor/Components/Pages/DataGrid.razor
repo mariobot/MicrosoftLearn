@@ -31,10 +31,26 @@
 
 <FluentPaginator State="@pagination" />
 
+<h3>Remote Data</h3>
+
+<div style="height: 434px; overflow:auto;" tabindex="-1">
+    <FluentDataGrid ItemsProvider="countryProvider" Virtualize="true" ItemSize="46" GenerateHeader="GenerateHeaderOption.Sticky" TGridItem="Country">
+        <PropertyColumn Title="Code" Property="@(c => c!.Code)" />
+        <PropertyColumn Property="@(c => c!.Name)" Style="color:burlywood" />
+        <PropertyColumn Property="@(c => c!.Medals.Total)" />
+        <TemplateColumn Title="Actions" Align="@Align.End">
+            <FluentButton IconEnd="@(new Icons.Regular.Size16.Edit())" OnClick="@(() => null)" />
+            <FluentButton IconEnd="@(new Icons.Regular.Size16.Delete())" OnClick="@(() => null)" />
+        </TemplateColumn>
+    </FluentDataGrid>
+</div>
+
+
 @code {
 
     bool _clearItems = false;
     IQueryable<Country>? items;
+    IQueryable<Country>? items2;
     PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
     string nameFilter = string.Empty;
 
@@ -48,9 +64,12 @@
 
     IQueryable<Country>? FilteredItems => items?.Where(x => x.Name.Contains(nameFilter, StringComparison.CurrentCultureIgnoreCase));
 
+    GridItemsProvider<Country> countryProvider = default!;
+
     protected override void OnInitialized()
     {
         items = _countries.AsQueryable();
+        items2 = _countries.AsQueryable();
     }
 
     private void HandleCountryFilter(ChangeEventArgs args)
@@ -68,6 +87,20 @@
             nameFilter = string.Empty;
         }
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ICollection<Country> countryCollection = _countries;
+
+        countryProvider = async req =>
+        {        
+            return GridItemsProviderResult.From<Country>(
+            items: countryCollection,
+            totalItemCount: 0);
+        };
+    }
+
+
 
     record Person(int PersonId, string Name, DateOnly BirthDate);
 
