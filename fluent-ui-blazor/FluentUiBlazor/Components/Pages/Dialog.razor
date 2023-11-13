@@ -30,7 +30,9 @@
         </FluentButton>
     </div>
 
+<h3>Custom Dialog</h3>
 
+<FluentButton Appearance="Appearance.Accent" OnClick="@OpenAsync">Open custom dialog</FluentButton>
 
 
 
@@ -68,5 +70,19 @@
         {
             SimplePerson? simplePerson = result.Data as SimplePerson;
         }
+    }
+
+    private async Task OpenAsync()
+    {
+        var dialog = await DialogService.ShowDialogAsync<SimpleCustomDialog>(simplePerson, new DialogParameters()
+            {
+                Height = "240px",
+                Title = $"Updating the {simplePerson.Firstname} sheet",
+                PreventDismissOnOverlayClick = true,
+                PreventScroll = true,
+            });
+
+        var result = await dialog.Result;
+        var data = result.Data as SimplePerson;
     }
 }
