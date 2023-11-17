@@ -192,3 +192,7 @@ This folder hold the practical course to create a basic api with identity featur
 
 This folder hold a practical lab to understand all render modes (SSR, Server, Wasm, Auto) in .Net 8 with Blazor. 
 * Original video on https://www.youtube.com/watch?v=w8imy7LT9zY&t=468s
+
+## Project in Blazor in .NET 8 to test FluentUI Components provides from Microsoft [**_fluent-ui-blazor_**](fluent-ui-blazor)
+
+This folder hold a practical lab to use FluentUi Components, Using the major component test existing.
