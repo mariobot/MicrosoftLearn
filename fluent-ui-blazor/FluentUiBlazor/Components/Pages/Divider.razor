@@ -1,0 +1,25 @@
+﻿@page "/divider"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Divider</h3>
+<p>
+    <FluentStack Orientation="Orientation.Vertical">
+        <span>before divider</span>
+        <FluentDivider Style="width: 100%;" Role="DividerRole.Presentation"></FluentDivider>
+        <span>after divider</span>
+    </FluentStack>
+</p>
+
+<h4>Separator</h4>
+<p>
+    <FluentStack Orientation="Orientation.Vertical">
+        <span>before divider</span>
+        <FluentDivider Style="width: 100%;" Orientation=Orientation.Horizontal Role="DividerRole.Separator"></FluentDivider>
+        <span>after divider</span>
+    </FluentStack>
+</p>
+
+@code {
+
+}
