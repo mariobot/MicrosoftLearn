@@ -1,0 +1,8 @@
+﻿@page "/label"
+
+@attribute [RenderModeInteractiveServer(true)]
+
+@foreach (var typo in Enum.GetValues<Typography>())
+{
+    <FluentLabel Typo="@typo"> Example '@(typo.ToString())' label </FluentLabel>
+}
