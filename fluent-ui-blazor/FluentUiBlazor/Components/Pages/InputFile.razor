@@ -52,6 +52,8 @@
     </ul>
 }
 
+<FluentButton IconEnd="@(new Icons.Regular.Size24.Delete())" OnClick="DeleteFiles">Delete</FluentButton>
+
 @code
 {
     FluentInputFileEventArgs[] Files = Array.Empty<FluentInputFileEventArgs>();
@@ -71,4 +73,10 @@
     {
         // Error code
     }
+
+    void DeleteFiles()
+    {
+        Files = Array.Empty<FluentInputFileEventArgs>();
+        
+    }    
 }
