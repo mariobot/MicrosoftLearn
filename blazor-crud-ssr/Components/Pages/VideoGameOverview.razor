@@ -1,0 +1,43 @@
+﻿@page "/games"
+@inject DataContext dataContext
+@attribute [StreamRendering]
+
+<PageTitle>Video Games</PageTitle>
+<h3>Video Games</h3>
+
+@if (videoGames.Count == 0)
+{
+    <p><em>Loading Video Games...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Release Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var videoGame in videoGames)
+            {
+                <tr>
+                    <td>@videoGame.Title</td>
+                    <td>@videoGame.Publisher</td>
+                    <td>@videoGame.ReleaseDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    List<VideoGame> videoGames = new List<VideoGame>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        videoGames = await dataContext.VideoGames.ToListAsync();
+    }
+}
