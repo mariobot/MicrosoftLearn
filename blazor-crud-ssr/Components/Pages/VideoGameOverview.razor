@@ -1,6 +1,7 @@
 ﻿@page "/games"
 @inject DataContext dataContext
 @attribute [StreamRendering]
+@inject NavigationManager navigationManager
 
 <PageTitle>Video Games</PageTitle>
 <h3>Video Games</h3>
@@ -18,6 +19,7 @@ else
                 <th>Publisher</th>
                 <th>Release Year</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +30,12 @@ else
                     <td>@videoGame.Publisher</td>
                     <td>@videoGame.ReleaseDate</td>
                     <td><a href="/edit-game/@videoGame.Id">Edit</a></td>
+                    <td>
+                        <form method="post" @formname="@($"deletegameform{videoGame.Id}")" @onsubmit="() => DeleteGame(videoGame.Id)">
+                            <button class="btn btn-danger">Delete</button>
+                            <AntiforgeryToken></AntiforgeryToken>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -43,5 +51,18 @@ else
     protected override async Task OnInitializedAsync()
     {
         videoGames = await dataContext.VideoGames.ToListAsync();
+    }
+
+    private async Task DeleteGame(int Id)
+    {
+        var dbGame = await dataContext.VideoGames.FindAsync(Id);
+        if (dbGame is not null)
+        {
+            dataContext.Remove(dbGame);
+            await dataContext.SaveChangesAsync();
+
+            videoGames = await dataContext.VideoGames.ToListAsync();
+            //navigationManager.NavigateTo("/games");
+        }
     }
 }
