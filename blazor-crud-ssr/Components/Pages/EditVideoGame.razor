@@ -13,17 +13,32 @@ else
     <h3>Edit "@currentGame.Title"</h3>
 }
 
-<PageTitle></PageTitle>
+<EditForm Model="currentGame" OnSubmit="HandleSubmit" FormName="GameForm">
+    <div>
+        <label for="title">Title</label>
+        <InputText id="title" @bind-Value="currentGame.Title" class="form-control" ></InputText>
+    </div>
+    <div>
+        <label for="publisher">Publisher</label>
+        <InputText id="publisher" @bind-Value="currentGame.Publisher" class="form-control" ></InputText>
+    </div>
+    <div>
+        <label for="release">ReleaseDate</label>
+        <InputNumber id="release" @bind-Value="currentGame.ReleaseDate" class="form-control"></InputNumber>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Video Game</button>
+</EditForm>
 
-<h3>Edit Video Game</h3>
-
-
+<p>@status</p>
 
 @code {
     [Parameter]
     public int? Id { get; set; } = null;
 
+    [SupplyParameterFromForm]
     public VideoGame currentGame { get; set; } = new();
+
+    private string status = string.Empty;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -38,8 +53,34 @@ else
         }
         else
         {
-            
+
         }
     }
 
+    public async Task HandleSubmit()
+    {
+        if (Id is not null)
+        {
+            //Update
+        }
+        else
+        {
+            await CreateVideoGame();
+        }
+    }
+
+    public async Task CreateVideoGame()
+    {
+        dataContext.VideoGames.Add(currentGame);
+        var result = await dataContext.SaveChangesAsync();
+
+        if (result == 1)
+        {
+            status = "Game added successfully";
+        }
+        else
+        {
+            status = "Something was wrong..";    
+        }
+    }
 }
