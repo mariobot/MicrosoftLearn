@@ -13,7 +13,7 @@ else
     <h3>Edit "@currentGame.Title"</h3>
 }
 
-<EditForm Model="currentGame" OnSubmit="HandleSubmit" FormName="GameForm">
+<EditForm Enhance Model="currentGame" OnSubmit="HandleSubmit" FormName="GameForm">
     <div>
         <label for="title">Title</label>
         <InputText id="title" @bind-Value="currentGame.Title" class="form-control" ></InputText>

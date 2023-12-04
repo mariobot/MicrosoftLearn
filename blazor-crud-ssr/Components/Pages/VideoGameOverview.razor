@@ -31,7 +31,7 @@ else
                     <td>@videoGame.ReleaseDate</td>
                     <td><a href="/edit-game/@videoGame.Id">Edit</a></td>
                     <td>
-                        <form method="post" @formname="@($"deletegameform{videoGame.Id}")" @onsubmit="() => DeleteGame(videoGame.Id)">
+                        <form method="post" data-enhance @formname="@($"deletegameform{videoGame.Id}")" @onsubmit="() => DeleteGame(videoGame.Id)">
                             <button class="btn btn-danger">Delete</button>
                             <AntiforgeryToken></AntiforgeryToken>
                         </form>
