@@ -61,11 +61,32 @@ else
     {
         if (Id is not null)
         {
-            //Update
+            await UpdateVideoGame();
         }
         else
         {
             await CreateVideoGame();
+        }
+    }
+
+    async Task UpdateVideoGame()
+    {
+        var dbGame = await dataContext.VideoGames.FindAsync(Id);
+        if (dbGame is not null)
+        {
+            dbGame.Title = currentGame.Title;
+            dbGame.Publisher = currentGame.Publisher;
+            dbGame.ReleaseDate = currentGame.ReleaseDate;
+
+            var result = await dataContext.SaveChangesAsync();
+
+            if (result == 1)
+            {
+                status = "Game updated successfully!";
+            }
+            else
+            {
+                status = "Something went wrong...";            }
         }
     }
 
