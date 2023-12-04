@@ -17,6 +17,7 @@ else
                 <th>Title</th>
                 <th>Publisher</th>
                 <th>Release Year</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -26,11 +27,14 @@ else
                     <td>@videoGame.Title</td>
                     <td>@videoGame.Publisher</td>
                     <td>@videoGame.ReleaseDate</td>
+                    <td><a href="/edit-game/@videoGame.Id">Edit</a></td>
                 </tr>
             }
         </tbody>
     </table>
 }
+
+<a href="/edit-game">Add Video Game</a>
 
 @code {
 

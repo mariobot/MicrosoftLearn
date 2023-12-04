@@ -1,0 +1,45 @@
+﻿@page "/edit-game"
+@page "/edit-game/{Id:int}"
+@inject DataContext dataContext
+
+@if (Id is null)
+{
+    <PageTitle>Add a New Video Game</PageTitle>
+    <h3>Add a New Video Game</h3>
+}
+else
+{
+    <PageTitle>Edit "@currentGame.Title"</PageTitle>
+    <h3>Edit "@currentGame.Title"</h3>
+}
+
+<PageTitle></PageTitle>
+
+<h3>Edit Video Game</h3>
+
+
+
+@code {
+    [Parameter]
+    public int? Id { get; set; } = null;
+
+    public VideoGame currentGame { get; set; } = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id is not null)
+        {
+            var game = await dataContext.VideoGames.FindAsync(Id);
+            if (game is not null)
+            {
+                currentGame.Title ??= game.Title;
+                currentGame.Publisher ??= game.Publisher;
+                currentGame.ReleaseDate ??= game.ReleaseDate;            }
+        }
+        else
+        {
+            
+        }
+    }
+
+}
