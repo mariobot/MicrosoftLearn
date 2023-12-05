@@ -1,0 +1,91 @@
+﻿@page "/messagebar"
+@inject IMessageService MessageService
+
+@attribute [RenderModeInteractiveServer(true)]
+
+<h3>MessageBar</h3>
+
+<FluentButton OnClick="@AddInTopBar" Appearance="Appearance.Accent">Add on top</FluentButton>
+<FluentButton OnClick="@AddDangerMessage" Appearance="Appearance.Accent">Add danger message</FluentButton>
+<FluentButton OnClick="@DisplayMessage" Appearance="Appearance.Accent">Display with options</FluentButton>
+
+<br />
+<br />
+
+<FluentButton Appearance="Appearance.Accent" OnClick="@((e) => MessageService.Clear())">Clear all messages</FluentButton>
+
+<br />
+<br />
+
+<FluentStack Orientation="@Orientation.Vertical" VerticalGap="8">
+    <FluentMessageBar Title="Descriptive title">
+        Message providing information to the user with actionable insights.
+    </FluentMessageBar>
+
+    <FluentMessageBar Title="Descriptive title" Intent="@MessageIntent.Success">
+        Message providing information to the user with actionable insights.
+    </FluentMessageBar>
+
+    <FluentMessageBar Title="Descriptive title" Intent="@MessageIntent.Warning">
+        Message providing information to the user with actionable insights.
+    </FluentMessageBar>
+
+    <FluentMessageBar Title="Descriptive title" Intent="@MessageIntent.Error">
+        Message providing information to the user with actionable insights.
+    </FluentMessageBar>
+
+    <FluentMessageBar Title="Descriptive title" Intent="@MessageIntent.Custom" Icon="@(new Icons.Filled.Size20.LeafTwo())" IconColor="Color.Neutral">
+        Message providing information to the user with actionable insights.
+    </FluentMessageBar>
+</FluentStack>
+
+@code {
+
+    void AddInTopBar()
+    {
+        var message = $"Simple message example.";
+        MessageService.ShowMessageBarAsync(message, MessageIntent.Info, "MESSAGES_TOP");
+    }
+
+    void AddDangerMessage()
+    {
+        MessageService.ShowMessageBarAsync("This message is an example to error notification", MessageIntent.Error, "MESSAGES_TOP");            
+    }
+
+    void DisplayMessage()
+    {
+        ActionLink<Message> link = new()
+            {
+                Text = "Learn more",
+                Href = "https://bing.com",
+                OnClick = (e) => { return Task.CompletedTask; }
+            };
+
+        ActionButton<Message> action1 = new()
+            {
+                Text = "Action 1",
+                OnClick = (e) => { return Task.CompletedTask; }
+            };
+
+        ActionButton<Message> action2 = new()
+            {
+                Text = "Action 2",
+                OnClick = (e) => { return Task.CompletedTask; }
+            };
+
+        MessageService.ShowMessageBar(options =>
+        {
+            options.Section = "MESSAGES_TOP";
+            options.Title = "This is the important stuff";
+            options.Body = "The extra information should be kept at roughly 100 characters (which is about this long maximal).";
+            options.Intent = MessageIntent.Warning;
+            options.Icon = new Icons.Regular.Size24.PersonCircle();
+            options.ClearAfterNavigation = true;
+            options.OnClose = (e) => { return Task.CompletedTask; };
+            options.Link = link;
+            options.PrimaryAction = action1;
+            options.SecondaryAction = action2;
+
+        });
+    }
+}

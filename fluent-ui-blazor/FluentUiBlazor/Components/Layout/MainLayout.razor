@@ -7,9 +7,10 @@
 
     <FluentStack Orientation="Orientation.Horizontal">
         
-        <NavMenu />
+        <NavMenu />        
 
         <FluentBodyContent> 
+            <FluentMessageBarProvider @rendermode="RenderMode.InteractiveServer" Section="MESSAGES_TOP" />
             @Body
         </FluentBodyContent>
 
