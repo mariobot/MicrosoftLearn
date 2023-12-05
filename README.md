@@ -196,3 +196,8 @@ This folder hold a practical lab to understand all render modes (SSR, Server, Wa
 ## Project in Blazor in .NET 8 to test FluentUI Components provides from Microsoft [**_fluent-ui-blazor_**](fluent-ui-blazor)
 
 This folder hold a practical lab to use FluentUi Components, Using the major component test existing.
+
+## CRUD with Blazor SSR (Static Server-Side Rendering) in .NET 8 [**_blazor-crud-ssr_**](blazor-crud-ssr)
+
+This folder hol a practical lab to understand the Static Server-Side Rendering with Blazor .Net 8 with a basic crud actions. 
+* Original video on https://www.youtube.com/watch?v=EqSgqm4qWjo 
