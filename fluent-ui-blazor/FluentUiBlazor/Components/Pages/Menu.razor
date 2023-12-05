@@ -1,0 +1,59 @@
+﻿@page "/menu"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Menu</h3>
+
+<p>Click this button to open a Menu.</p>
+<FluentButton id="btnOpen1" Appearance="Appearance.Accent" @onclick="@(() => open = !open)">
+    Open menu
+</FluentButton>
+
+<FluentMenu Anchor="btnOpen1" @bind-Open="open" @onmenuchange=OnMenuChange>
+    <FluentMenuItem OnClick="@((e) => null)">
+        Menu item 1
+    </FluentMenuItem>
+    <FluentMenuItem OnClick="@((e) => null)"
+                    Checked="true">
+        Menu item 2 Checked
+    </FluentMenuItem>
+    <FluentMenuItem OnClick="@((e) => null)"
+                    Disabled="true">
+        Menu item 3 Disabled
+    </FluentMenuItem>
+    <FluentMenuItem OnClick="@((e) => null)">
+        <span slot="start"><FluentIcon Value="@(new Icons.Regular.Size24.ClipboardPaste())" Color="Color.Neutral" Slot="start" /></span>
+        Menu item 4 with Icon
+    </FluentMenuItem>
+</FluentMenu>
+
+<p>@status</p>
+
+<FluentSwitch @bind-Value="@open2">Show</FluentSwitch>
+<FluentMenu @bind-Open="@open2" @onmenuchange=OnMenuChange2 Width="400px">
+    <FluentMenuItem>Menu item 1</FluentMenuItem>
+    <FluentMenuItem>Menu item 2</FluentMenuItem>
+    <FluentMenuItem Disabled="true">Menu item 3 Disabled</FluentMenuItem>
+    <FluentMenuItem>Menu item 4</FluentMenuItem>
+</FluentMenu>
+
+<p>@status2</p>
+
+@code {
+    bool open = false;
+    bool open2 = false;
+    private string status = "";
+    private string status2 = "";
+
+    private void OnMenuChange(MenuChangeEventArgs args)
+    {
+        if (args is not null && args.Value is not null)
+            status = $"{args.Value} selected";
+    }
+
+    private void OnMenuChange2(MenuChangeEventArgs args)
+    {
+        if (args is not null && args.Value is not null)
+            status2 = $"Item \"{args.Value}\" clicked";
+    }
+}
