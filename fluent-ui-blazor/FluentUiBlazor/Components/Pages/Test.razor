@@ -1,7 +1,33 @@
 ﻿@page "/test"
 
-<FluentUiBlazor.Components.Layout.NavMenu2></FluentUiBlazor.Components.Layout.NavMenu2>
+<FluentGrid>
+    @foreach (var ico in icons)
+    {
+        <FluentGridItem xs="1">
+            @Icons.GetInstance(ico).Content            
+            
+            @* <FluentIcon Icon="@(new Icons.Filled.Size24.Alert())">
+            </FluentIcon> *@
+
+            @* <FluentIcon Icon="" IconStart="@(new Icons.Filled.Size24.Alert().WithColor(css))"
+                          Title="@ico. "
+                          Appearance="Appearance.Accent">
+                @ico.Variant.
+            </FluentIcon>             *@
+        </FluentGridItem>
+    }
+</FluentGrid>
 
 @code {
 
+    IEnumerable<IconInfo> icons { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        icons = Icons.GetAllIcons();
+
+        var t = Icons.GetInstance(this.icons.FirstOrDefault());
+
+        return base.OnInitializedAsync();
+    }
 }
