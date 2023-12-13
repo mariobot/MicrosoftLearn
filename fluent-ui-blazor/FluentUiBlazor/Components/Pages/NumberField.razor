@@ -1,0 +1,93 @@
+﻿@page "/numberfield"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>NumberField</h3>
+
+<p>
+    <FluentNumberField @bind-Value="exampleInt" Label="Integer" />
+    <br />
+    Example int: @exampleInt
+    <br />
+    Minimum value: @(int.MinValue); Maximum value: @(int.MaxValue)
+</p>
+<p>
+    <FluentNumberField @bind-Value="exampleNullableInt" Label="Nullable integer" />
+    <br />
+    Example nullable int: @exampleNullableInt
+    <br />
+    Minimum value: @(int.MinValue); Maximum value: @(int.MaxValue)
+</p>
+<p>
+    Same as above but bound to oninput event
+    <br />
+    <FluentNumberField @bind-Value="exampleInt2"
+                       Appearance="FluentInputAppearance.Filled"
+                       @oninput="@(e => Int32.TryParse(e.Value?.ToString(), out exampleInt2))"
+                       Label="Integer" />
+    <br />
+    Example int: @exampleInt2
+</p>
+<p>
+    Nullable int bound to oninput event
+    <br />
+    <FluentNumberField @bind-Value="exampleNullableInt2"
+                       Appearance="FluentInputAppearance.Filled"
+                       @oninput="@(e => exampleNullableInt2 = int.TryParse(e.Value?.ToString(), out int tmp) ? (int?)tmp : null)"
+                       Label="Nullable integer" />
+    <br />
+    Example nullable int: @exampleNullableInt2
+</p>
+
+<h3>Types</h3>
+
+<p>
+    <FluentNumberField @bind-Value="exampleLong">Long</FluentNumberField><br />
+    Example long: @exampleLong
+    <br />
+    Minimum value: -999999999999; Maximum value: 999999999999
+</p>
+<p>
+    <FluentNumberField @bind-Value="shortMin">Short</FluentNumberField>
+    <br />
+    Minimum value: @(short.MinValue); Maximum value: @(short.MaxValue)
+</p>
+
+<p>
+    <FluentNumberField @bind-Value="@exampleFloat">Float</FluentNumberField><br />
+    Example float: @exampleFloat
+    <br />
+    Minimum value: @(float.MinValue); Maximum value: @(float.MaxValue)
+</p>
+<p>
+    <FluentNumberField Step=0.25 @bind-Value="@exampleFloat">Float</FluentNumberField><br />
+    Example float: @exampleFloat (step=0.25)
+    <br />
+    Minimum value: @(float.MinValue); Maximum value: @(float.MaxValue)
+</p>
+<p>
+    <FluentNumberField @bind-Value="@exampleDouble">Double</FluentNumberField><br />
+    Example double: @exampleDouble
+    <br />
+    Minimum value: @(double.MinValue); Maximum value: @(double.MaxValue)
+</p>
+<p>
+    <FluentNumberField @bind-Value="@exampleDecimal">Decimal</FluentNumberField><br />
+    Example decimal: @exampleDecimal
+    <br />
+    Minimum value: @(decimal.MinValue); Maximum value: @(decimal.MaxValue)
+</p>
+
+@code {
+
+    int exampleInt { get; set; } = 123;
+    private int? exampleNullableInt = null;
+    private int exampleInt2 = 345;
+    private int? exampleNullableInt2 = null;
+
+    short shortMin = short.MinValue;
+    long exampleLong { get; set; } = 999999999999;
+    float exampleFloat { get; set; } = 123.45f;
+    double exampleDouble { get; set; } = 456.32d;
+    decimal exampleDecimal { get; set; } = Decimal.One / 3;
+}
