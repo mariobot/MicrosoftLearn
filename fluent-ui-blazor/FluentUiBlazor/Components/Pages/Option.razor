@@ -1,0 +1,55 @@
+﻿@page "/option"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Option</h3>
+
+<FluentSelect Value=@("a string value") TOption="string">
+    <FluentOption>
+        Text content is the value when the value attribute is absent.
+    </FluentOption>
+</FluentSelect>
+<br />
+<FluentSelect Value=@("a string value") TOption="string">
+    <FluentOption Value=@("here is a value attribute")>
+        Even when the value attribute and text are both present, this text should be displayed.
+    </FluentOption>
+</FluentSelect>
+<br />
+<FluentSelect TOption=string>
+    <FluentOption Value=@("This option has no text content.")></FluentOption>
+</FluentSelect>
+
+<h3>States</h3>
+
+<h2>Disabled</h2>
+<FluentSelect TOption=string>
+    <FluentOption Disabled="true">This option is disabled.</FluentOption>
+</FluentSelect>
+<h2>Selected</h2>
+<FluentSelect TOption=string>
+    <FluentOption Selected="true">This option is selected by default.</FluentOption>
+</FluentSelect>
+
+<h3>With Icons</h3>
+
+<h4>With icons</h4>
+<FluentSelect Value=2 TOption="int">
+    <FluentOption Value=1>
+        <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Color="@Color.Neutral" Slot="start" />
+        <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Color="@Color.Neutral" Slot="end" />
+        This option has an icon in its start and end slots.
+    </FluentOption>
+    <FluentOption Value=2>
+        <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Color="@Color.Neutral" Slot="start" />
+        This option has an icon in its start slot.
+    </FluentOption>
+    <FluentOption Value=3>
+        <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Color="@Color.Neutral" Slot="end" />
+        This option has an icon in its end slot.
+    </FluentOption>
+</FluentSelect>
+
+@code {
+
+}
