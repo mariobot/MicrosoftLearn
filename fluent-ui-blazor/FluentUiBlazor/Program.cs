@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddHttpClient();
 
 builder.Services.AddFluentUIComponents(options => {
-    options.HostingModel = BlazorHostingModel.Hybrid;
+    //options.HostingModel = BlazorHostingModel.Hybrid;
 });
 
 var app = builder.Build();
