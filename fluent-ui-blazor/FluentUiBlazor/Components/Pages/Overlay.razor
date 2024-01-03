@@ -1,0 +1,81 @@
+﻿@page "/overlay"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Overlay</h3>
+<p>Overlay with a default white background</p>
+
+<FluentSelect Items=@(Enum.GetValues<JustifyContent>())
+              OptionValue="@(c => c.ToAttributeValue())"
+              TOption="JustifyContent"
+              Position="SelectPosition.Below"
+              @bind-SelectedOption="@justification" />
+
+<FluentSelect Items=@(Enum.GetValues<Align>())
+              OptionValue="@(c => c.ToAttributeValue())"
+              TOption="Align"
+              Position="SelectPosition.Below"
+              @bind-SelectedOption="@alignment" />
+<br />
+<br />
+
+
+<FluentButton Appearance="Appearance.Accent" @onclick="() => visible = !visible">Show Overlay</FluentButton>
+
+<FluentOverlay @bind-Visible=@visible
+               Opacity="0.4"
+               Alignment="@alignment"
+               Justification="@justification"
+               OnClose="HandleOnClose">
+    <FluentProgressRing />
+</FluentOverlay>
+
+<h3>Transparent overlay</h3>
+<p>Overlay with a transparent background</p>
+
+<FluentButton Appearance="Appearance.Accent" @onclick="() => visible2 = !visible2">Show Overlay</FluentButton>
+
+<FluentOverlay @bind-Visible=@visible2>
+    <FluentProgressRing />
+</FluentOverlay>
+
+<h3>Background color</h3>
+<p>Overlay with a custom background color</p>
+
+
+<FluentButton Appearance="Appearance.Accent" @onclick="() => visible3 = !visible3">Show Overlay</FluentButton>
+
+<FluentOverlay @bind-Visible=@visible3
+               Opacity="0.6"
+               BackgroundColor="#e8f48c">
+    <FluentProgressRing />
+</FluentOverlay>
+
+<h3>Full Screen</h3>
+<p>Overlay which takes up the whole screen</p>
+
+
+<FluentButton Appearance="Appearance.Accent" @onclick="() => visible4 = !visible4">Show Overlay</FluentButton>
+
+<FluentOverlay @bind-Visible=@visible4
+               Opacity="0.4"
+               BackgroundColor="#e8f48c"
+               FullScreen="true"               
+               PreventScroll=true>
+    <FluentProgressRing />
+</FluentOverlay>
+
+@code {
+    bool visible = false;
+    bool visible2 = false;
+    bool visible3 = false;
+    bool visible4 = false;
+
+    JustifyContent justification = JustifyContent.Center;
+    Align alignment = Align.Center;
+
+    protected void HandleOnClose()
+    {
+        
+    }
+}
