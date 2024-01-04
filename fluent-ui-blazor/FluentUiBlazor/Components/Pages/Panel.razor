@@ -1,0 +1,73 @@
+﻿@page "/panel"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Panel</h3>
+
+@inject IDialogService DialogService
+
+<FluentButton @onclick="@OpenPanelRightAsync" Appearance="Appearance.Accent">
+    Open panel (&gt;&gt;)
+</FluentButton>
+
+<FluentButton @onclick="@OpenPanelLeftAsync" Appearance="Appearance.Accent">
+    Open panel (&lt;&lt;)
+</FluentButton>
+
+@code {
+
+    private IDialogReference? _dialog;
+
+    private readonly SimplePerson simplePerson = new()
+        {
+            Firstname = "Steve",
+            Lastname = "Roth",
+            Age = 42,
+        };
+
+    private async Task OpenPanelRightAsync()
+    {
+        _dialog = await DialogService.ShowPanelAsync<SimplePanel>(simplePerson, new DialogParameters<SimplePerson>()
+            {
+                Content = simplePerson,
+                Alignment = HorizontalAlignment.Right,
+                Title = $"Hello {simplePerson.Firstname}",
+                PrimaryAction = "Yes",
+                SecondaryAction = "No",
+            });
+        DialogResult result = await _dialog.Result;
+        HandlePanel(result);
+    }
+
+    private async Task OpenPanelLeftAsync()
+    {
+        DialogParameters<SimplePerson> parameters = new()
+            {
+                Content = simplePerson,
+                Title = $"Hello {simplePerson.Firstname}",
+                Alignment = HorizontalAlignment.Left,
+                Modal = false,
+                ShowDismiss = false,
+                PrimaryAction = "Maybe",
+                SecondaryAction = "Cancel",
+                Width = "500px",
+            };
+        _dialog = await DialogService.ShowPanelAsync<SimplePanel>(simplePerson, parameters);
+        DialogResult result = await _dialog.Result;
+        HandlePanel(result);
+    }
+
+    private static void HandlePanel(DialogResult result)
+    {
+        if (result.Cancelled)
+        {            
+            return;
+        }
+
+        if (result.Data is not null)
+        {
+            SimplePerson? simplePerson = result.Data as SimplePerson;
+            return;
+        }
+    }
+}
