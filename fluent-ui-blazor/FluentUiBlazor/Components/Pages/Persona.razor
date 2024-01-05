@@ -1,0 +1,48 @@
+﻿@page "/persona"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Persona</h3>
+
+<h3>Default</h3>
+
+<FluentPersona Name="Bill Gates"
+               Status="PresenceStatus.Available"
+               StatusSize="PresenceBadgeSize.Small"
+               StatusTitle="He is available"
+               Image="Bill.png"
+               ImageSize="50px">
+</FluentPersona>
+<br />
+
+<h3>With no image</h3>
+
+<FluentPersona Name="Lydia Bauer"
+               ImageSize="50px"
+               Status="PresenceStatus.Busy"
+               StatusSize="PresenceBadgeSize.Small">
+</FluentPersona>
+<br />
+
+<h3>Hidden</h3>
+
+<div hidden="@this.Hidden">
+    <FluentPersona Name="Bill Gates"
+                   Status="PresenceStatus.Available"
+                   StatusSize="PresenceBadgeSize.Small"
+                   StatusTitle="He is available"
+                   Image="Bill.png"
+                   ImageSize="50px"
+                   DismissTitle="Hide Bill"
+                   OnDismissClick="@this.Dismiss">
+    </FluentPersona>
+</div>
+
+@code {
+    private bool Hidden { get; set; }
+
+    private void Dismiss()
+    {
+        this.Hidden = true;
+    }
+}
