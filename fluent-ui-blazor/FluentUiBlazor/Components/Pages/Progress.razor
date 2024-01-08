@@ -1,0 +1,24 @@
+﻿@page "/progress"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Progress Default</h3>
+
+<div style="width: 300px; display: grid; grid-gap: 12px; grid-auto-flow: column;">
+    <FluentProgress Min="0" Max="100" Value="75"></FluentProgress>
+    <FluentProgress></FluentProgress>
+</div>
+
+<br />
+
+<h3>Paused</h3>
+<div style="width: 300px; display: grid; grid-gap: 12px; grid-auto-flow: column;">
+    <FluentProgress Paused="true" Min="0" Max="100" Value="75"></FluentProgress>
+    <FluentProgress Paused="true"></FluentProgress>
+</div>
+
+
+
+@code {
+
+}
