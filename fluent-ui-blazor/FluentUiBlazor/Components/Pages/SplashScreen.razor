@@ -1,0 +1,63 @@
+﻿@page "/splashscreen"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+@inject IDialogService DialogService
+
+<h3>SplashScreen</h3>
+
+<FluentButton @onclick="@OpenSplashDefault" Appearance="Appearance.Accent">
+    Open splash screen
+</FluentButton>
+
+<FluentButton @onclick="@OpenSplashDefaultAsync" Appearance="Appearance.Accent">
+    Open splash screen (async)
+</FluentButton>
+
+@code {
+    private IDialogReference? _dialog;
+
+    private async Task OpenSplashDefaultAsync()
+    {
+        DialogParameters<SplashScreenContent> parameters = new()
+            {
+                Content = new()
+                {
+                    Title = "Core components",
+                    SubTitle = "Microsoft Fluent UI Blazor library",
+                    LoadingText = "Loading...",
+                    Message = (MarkupString)"some <i>extra</i> text <strong>here</strong>",
+                    Logo = FluentSplashScreen.LOGO,
+                },
+                Width = "640px",
+                Height = "480px",
+            };
+        _dialog = await DialogService.ShowSplashScreenAsync(parameters);
+        DialogResult result = await _dialog.Result;
+        await HandleDefaultSplash(result);
+    }
+
+
+    private void OpenSplashDefault()
+    {
+        DialogParameters<SplashScreenContent> parameters = new()
+            {
+                Content = new()
+                {
+                    Title = "Core components",
+                    SubTitle = "Microsoft Fluent UI Blazor library",
+                    LoadingText = "Loading...",
+                    Message = (MarkupString)"some <i>extra</i> text <strong>here</strong>",
+                    Logo = FluentSplashScreen.LOGO,
+                },
+                Width = "640px",
+                Height = "480px",
+            };
+        DialogService.ShowSplashScreen(this, HandleDefaultSplash, parameters);
+    }
+
+    private async Task HandleDefaultSplash(DialogResult result)
+    {
+        
+    }
+}
