@@ -1,0 +1,83 @@
+﻿@page "/tabs"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>Default</h3>
+
+<FluentTabs>
+    <FluentTab Label="Tab one" Icon="@(new Icons.Regular.Size24.LeafOne())" Id="tab-1">
+        Tab one content. This is for testing.
+    </FluentTab>
+    <FluentTab Label="Tab two" Id="tab-2">
+        Tab two content. This is for testing.
+    </FluentTab>
+    <FluentTab Label="Tab three" Id="tab-3">
+        Tab three content. This is for testing.
+    </FluentTab>
+
+</FluentTabs>
+
+<h3>Custom Header</h3>
+
+<FluentTabs ActiveTabId="tab-1">
+    <FluentTab Id="tab-1">
+        <Header>
+            <FluentIcon Value="@(new Icons.Regular.Size16.LeafOne())" />
+            All
+        </Header>
+        <Content>
+            Content 0
+        </Content>
+    </FluentTab>
+    <FluentTab Id="tab-2">
+        <Header>
+            <FluentIcon Value="@(new Icons.Regular.Size16.LeafTwo())" Color="@Color.Success" />
+            January
+        </Header>
+        <Content>
+            Content 1
+        </Content>
+    </FluentTab>
+    <FluentTab Id="tab-3">
+        <Header>
+            <FluentIcon Value="@(new Icons.Regular.Size16.LeafThree())" Color="@Color.Error" />
+            <span style="color:forestgreen;">February</span>
+        </Header>
+        <Content>
+            Content 2
+        </Content>
+    </FluentTab>
+</FluentTabs>
+
+<h3>No active indicator</h3>
+<FluentTabs ShowActiveIndicator=false ActiveTabId="TabTwo">
+    <FluentTab Id="TabOne" Label="Tab one">
+        Tab one content. This is for testing.
+    </FluentTab>
+    <FluentTab Id="TabTwo" Label="Tab two">
+        Tab two content. This is for testing.
+    </FluentTab>
+    <FluentTab Id="TabThree" Label="Tab three">
+        Tab three content. This is for testing.
+    </FluentTab>
+</FluentTabs>
+
+<h3>No active indicator - Vertical</h3>
+<FluentTabs ShowActiveIndicator=false ActiveTabId="tab3" Orientation="Orientation.Vertical">
+    <FluentTab Id="TabOne" Label="Tab one">
+        Tab one content. This is for testing.
+    </FluentTab>
+    <FluentTab Id="TabTwo" Label="Tab two">
+        Tab two content. This is for testing.
+    </FluentTab>
+    <FluentTab Id="TabThree" Label="Tab three">
+        Tab three content. This is for testing.
+    </FluentTab>
+    <FluentTab id="TabFour" Disabled=true Label="Tab four">
+        Tab four content. This is for testing.
+    </FluentTab>
+</FluentTabs>
+
+@code {
+
+}
