@@ -1,6 +1,14 @@
 @UrlShortener_HostAddress = http://localhost:5011
+@code = rN84s7G
 
-GET {{UrlShortener_HostAddress}}/weatherforecast/
+GET {{UrlShortener_HostAddress}}/{{code}}
 Accept: application/json
 
 ###
+
+POST {{UrlShortener_HostAddress}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://www.google.com"
+}
