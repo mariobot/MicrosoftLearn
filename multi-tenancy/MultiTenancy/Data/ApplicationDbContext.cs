@@ -20,7 +20,15 @@ namespace MultiTenancy.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //System.Diagnostics.Debugger.Launch();
+
             base.OnModelCreating(builder);
+
+            builder.Entity<Country>().HasData(new Country[] {
+                new Country{ Id = 1, Name = "Canada" },
+                new Country{ Id = 2, Name = "USA" },
+                new Country{ Id = 3, Name = "Mexico" },
+            });
 
             foreach (var entity in builder.Model.GetEntityTypes())
             {
