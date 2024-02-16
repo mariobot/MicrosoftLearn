@@ -24,6 +24,11 @@ namespace MultiTenancyByEnterprise.Data
 
             base.OnModelCreating(builder);
 
+            builder.Entity<EnterpriseUserPermission>()
+                .HasKey(x => new { x.EnterpriseId, x.UserId, x.Permission});
+
+
+
             builder.Entity<Country>().HasData(new Country[] {
                 new Country{ Id = 1, Name = "Canada" },
                 new Country{ Id = 2, Name = "USA" },
@@ -52,7 +57,7 @@ namespace MultiTenancyByEnterprise.Data
                 }
                 else
                 {
-                    throw new Exception($"The entity has not been created with IEntityTenant or ICommonEntity");
+                    throw new Exception($"The {entity.Name} entity has not been created with IEntityTenant or ICommonEntity");
                 }
             }
         }
@@ -83,5 +88,9 @@ namespace MultiTenancyByEnterprise.Data
 
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Country> Countries => Set<Country>();
+        public DbSet<Enterprise> Enterprise => Set<Enterprise>();
+        public DbSet<EnterpriseUserPermission> EnterpriseUserPermissions => Set<EnterpriseUserPermission>();
+        public DbSet<Link> Links => Set<Link>();
+
     }
 }
