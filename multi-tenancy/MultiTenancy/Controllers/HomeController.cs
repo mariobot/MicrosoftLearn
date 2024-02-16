@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MultiTenancy.Data;
+using MultiTenancy.Entities;
 using MultiTenancy.Models;
 using System.Diagnostics;
 
@@ -7,16 +10,44 @@ namespace MultiTenancy.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = await ConstructModelHome();
+            return View(model);
         }
+
+        private async Task<HomeIndexViewModel> ConstructModelHome()
+        {
+            var products = await context.Products.ToListAsync();
+            var countries = await context.Countries.ToListAsync();
+
+            var model = new HomeIndexViewModel()
+            {
+                prodructs = products,
+                contries = countries,
+            };
+
+            return model;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(Product product)
+        {
+            context.Add(product);
+            await context.SaveChangesAsync();
+
+            var model = await ConstructModelHome();
+            return View(model);
+        }
+
 
         public IActionResult Privacy()
         {
