@@ -20,9 +20,17 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.Password.RequireUppercase = false;
 })
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/user/login";
+});
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IServiceTenant, ServiceTenant>();
+builder.Services.AddScoped<IChangeTenantService, ChangeTenantService>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 var app = builder.Build();
 
