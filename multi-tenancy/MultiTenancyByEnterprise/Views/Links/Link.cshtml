@@ -1,0 +1,32 @@
+﻿@model LinkUser
+
+@{
+    ViewData["Title"] = "Link";
+}
+
+<h1>Link user</h1>
+
+<h5>Link user to @Model.EnterpriseName</h5>
+
+<div asp-validation-summary="ModelOnly"></div>
+
+<form asp-action="Link">
+    
+    <input type="hidden" asp-for="EnterpriseId" />
+    <input type="hidden" asp-for="EnterpriseName" />
+
+    <div class="mb-3">
+        <label asp-for="EmailUser" class="form-label"></label>
+        <input asp-for="EmailUser" class="form-control" />
+        <span asp-validation-for="EmailUser" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-secondary" asp-action="Index" asp-controller="Home">Cancel</a>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

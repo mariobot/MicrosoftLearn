@@ -1,0 +1,31 @@
+﻿@using MultiTenancyByEnterprise.Entities
+@model List<Link>
+
+<h1>Pending links</h1>
+<h5>
+    The next enterprise have pending invitations. 
+</h5>
+
+<ul>
+    @foreach (var link in Model)
+    {
+        <form asp-action="Index">
+            <li>
+                <input type="hidden" name="enterpriseId" value="@link.EnterpriseId">
+
+                <div>
+                    The enterprise <span class="font-weigth-bold">@link.Enterprise.Name</span>
+                </div>
+
+                <div>
+                    <button type="submit" asp-route-linkStatus="@LinkStatus.Accepted" class="btn btn-primary">Accepted</button>
+                <button type="submit" asp-route-linkStatus="@LinkStatus.Rejected" class="btn btn-danger">Rejected</button>
+                </div>
+            </li>
+        </form>
+    }
+</ul>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
