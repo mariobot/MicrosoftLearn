@@ -1,4 +1,8 @@
-﻿@model HomeIndexViewModel
+﻿@using Microsoft.AspNetCore.Authorization;
+@using MultiTenancyByEnterprise.Entities;
+@using MultiTenancyByEnterprise.Security
+@model HomeIndexViewModel
+@inject IAuthorizationService authorizationService
 
 @{
     ViewData["Title"] = "Home Page";
@@ -21,14 +25,17 @@
 
     @if (User.Identity is not null && User.Identity.IsAuthenticated)
     {
-        <form method="post" class="row row-cols-lg-auto g-3 align-items-center">
-            <div class="col-12">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Product name">
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Create Product</button>
-            </div>
-        </form>
+        if (await authorizationService.HavePermission(User, Permissions.Create_Products))
+        {
+            <form method="post" class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-12">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Product name">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Create Product</button>
+                </div>
+            </form>
+        }
 
         <ul>
             @foreach (var product in Model.prodructs)

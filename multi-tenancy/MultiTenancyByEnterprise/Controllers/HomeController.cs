@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MultiTenancyByEnterprise.Data;
 using MultiTenancyByEnterprise.Entities;
 using MultiTenancyByEnterprise.Models;
+using MultiTenancyByEnterprise.Security;
 using System.Diagnostics;
 
 namespace MultiTenancyByEnterprise.Controllers
@@ -39,6 +40,7 @@ namespace MultiTenancyByEnterprise.Controllers
         }
 
         [HttpPost]
+        [HaveGrant(Permissions.Create_Products)]
         public async Task<IActionResult> Index(Product product)
         {
             context.Add(product);
