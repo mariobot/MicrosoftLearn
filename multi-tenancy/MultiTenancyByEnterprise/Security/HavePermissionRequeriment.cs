@@ -6,8 +6,8 @@ namespace MultiTenancyByEnterprise.Security
     public class HavePermissionRequeriment : IAuthorizationRequirement
     {
         public HavePermissionRequeriment(Permissions permission)
-        { 
-        
+        {
+            Permission = permission;
         }
 
         public Permissions Permission { get; }
