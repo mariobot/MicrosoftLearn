@@ -1,0 +1,35 @@
+﻿@using MultiTenancyByEnterprise.Entities
+@model AdminPermissionDto
+
+<h1>Administrate permissions from @Model.Email</h1>
+
+<form asp-action="Admin">
+    <input type="hidden" asp-for="UserId"  />
+    <input type="hidden" asp-for="Email" />
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    @* <button type="button" class="btn btn-secondary">Sellect All</button>
+    <button type="submit" class="btn btn-secondary">Un Sellect All</button> *@
+
+    <ul>
+        @for (int i = 0; i < Model.Permissions.Count; i++)
+        {
+            <li>
+                <span>@Model.Permissions[i].HaveAccess</span>
+                <span>@Model.Permissions[i].Permission</span>
+                <span>@Model.Permissions[i].Description</span>
+                <input 
+                    id="Permissions[@i].HaveAccess"
+                       name="Permissions[@i].HaveAccess"
+                    value="true"
+                    type="checkbox"
+                    @(Model.Permissions[i].HaveAccess ? "checked" : string.Empty)
+                    @(Model.Permissions[i].Permission == Permissions.Null ? "disabled" : string.Empty)/>
+                <input type="hidden" value="@Model.Permissions[i].Permission" name="@Model.Permissions[i].Permission">
+                <span>@Model.Permissions[i].Description</span>
+            </li>
+            
+        }
+    </ul>
+
+</form>

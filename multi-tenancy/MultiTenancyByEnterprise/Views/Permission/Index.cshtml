@@ -1,0 +1,25 @@
+﻿@using MultiTenancyByEnterprise.Entities
+@model IndexPermissionsDto
+
+<h1>Administrate the persmissions in the Enterprise @Model.NameEnterprise</h1>
+<h5>
+    Users
+</h5>
+
+<ul>
+    @foreach (var user in Model.Users)
+    {
+        <li>
+            <div>
+                @user.Email
+            </div>
+            <div>
+                <a asp-asp-controller="Permission" asp-action="Admin" asp-route-email="@user.Email" class="btn btn-primary">Admin Permissions</a>
+            </div>
+        </li>
+    }
+</ul>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

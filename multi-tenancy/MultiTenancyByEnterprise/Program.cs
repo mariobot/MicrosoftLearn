@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MultiTenancyByEnterprise.Data;
+using MultiTenancyByEnterprise.Security;
 using MultiTenancyByEnterprise.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +33,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IServiceTenant, ServiceTenant>();
 builder.Services.AddScoped<IChangeTenantService, ChangeTenantService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, HavePermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, HavePermissionHandle>();
 
 var app = builder.Build();
 
