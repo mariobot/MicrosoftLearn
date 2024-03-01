@@ -81,10 +81,10 @@ namespace MultiTenancyByEnterprise.Controllers
                     description = displayAttribute.Description;
                 }
 
-                model.Permissions.Add(new PermissionUserDto()
+                model.Roles.Add(new PermissionUserDto()
                 {
                     Description = description,
-                    Permission = permission,
+                    Rol = permission,
                     HaveAccess = permissionsUserDictionary.ContainsKey(permission)
                 });
             }
@@ -99,25 +99,25 @@ namespace MultiTenancyByEnterprise.Controllers
             var tenantId = new Guid(serviceTenant.GetTenant());
 
             // Set at default null permission
-            model.Permissions.Add(new PermissionUserDto()
+            model.Roles.Add(new PermissionUserDto()
             {
                 HaveAccess = true,
-                Permission = Permissions.Null
+                Rol = Permissions.Null
             });
 
             // Delete all the previous permissions from user
             await context.Database.ExecuteSqlInterpolatedAsync($@"DELETE EnterpriseUserPermissions where UserId = {model.UserId} AND EnterpriseId = {tenantId}");
 
             // Filter the permissions to add
-            var filteredPermissions = model.Permissions.Where(x => x.HaveAccess).Select(x => new EnterpriseUserPermission()
+            var filteredPermissions = model.Roles.Where(x => x.HaveAccess).Select(x => new EnterpriseUserPermission()
             {
                 EnterpriseId = tenantId,
                 UserId = model.UserId,
-                Permission = x.Permission
+                Permission = x.Rol
             });
 
             // Add records to database
-            context.Add(filteredPermissions);
+            context.AddRange(filteredPermissions);
             await context.SaveChangesAsync();
 
             return RedirectToAction("Index");
