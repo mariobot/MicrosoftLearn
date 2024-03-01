@@ -12,24 +12,18 @@
     <button type="submit" class="btn btn-secondary">Un Sellect All</button> *@
 
     <ul>
-        @for (int i = 0; i < Model.Permissions.Count; i++)
+        @for (int i = 0; i < Model.Roles.Count; i++)
         {
             <li>
-                <span>@Model.Permissions[i].HaveAccess</span>
-                <span>@Model.Permissions[i].Permission</span>
-                <span>@Model.Permissions[i].Description</span>
-                <input 
-                    id="Permissions[@i].HaveAccess"
-                       name="Permissions[@i].HaveAccess"
-                    value="true"
-                    type="checkbox"
-                    @(Model.Permissions[i].HaveAccess ? "checked" : string.Empty)
-                    @(Model.Permissions[i].Permission == Permissions.Null ? "disabled" : string.Empty)/>
-                <input type="hidden" value="@Model.Permissions[i].Permission" name="@Model.Permissions[i].Permission">
-                <span>@Model.Permissions[i].Description</span>
+                @Html.CheckBoxFor(model => Model.Roles[i].HaveAccess)
+                @Html.HiddenFor(model => Model.Roles[i].Rol)
+                <span>@Model.Roles[i].Description</span>
             </li>
-            
         }
     </ul>
 
 </form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
