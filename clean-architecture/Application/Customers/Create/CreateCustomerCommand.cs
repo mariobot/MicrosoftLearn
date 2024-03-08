@@ -1,3 +1,4 @@
+using ErrorOr;
 using MediatR;
 
 namespace Application.Customers.Create;
@@ -12,4 +13,4 @@ public record CreateCustomerCommand(
     string Line2,
     string City,
     string State,
-    string ZipCode) : IRequest<Unit>;
+    string ZipCode) : IRequest<ErrorOr<Unit>>;
