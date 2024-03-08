@@ -22,31 +22,31 @@ internal sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCusto
         try
         {
             if(PhoneNumber.Create(command.PhoneNumber) is not PhoneNumber phoneNumber)
-        {
-            return Error.Validation("Customer.Phonenumber","Phonenumber has not valid format");
-        }
+            {
+                return Error.Validation("Customer.Phonenumber","Phonenumber has not valid format");
+            }
 
-        if(Address.Create(command.Country, command.Line1, command.Line2, command.City, 
-            command.State, command.ZipCode) is not Address address)
-        {
-            return Error.Validation("Customer.Address","Address is not valid");
-        }
+            if(Address.Create(command.Country, command.Line1, command.Line2, command.City, 
+                command.State, command.ZipCode) is not Address address)
+            {
+                return Error.Validation("Customer.Address","Address is not valid");
+            }
 
-        var customer = new Customer(
-            new CustomerId(Guid.NewGuid()),
-            command.Name,
-            command.LastName,
-            command.Email,
-            phoneNumber,
-            address,
-            true
-        );
-        
-        await customerRepository.Add(customer);
+            var customer = new Customer(
+                new CustomerId(Guid.NewGuid()),
+                command.Name,
+                command.LastName,
+                command.Email,
+                phoneNumber,
+                address,
+                true
+            );
+            
+            await customerRepository.Add(customer);
 
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return Unit.Value;
+            return Unit.Value;
         }
         catch (Exception ex)
         {
