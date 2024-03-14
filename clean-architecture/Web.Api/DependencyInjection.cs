@@ -1,3 +1,5 @@
+using Web.Api.Middleware;
+
 namespace Web.Api;
 
 public static class DependencyInjection
@@ -8,7 +10,9 @@ public static class DependencyInjection
 
         services.AddEndpointsApiExplorer();
 
-        services.AddSwaggerGen();        
+        services.AddSwaggerGen();
+
+        services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
         return services;
     }
