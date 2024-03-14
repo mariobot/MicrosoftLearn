@@ -17,7 +17,6 @@ public static class DependencyInjection
 
         services.AddValidatorsFromAssemblyContaining<ApplicationAssemblyReference>();
 
-
         return services;
     }
 }
