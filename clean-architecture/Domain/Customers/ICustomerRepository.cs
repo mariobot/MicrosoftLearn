@@ -2,7 +2,15 @@ namespace Domain.Customers;
 
 public interface ICustomerRepository
 {
+    Task Add(Customer customer);
+
+    void Delete(Customer customer);
+
+    void Update(Customer customer);
+
+    Task<bool> ExistAsync (CustomerId id);
+
     Task<Customer?> GetByIdAsync(CustomerId id);
 
-    Task Add(Customer customer);
+    Task<List<Customer>> GetAllAsync();
 }
