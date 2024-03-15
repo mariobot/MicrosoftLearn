@@ -1,4 +1,5 @@
 using Application.Customers.Create;
+using Application.Customers.Delete;
 using Application.Customers.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -35,5 +36,16 @@ public class Customers : ApiController
             customer => Ok(),
             errors => Problem(errors)
         );
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var deleteCustomerResult = await this.mediator.Send(new DeleteCustomerCommand(id));
+
+        return deleteCustomerResult.Match(
+            customer => Ok(customer),
+            errors => Problem(errors)
+            );
     }
 }
