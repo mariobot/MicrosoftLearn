@@ -1,5 +1,6 @@
 using Application.Customers.Create;
 using Application.Customers.Delete;
+using Application.Customers.GetAll;
 using Application.Customers.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,17 @@ public class Customers : ApiController
 
         return getByIdCustomerResult.Match(
             customer => Ok(customer),
+            errors => Problem(errors)
+            );
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var allCustomersResult = await this.mediator.Send(new GetAllCustomersQuery());
+
+        return allCustomersResult.Match(
+            customers => Ok(customers),
             errors => Problem(errors)
             );
     }
