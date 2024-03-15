@@ -1,4 +1,5 @@
 using Application.Customers.Create;
+using Application.Customers.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,17 @@ public class Customers : ApiController
     public Customers(ISender mediator)
     {
         this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var getByIdCustomerResult = await this.mediator.Send(new GetByIdCustomerQuery(id));
+
+        return getByIdCustomerResult.Match(
+            customer => Ok(customer),
+            errors => Problem(errors)
+            );
     }
 
     [HttpPost]

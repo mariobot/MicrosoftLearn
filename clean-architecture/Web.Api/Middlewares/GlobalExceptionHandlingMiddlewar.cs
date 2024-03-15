@@ -39,6 +39,5 @@ public class GlobalExceptionHandlingMiddleware : IMiddleware
 
             await context.Response.WriteAsync(json);
         }
-        
     }
 }
