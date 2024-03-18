@@ -2,6 +2,7 @@ using Application.Customers.Create;
 using Application.Customers.Delete;
 using Application.Customers.GetAll;
 using Application.Customers.GetById;
+using Application.Customers.Update;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +42,17 @@ public class Customers : ApiController
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateCustomerCommand command)
+    {
+        var createCustomerResult = await this.mediator.Send(command);
+
+        return createCustomerResult.Match(
+            customer => Ok(),
+            errors => Problem(errors)
+        );
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCustomerCommand command)
     {
         var createCustomerResult = await this.mediator.Send(command);
 
