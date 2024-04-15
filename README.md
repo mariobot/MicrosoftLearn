@@ -207,3 +207,8 @@ This folder hol a practical lab to understand the Static Server-Side Rendering w
 This folder hold a practical lab to understand the multi tenancy architecture with a practical examples
 * Part 1 video on https://www.youtube.com/watch?v=-OW7fbq5Ui8
 * Part 2 video on https://www.youtube.com/watch?v=wOSQ3hc7SRs&t=2912s
+
+## .NET Clean Architecture in Spanish [**_clean-architecture_**](clean-architecture)
+
+This folder hold a practical lab to understand the clean architecture with a practical model applied.
+* Part 1 video on the next list https://www.youtube.com/watch?v=hCG38mYnrMc&list=PLOnQtvVd3KIRVH8jk8mEyGaYD-wua5sXC
