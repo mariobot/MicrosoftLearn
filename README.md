@@ -201,3 +201,9 @@ This folder hold a practical lab to use FluentUi Components, Using the major com
 
 This folder hol a practical lab to understand the Static Server-Side Rendering with Blazor .Net 8 with a basic crud actions. 
 * Original video on https://www.youtube.com/watch?v=EqSgqm4qWjo 
+
+## Multitenancy application in .NET [**_multi-tenancy_**](multi-tenancy)
+
+This folder hold a practical lab to understand the multi tenancy architecture with a practical examples
+* Part 1 video on https://www.youtube.com/watch?v=-OW7fbq5Ui8
+* Part 2 video on https://www.youtube.com/watch?v=wOSQ3hc7SRs&t=2912s
