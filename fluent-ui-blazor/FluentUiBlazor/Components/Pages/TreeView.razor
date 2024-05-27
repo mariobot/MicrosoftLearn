@@ -1,0 +1,98 @@
+﻿@page "/treeview"
+
+@attribute [RenderModeInteractiveServer(false)]
+
+<h3>TreeView</h3>
+
+<FluentTreeView @bind-CurrentSelected=currentSelected OnExpandedChange="HandleOnExpandedChanged">
+    <FluentTreeItem Text="Root item 1">
+        <FluentTreeItem Text="Flowers">
+            <FluentTreeItem Disabled="true" Text="Daisy" />
+            <FluentTreeItem Text="Sunflower" />
+            <FluentTreeItem Text="Rose" />
+        </FluentTreeItem>
+        <FluentTreeItem Text="Nested item 2" />
+        <FluentTreeItem Text="Nested item 3" />
+    </FluentTreeItem>
+    <FluentTreeItem Text="Root item 2">
+        <FluentDivider></FluentDivider>
+        <FluentTreeItem Text="Flowers">
+            <FluentTreeItem Disabled="true" Text="Daisy" />
+            <FluentTreeItem Text="Sunflower" />
+            <FluentTreeItem Text="Rose" />
+        </FluentTreeItem>
+        <FluentTreeItem Text="Nested item 2" />
+        <FluentTreeItem Text="Nested item 3" />
+    </FluentTreeItem>
+    <FluentTreeItem Text="Root item 3 - Leaf Erikson" />
+</FluentTreeView>
+
+<p>Current selected tree item is @currentSelected?.Text</p>
+<p>Most recently expanded/collapsed tree item is @currentAffected?.Text</p>
+
+<h3>Flat Tree</h3>
+<FluentTreeView RenderCollapsedNodes=true>
+    <FluentTreeItem InitiallySelected="true">Daisy</FluentTreeItem>
+    <FluentTreeItem>Sunflower</FluentTreeItem>
+    <FluentTreeItem>Rose</FluentTreeItem>
+    <FluentDivider></FluentDivider>
+    <FluentTreeItem>Petunia</FluentTreeItem>
+    <FluentTreeItem>Tulip</FluentTreeItem>
+</FluentTreeView>
+
+<h3>With data binding</h3>
+
+<FluentStack Orientation="@Orientation.Horizontal">
+    <FluentTreeView>
+        <FluentTreeItem @bind-Expanded=@FlowersExpanded>
+            Flowers
+            <FluentTreeItem @bind-Selected=DaisySelected>Daisy</FluentTreeItem>
+            <FluentTreeItem @bind-Selected=SunflowerSelected>Sunflower</FluentTreeItem>
+            <FluentTreeItem @bind-Selected=RoseSelected>Rose</FluentTreeItem>
+        </FluentTreeItem>
+        <FluentTreeItem @bind-Expanded=@PlanesExpanded>
+            Planes
+            <FluentTreeItem>Tomcat</FluentTreeItem>
+            <FluentTreeItem>Hawker Harrier</FluentTreeItem>
+            <FluentTreeItem>Cesna</FluentTreeItem>
+        </FluentTreeItem>
+    </FluentTreeView>
+    <FluentStack Orientation="@Orientation.Vertical">
+        <h2>Expanded</h2>
+        <FluentCheckbox @bind-Value=FlowersExpanded>
+            <span aria-label="Flowers expanded">Flowers expanded</span>
+        </FluentCheckbox>
+        <FluentCheckbox @bind-Value=PlanesExpanded>
+            <span aria-label="Planes expanded">Planes expanded</span>
+        </FluentCheckbox>
+    </FluentStack>
+    <FluentStack Orientation="@Orientation.Vertical">
+        <h2>Selected</h2>
+        <FluentCheckbox @bind-Value=DaisySelected>
+            <span aria-label="Daisy selected">Daisy selected</span>
+        </FluentCheckbox>
+        <FluentCheckbox @bind-Value=SunflowerSelected>
+            <span aria-label="Sunflower selected">Sunflower selected</span>
+        </FluentCheckbox>
+        <FluentCheckbox @bind-Value=RoseSelected>
+            <span aria-label="Rose selected">Rose selected</span>
+        </FluentCheckbox>
+    </FluentStack>
+</FluentStack>
+
+@code {
+    bool FlowersExpanded = true;
+    bool PlanesExpanded = true;
+
+    bool DaisySelected = false;
+    bool SunflowerSelected = true;
+    bool RoseSelected = false;
+
+    FluentTreeItem? currentSelected;
+    FluentTreeItem? currentAffected;
+
+    private void HandleOnExpandedChanged(FluentTreeItem item)
+    {
+        currentAffected = item;
+    }
+}
