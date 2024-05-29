@@ -1,6 +1,6 @@
 ﻿@page "/icon"
 
-@attribute [RenderModeInteractiveServer(false)]
+@* @attribute [RenderModeInteractiveServer(false)] *@
 
 
 <h3>Icon</h3>
@@ -50,7 +50,7 @@
     @foreach (var color in Enum.GetValues(typeof(Color)).Cast<Color>())
     {
         var name = Enum.GetName<Color>(color);
-        var css = color == Color.Custom ? CustomColor : color.ToAttributeValue();
+        var css = color == Color.Custom ? CustomColor : null;
 
         <FluentGridItem xs="2">
             @name
