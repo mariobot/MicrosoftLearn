@@ -202,6 +202,11 @@ This folder hold a practical lab to use FluentUi Components, Using the major com
 This folder hold a practical lab to understand the Static Server-Side Rendering with Blazor .Net 8 with a basic crud actions. 
 * Original video on https://www.youtube.com/watch?v=EqSgqm4qWjo 
 
+## Project to test FluentUI blazor components library (Fluent UI Blazor) in .NET 8 [**_fluent-ui-blazor_**](fluent-ui-blazor)
+
+The project use the last FluentUI blazor library to use a front end components with a minimal and fluent design. 
+* The project is located in the next link https://www.fluentui-blazor.net/
+
 ## Multitenancy application in .NET [**_multi-tenancy_**](multi-tenancy)
 
 This folder hold a practical lab to understand the multi tenancy architecture with a practical examples
