@@ -1,0 +1,178 @@
+﻿@page "/wizard"
+
+<h3>Wizard Default</h3>
+
+@inject IDialogService DialogService
+
+@* <FluentStack VerticalAlignment="VerticalAlignment.Center">
+    <FluentSwitch @bind-Value="@IsTop"
+                  Style="margin: 30px;"
+                  Label="Step position"
+                  UncheckedMessage="Left"
+                  CheckedMessage="Top" />
+
+    WizardStepSequence:
+    <FluentSelect Width="150px"
+                  Items="@(Enum.GetValues<WizardStepSequence>())"
+                  @bind-SelectedOption="@StepSequence" />
+</FluentStack>
+
+<FluentWizard StepperPosition="@(IsTop ? StepperPosition.Top : StepperPosition.Left)"
+              StepSequence="@StepSequence"
+              DisplayStepNumber="@(WizardStepStatus.Current | WizardStepStatus.Next)"
+              Border="WizardBorder.Outside"
+              StepTitleHiddenWhen="@GridItemHidden.XsAndDown"
+              Height="300px"
+              OnFinish="@OnFinishedAsync">
+    <Steps>
+        <FluentWizardStep Label="Intro"
+                          OnChange="@OnStepChange">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nisi eget dolor semper
+            luctus vitae a nulla. Cras semper eros sed lacinia tincidunt. Mauris dignissim ullamcorper dolor,
+            ut blandit dui ullamcorper faucibus. Interdum et malesuada fames ac ante ipsum.
+        </FluentWizardStep>
+        <FluentWizardStep Label="Get started"
+                          Summary="Begin the tasks"
+                          OnChange="@OnStepChange">
+            Maecenas sed justo ac sapien venenatis ullamcorper. Sed maximus nunc non venenatis euismod.
+            Fusce vel porta ex, imperdiet molestie nisl. Vestibulum eu ultricies mauris, eget aliquam quam.
+        </FluentWizardStep>
+        <FluentWizardStep Disabled="true"
+                          Label="Disabled step"
+                          Summary="This step is disabled"
+                          OnChange="@OnStepChange">
+            Nunc dignissim tortor eget lacus porta tristique. Nunc in posuere dui. Cras ligula ex,
+            ullamcorper in gravida in, euismod vitae purus. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Aliquam at velit leo. Suspendisse potenti. Cras dictum eu augue in laoreet.
+        </FluentWizardStep>
+        <FluentWizardStep Label="Set budget"
+                          Summary="Identify the best price"
+                          IconPrevious="@(new Icons.Filled.Size24.Star())"
+                          IconCurrent="@(new Icons.Filled.Size24.StarEmphasis())"
+                          IconNext="@(new Icons.Regular.Size24.Star())"
+                          DisplayStepNumber="false"
+                          OnChange="@OnStepChange">
+            Phasellus quis augue convallis, congue velit ac, aliquam ex. In egestas porttitor massa
+            aliquet porttitor. Donec bibendum faucibus urna vitae elementum. Phasellus vitae efficitur
+            turpis, eget molestie ipsum.
+            <FluentSelect Items="@(Enumerable.Range(10, 80).Select(i => i.ToString()))"
+                          Style="min-width: 70px;"
+                          Height="300px" />
+        </FluentWizardStep>
+        <FluentWizardStep Label="Summary"
+                          OnChange="@OnStepChange">
+            Ut iaculis sed magna efficitur tempor. Vestibulum est erat, imperdiet in diam ac,
+            aliquam tempus sapien. Nam rutrum mi at enim mattis, non mollis diam molestie.
+            Cras sodales dui libero, sit amet cursus sapien elementum ac. Nulla euismod nisi sem.
+        </FluentWizardStep>
+    </Steps>
+</FluentWizard> *@
+
+<h3>Wizard Customized</h3>
+
+<style>
+    #customized-wizard li[status="current"] > div {
+        font-weight: bold;
+    }
+
+    #customized-wizard li[disabled] > div {
+        color: var(--neutral-stroke-strong-rest);
+        opacity: var(--disabled-opacity);
+    }
+</style>
+
+<FluentWizard Id="customized-wizard"
+              @bind-Value="@Value"
+              StepTitleHiddenWhen="@GridItemHidden.XsAndDown"
+              Height="300px">
+    <Steps>
+        <FluentWizardStep>
+            <StepTemplate>
+                <div active="@context.Active">
+                    Intro
+                </div>
+            </StepTemplate>
+            <ChildContent>
+                <FluentLabel Typo="Typography.Header">Introduction</FluentLabel>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nisi eget dolor semper
+                luctus vitae a nulla. Cras semper eros sed lacinia tincidunt. Mauris dignissim ullamcorper dolor,
+                ut blandit dui ullamcorper faucibus. Interdum et malesuada fames ac ante ipsum.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep>
+            <StepTemplate>
+                <div active="@context.Active">
+                    Get Started
+                </div>
+            </StepTemplate><ChildContent>
+                <FluentLabel Typo="Typography.Header">Get Started</FluentLabel>
+                Maecenas sed justo ac sapien venenatis ullamcorper. Sed maximus nunc non venenatis euismod.
+                Fusce vel porta ex, imperdiet molestie nisl. Vestibulum eu ultricies mauris, eget aliquam quam.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep>
+            <StepTemplate>
+                <div active="@context.Active">
+                    Set budget
+                </div>
+            </StepTemplate><ChildContent>
+                <FluentLabel Typo="Typography.Header">Set budget</FluentLabel>
+                Phasellus quis augue convallis, congue velit ac, aliquam ex. In egestas porttitor massa
+                aliquet porttitor. Donec bibendum faucibus urna vitae elementum. Phasellus vitae efficitur
+                turpis, eget molestie ipsum.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep>
+            <StepTemplate>
+                <div active="@context.Active">
+                    Summary
+                </div>
+            </StepTemplate><ChildContent>
+                <FluentLabel Typo="Typography.Header">Summary</FluentLabel>
+                Ut iaculis sed magna efficitur tempor. Vestibulum est erat, imperdiet in diam ac,
+                aliquam tempus sapien. Nam rutrum mi at enim mattis, non mollis diam molestie.
+                Cras sodales dui libero, sit amet cursus sapien elementum ac. Nulla euismod nisi sem.
+            </ChildContent>
+        </FluentWizardStep>
+    </Steps>
+
+    <ButtonTemplate>
+        @{
+            var index = context;
+            var lastStepIndex = 3;
+
+            <div>
+                @if (index > 0)
+                {
+                    <FluentButton OnClick="@(() => Value = 0)">Go to first page</FluentButton>
+                    <FluentButton OnClick="@(() => Value -= 1)">Previous</FluentButton>
+                }
+            </div>
+            <FluentSpacer />
+            <div>
+                @if (index != lastStepIndex)
+                {
+                    <FluentButton OnClick="@(() => Value += 1)" Appearance="Appearance.Accent">Next</FluentButton>
+                    <FluentButton OnClick="@(() => Value = lastStepIndex)" Appearance="Appearance.Accent">Go to last page</FluentButton>
+                }
+            </div>
+        }
+    </ButtonTemplate>
+</FluentWizard>
+
+@code
+{
+    int Value = 0;
+    bool IsTop = false;
+    WizardStepSequence StepSequence = WizardStepSequence.Linear;
+
+    async Task OnFinishedAsync()
+    {
+        await DialogService.ShowInfoAsync("Wizard completed");
+    }
+
+    void OnStepChange(FluentWizardStepChangeEventArgs e)
+    {
+        
+    }
+}
