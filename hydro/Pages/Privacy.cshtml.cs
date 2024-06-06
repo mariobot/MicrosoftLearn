@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Hydro.Pages;
+namespace HydroProject.Pages;
 
 public class PrivacyModel : PageModel
 {
