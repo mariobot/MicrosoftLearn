@@ -1,0 +1,22 @@
+﻿@model ProductForm
+
+<form >
+    <div class="row">
+        <div class="col-12">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" hydro-bind/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="col-12">
+            <label asp-for="Location"></label>
+            <input asp-for="Location" hydro-bind />
+            <span asp-validation-for="Location"></span>
+        </div>
+        <div class="col-12">
+            <button hydro-on:click="@(() => Model.Submit())" type="submit">Submit</button>
+        </div>
+        <div class="col-12">
+            <strong>@Model.Result</strong>
+        </div>
+    </div>
+</form>
