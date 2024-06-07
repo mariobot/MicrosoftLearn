@@ -1,0 +1,6 @@
+﻿@model CounterEvent
+
+<div>
+    Count: <strong>@Model.Count</strong>
+    <button hydro-on:click="@(() => Model.Add())">Add</button>
+</div>
