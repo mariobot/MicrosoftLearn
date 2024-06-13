@@ -46,3 +46,30 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+#page-loading {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background: red;
+    z-index: 2;
+    animation: loadPage 5s forwards ease-out;
+    animation-delay: 0.1s;
+}
+
+.hydro-loading #page-loading {
+    display: block;
+}
+
+@keyframes loadPage {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
