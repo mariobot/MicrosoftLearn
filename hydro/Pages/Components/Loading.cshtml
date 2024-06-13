@@ -1,0 +1,10 @@
+﻿@model Loading
+
+<div class="card">
+    <div class="card-body">
+        <button hydro-on:click="@(() => Model.Submit())">Submit <div class="loader">...</div></button>
+    </div>
+    <div class="card-footer">
+        <input type="text" asp-for="@Model.ValueRange" hydro-bind /> <strong>@Model.ValueRange Seconds Loading...</strong>
+    </div>
+</div>

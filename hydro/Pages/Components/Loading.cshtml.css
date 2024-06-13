@@ -1,0 +1,20 @@
+﻿.loader {
+    display: none;
+}
+
+.hydro-request .loader {
+    display: inline-block;
+}
+
+.loader2 {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background: red;
+    z-index: 2;
+    animation: loadPage 5s forwards ease-out;
+    animation-delay: 0.1s;
+}
