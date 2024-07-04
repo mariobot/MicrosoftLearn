@@ -213,3 +213,8 @@ This folder hold a practical lab to understand the multi tenancy architecture wi
 
 This folder hold a practical lab to understand the clean architecture with a practical model applied.
 * Part 1 video on the next list https://www.youtube.com/watch?v=hCG38mYnrMc&list=PLOnQtvVd3KIRVH8jk8mEyGaYD-wua5sXC
+
+## Hydro Create .NET apps with SPA feeling. [**_hydro_**](hydro)
+
+This folder hold a project to use Hydro framework in a WebApp not using JS
+* Create the basics components explained in this documentation page https://usehydro.dev/features/components.html
