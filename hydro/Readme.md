@@ -19,3 +19,4 @@ Hold a basic templates for
 for instal Hydro in a new project you can follow the next steps
 https://usehydro.dev/introduction/getting-started.html
 
+The original project in github is https://github.com/hydrostack/hydro/
