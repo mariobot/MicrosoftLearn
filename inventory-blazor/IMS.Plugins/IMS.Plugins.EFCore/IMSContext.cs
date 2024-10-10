@@ -1,14 +1,13 @@
 ﻿using IMS.CoreBusiness;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace IMS.Plugins.EFCore
 {
-    public class IMSContext : DbContext
+    public class IMSContext : IdentityDbContext
     {
-        public IMSContext(DbContextOptions options) : base(options) 
-        {
-            
-        }
+        public IMSContext(DbContextOptions<IMSContext> options) : base(options) 
+        {}
 
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -158,7 +157,8 @@ namespace IMS.Plugins.EFCore
                     InventoryId = 6,
                     InventoryQuantity = 1
                 });
-        }
 
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
