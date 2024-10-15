@@ -1,19 +1,27 @@
 ﻿using IMS.CoreBusiness;
 using IMS.UseCases.PluginInterfaces;
 
-namespace IMS.UseCases.Inventories;
-
-public class ViewInventoriesByNameUseCase : IViewInventoriesByNameUseCase
+namespace IMS.UseCases
 {
-    private readonly IInventoryRepository inventoryRepository;
-
-    public ViewInventoriesByNameUseCase(IInventoryRepository inventoryRepository)
+    public class ViewInventoriesByNameUseCase : IViewInventoriesByNameUseCase
     {
-        this.inventoryRepository = inventoryRepository;
-    }
 
-    public async Task<IEnumerable<Inventory>> ExecuteAsync(string name = "")
-    {
-        return await inventoryRepository.GetInventoriesByNameAsync(name);
+        public event Action RefreshRequested;
+        public void CallRequestRefresh()
+        {
+            RefreshRequested?.Invoke();
+        }
+
+        private readonly IInventoryRepository inventoryRepository;
+
+        public ViewInventoriesByNameUseCase(IInventoryRepository inventoryRepository)
+        {
+            this.inventoryRepository = inventoryRepository;
+        }
+
+        public async Task<List<Inventory>> ExecuteAsync(string name = "")
+        {
+            return await this.inventoryRepository.GetInventoriesByNameAsync(name);
+        }
     }
 }
