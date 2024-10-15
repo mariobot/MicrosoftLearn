@@ -35,7 +35,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Controls\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
