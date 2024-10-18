@@ -1,0 +1,71 @@
+﻿@page "/inventories"
+@*@attribute [Authorize]*@
+
+@inject NavigationManager NavigationManager
+@inject IViewInventoriesByNameUseCase ViewInventoriesByNameUseCase
+
+<h3>Inventory List</h3>
+<br />
+<ViewInventoriesComponent OnSearchInventories="OnSearchInventories"></ViewInventoriesComponent>
+<br />
+@if (listInventories != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inv in this.listInventories)
+            {
+                <CascadingValue Value="@this">
+                    <InventoryItemComponent Inventory="inv"></InventoryItemComponent>
+                </CascadingValue>
+            }
+        </tbody>
+    </table>
+}
+<br />
+<button type="button" class="btn btn-primary" @onclick="AddInventory">Add Inventory</button>
+
+
+@code {
+    private List<Inventory>? listInventories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInventories();
+    }
+
+    private void OnSearchInventories(List<Inventory> inventories)
+    {
+        this.listInventories = inventories;
+    }
+
+    private void AddInventory()
+    {
+        NavigationManager.NavigateTo("/addinventory");
+    }
+
+    private async Task OnInventoryDeleted()
+    {
+        await LoadInventories();
+    }
+
+    private async Task LoadInventories()
+    {
+        var inv = await ViewInventoriesByNameUseCase.ExecuteAsync();
+        this.listInventories = inv.ToList();
+    }
+
+    public async Task RefreshState()
+    {
+        await LoadInventories();
+
+        this.StateHasChanged();
+    }
+}
