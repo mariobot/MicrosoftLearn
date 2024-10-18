@@ -15,10 +15,12 @@ namespace IMS.Plugins.EFCore
         }
 
         public async Task<List<Inventory>> GetInventoriesByNameAsync(string name)
-        { 
-            return await db.Inventories.Where(x => x.InventoryName.Contains(name, StringComparison.CurrentCultureIgnoreCase) || 
-                                              string.IsNullOrWhiteSpace(name) &&
-                                              x.IsActive == true).ToListAsync();
+        {   
+            var list = await db.Inventories.Where(x => x.InventoryName.ToLower().IndexOf(name.ToLower()) >= 0 ||
+                                                    string.IsNullOrWhiteSpace(name) &&
+                                                    x.IsActive == true).ToListAsync();
+
+            return list;
         }
 
         public async Task<Inventory> GetInventoryByIdAsync(int inventoryId)
