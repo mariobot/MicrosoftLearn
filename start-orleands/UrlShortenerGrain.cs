@@ -1,17 +1,32 @@
 ﻿
+using Orleans.Runtime;
+
 namespace UrlShortener
 {
     public class UrlShortenerGrain : Grain, IUrlShortenerGrain
     {
-        private KeyValuePair<string, string> _cache;
+        private readonly IPersistentState<UrlDetails> state;
 
-        public Task SetUrl(string fullUrl)
+        public UrlShortenerGrain(
+            [PersistentState(
+            stateName: "url",
+            storageName: "urls")]
+            IPersistentState<UrlDetails> state)
         {
-            _cache = new(key: this.GetPrimaryKeyString(), value: fullUrl);
+            this.state = state;
+        }        
 
-            return Task.CompletedTask;
+        public async Task SetUrl(string fullUrl)
+        {
+            state.State = new()
+            {
+                ShortenedRouteSegment = this.GetPrimaryKeyString(),
+                FullUrl = fullUrl
+            };
+
+            await state.WriteStateAsync();
         }
 
-        public Task<string> GetUrl() => Task.FromResult(_cache.Value);
+        public Task<string> GetUrl() => Task.FromResult(state.State.FullUrl);
     }
 }
