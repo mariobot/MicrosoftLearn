@@ -2,9 +2,18 @@
 
 	
 	
+  <PropertyGroup>
+    <UserSecretsId>59588a04-a28d-46fc-9833-e307d5834d9c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+	
+	
   <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
 	  <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
   </ItemGroup>
 
 </Project>
