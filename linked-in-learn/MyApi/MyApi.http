@@ -4,3 +4,11 @@ GET {{MyApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST {{MyApi_HostAddress}}/Auth/Register/
+Content-Type: application/json
+
+{
+  "UserName": "testuser2",
+  "Password": "testPassword*10"
+}

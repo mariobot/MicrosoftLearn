@@ -8,7 +8,7 @@ namespace MyApi.Controllers;
 [Route("[controller]")]
 public class AuthController(UserManager<MyApplicationUser> userManager) : ControllerBase
 {
-    [HttpPost]
+    [HttpPost("Register")]
     public async Task<IActionResult> Register([FromBody] NewUser user)
     {
         var myApplicationUser = new MyApplicationUser
@@ -26,7 +26,12 @@ public class AuthController(UserManager<MyApplicationUser> userManager) : Contro
 
         return Ok();
     }
-    
+
+    [HttpGet("Test")]
+    public async Task<ActionResult> Test()
+    {
+        return Ok();
+    }
 }
 
 public record NewUser(string Username, string Password);
