@@ -1,4 +1,5 @@
 @MyApi_HostAddress = http://localhost:5033
+@bearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlcjIiLCJqdGkiOiIyMDkwMzg1OC1mMDgyLTQ5YjktYTI4Ni0wY2NjZTQyMDRjNjQiLCJuYW1laWQiOiJ0ZXN0dXNlcjIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InRlc3R1c2VyMiIsImV4cCI6MTc0Njc1NDcxOSwiaXNzIjoiTXlBcGkiLCJhdWQiOiJNeUNvbXBhbnkifQ.fNb1CMF0bgh_Va-KtxcgthrUP-AFY6jtP3GdMEH-BNk
 
 GET {{MyApi_HostAddress}}/Auth/test
 Accept: application/json
@@ -12,8 +13,8 @@ Content-Type: application/json
   "UserName": "testuser2",
   "Password": "testPassword*10"
 }
-
 ###
+# @name login
 
 POST {{MyApi_HostAddress}}/Auth/login/
 Content-Type: application/json
@@ -22,3 +23,12 @@ Content-Type: application/json
   "UserName": "testuser2",
   "Password": "testPassword*10"
 }
+
+###
+
+GET {{MyApi_HostAddress}}/Test/public/
+
+###
+
+GET {{MyApi_HostAddress}}/Test/protected/
+Authorization: Bearer {{$bearerToken}}
