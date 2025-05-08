@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.IdentityModel.Tokens;
 using MyApi.Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +11,32 @@ builder.Services.AddControllers();
 //builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<MyIdentityDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("Identity")));
+{
+    string tmp = builder.Configuration.GetConnectionString("Identity");
+    options.UseSqlite(builder.Configuration.GetConnectionString("Identity"));
+});
+    
+
+builder.Services.AddIdentityCore<MyApplicationUser>()
+    .AddEntityFrameworkStores<MyIdentityDbContext>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options => 
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Jwt:Secret"))),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+
+});
 
 var app = builder.Build();
 
@@ -18,6 +46,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
