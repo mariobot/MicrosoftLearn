@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.IdentityModel.Tokens;
 using MyApi.Infraestructure;
+using MyApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,8 @@ builder.Services.AddAuthentication(options =>
     };
 
 });
+
+builder.Services.AddTransient<ChatServices>();
 
 var app = builder.Build();
 
