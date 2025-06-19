@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj": {}
+    "/workspaces/MicrosoftLearn/cosmos-db-app/cosmos-db-app.csproj": {}
   },
   "projects": {
-    "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj": {
+    "/workspaces/MicrosoftLearn/cosmos-db-app/cosmos-db-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
+        "projectUniqueName": "/workspaces/MicrosoftLearn/cosmos-db-app/cosmos-db-app.csproj",
         "projectName": "cosmos-db-app",
-        "projectPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\cosmos-db-app.csproj",
-        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Desarrollo\\MicrosoftLearn\\cosmos-db-app\\obj\\",
+        "projectPath": "/workspaces/MicrosoftLearn/cosmos-db-app/cosmos-db-app.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/MicrosoftLearn/cosmos-db-app/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/natcp/auth/727291ab-5307-45eb-9b1e-9bcc5ea5cb18/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -38,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -50,7 +49,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
             },
             "System.Configuration": {
               "target": "Package",
@@ -79,14 +78,23 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.21, 3.1.21]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[3.1.32, 3.1.32]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
             }
           ],
           "frameworkReferences": {
@@ -94,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.410/RuntimeIdentifierGraph.json"
         }
       }
     }
