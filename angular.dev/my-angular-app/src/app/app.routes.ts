@@ -7,7 +7,8 @@ import { NullSafe } from './Templates/nullsafe';
 import { StructuralDirectives } from './Templates/structuraldirectives';
 import { TemplateOutlet } from './Templates/TemplateOutlet';
 import { Alias } from './Templates/alias';
-import { Pipes } from './Templates/pipes';  
+import { Pipes } from './Templates/pipes'; 
+import { AttributesBinding } from './Templates/attributesBinding';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'templateoutlet', component: TemplateOutlet },
   { path: 'alias', component: Alias },
   { path: 'pipes', component: Pipes },
+  { path: 'attributesbinding', component: AttributesBinding }
 ];
