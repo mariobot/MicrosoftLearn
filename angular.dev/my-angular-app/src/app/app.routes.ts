@@ -29,6 +29,7 @@ import { ConditionalComp } from './component/conditionalComp';
 import { Conditional2Comp } from './component/conditional2Comp';
 import { Conditional3Comp } from './component/conditional3Comp';
 import { ListComp } from './component/ListComp';
+import { List2Comp } from './component/List2Comp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -57,4 +58,6 @@ export const routes: Routes = [
   { path: 'conditional', component: ConditionalComp },
   { path: 'conditional2', component: Conditional2Comp },
   { path: 'conditional3', component: Conditional3Comp },
+  { path: 'list', component: ListComp },
+  { path: 'list2', component: List2Comp }
 ];
