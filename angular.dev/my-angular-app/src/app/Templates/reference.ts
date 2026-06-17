@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
       <input #box type="text" placeholder="Type something" (input)="current = box.value" />
       <button (click)="read(box.value)">Read value</button>
       <button (click)="box.focus()">Focus input</button>
-      <span style="margin-left:8px;color:#666">length={{ box.value?.length || 0 }}</span>
+      <span style="margin-left:8px;color:#666">length={{ box.value.length || 0 }}</span>
     </div>
     <p>Current: {{ current || '(empty)' }}</p>
   `
