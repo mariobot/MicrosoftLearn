@@ -17,6 +17,7 @@ import { InputComponent } from './component/input';
 import { OutputComponent } from './component/output';
 import { Parent } from './component/parent';
 import { DataBinding } from './component/dataBinding';
+import { NgModuleComp } from './component/ngModuleComp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -34,4 +35,5 @@ export const routes: Routes = [
   { path: 'output', component: OutputComponent },
   { path: 'parent', component: Parent },
   { path: 'databinding', component: DataBinding },
+  { path: 'ngmodule', component: NgModuleComp },
 ];
