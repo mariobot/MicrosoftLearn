@@ -4,6 +4,7 @@ import { Contact } from './contact/contact';
 import { Interpolation } from './Templates/interpolation';
 import { Reference } from './Templates/reference';
 import { NullSafe } from './Templates/nullsafe';
+import { StructuralDirectives } from './Templates/structuraldirectives';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'interpolation', component: Interpolation },
   { path: 'reference', component: Reference },
   { path: 'nullsafe', component: NullSafe },
+  { path: 'structuraldirectives', component: StructuralDirectives },
 ];
