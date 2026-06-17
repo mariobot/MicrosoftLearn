@@ -16,6 +16,7 @@ import { TrackBy } from './Templates/trackBy';
 import { InputComponent } from './component/input';
 import { OutputComponent } from './component/output';
 import { Parent } from './component/parent';
+import { DataBinding } from './component/dataBinding';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -31,5 +32,6 @@ export const routes: Routes = [
   { path: 'trackby', component: TrackBy },
   { path: 'input', component: InputComponent },
   { path: 'output', component: OutputComponent },
-  { path: 'parent', component: Parent }
+  { path: 'parent', component: Parent },
+  { path: 'databinding', component: DataBinding },
 ];
