@@ -19,6 +19,7 @@ import { Parent } from './component/parent';
 import { DataBinding } from './component/dataBinding';
 import { NgModuleComp } from './component/ngModuleComp';
 import { AttrBinding } from './component/attrBinding';
+import { NgIfComp } from './component/ngIfComp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -38,4 +39,5 @@ export const routes: Routes = [
   { path: 'databinding', component: DataBinding },
   { path: 'ngmodule', component: NgModuleComp },
   { path: 'attrbinding', component: AttrBinding },
+  { path: 'ngif', component: NgIfComp },
 ];
