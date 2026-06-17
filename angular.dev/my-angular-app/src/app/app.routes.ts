@@ -14,6 +14,7 @@ import { AttributesBinding } from './Templates/attributesBinding';
 import { TrackBy } from './Templates/trackBy';
 
 import { InputComponent } from './component/input';
+import { OutputComponent } from './component/output';
 
 export const routes: Routes = [
   { path: 'about', component: About },
