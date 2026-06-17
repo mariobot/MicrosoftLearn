@@ -28,6 +28,7 @@ import { Events3Comp } from './component/events3Comp';
 import { ConditionalComp } from './component/conditionalComp';
 import { Conditional2Comp } from './component/conditional2Comp';
 import { Conditional3Comp } from './component/conditional3Comp';
+import { ListComp } from './component/ListComp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
