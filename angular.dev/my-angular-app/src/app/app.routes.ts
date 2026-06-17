@@ -27,6 +27,7 @@ import { Events2Comp } from './component/events2Comp';
 import { Events3Comp } from './component/events3Comp';
 import { ConditionalComp } from './component/conditionalComp';
 import { Conditional2Comp } from './component/conditional2Comp';
+import { Conditional3Comp } from './component/conditional3Comp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -54,4 +55,5 @@ export const routes: Routes = [
   { path: 'events3', component: Events3Comp },
   { path: 'conditional', component: ConditionalComp },
   { path: 'conditional2', component: Conditional2Comp },
+  { path: 'conditional3', component: Conditional3Comp },
 ];
