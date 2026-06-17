@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
+
 import { About } from './about/about';
 import { Contact } from './contact/contact';
+
 import { Interpolation } from './Templates/interpolation';
 import { Reference } from './Templates/reference';
 import { NullSafe } from './Templates/nullsafe';
@@ -10,6 +12,8 @@ import { Alias } from './Templates/alias';
 import { Pipes } from './Templates/pipes'; 
 import { AttributesBinding } from './Templates/attributesBinding';
 import { TrackBy } from './Templates/trackBy';
+
+import { InputComponent } from './component/input';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -22,5 +26,6 @@ export const routes: Routes = [
   { path: 'alias', component: Alias },
   { path: 'pipes', component: Pipes },
   { path: 'attributesbinding', component: AttributesBinding },
-  { path: 'trackby', component: TrackBy }
+  { path: 'trackby', component: TrackBy },
+  { path: 'input', component: InputComponent }
 ];
