@@ -15,6 +15,7 @@ import { TrackBy } from './Templates/trackBy';
 
 import { InputComponent } from './component/input';
 import { OutputComponent } from './component/output';
+import { Parent } from './component/parent';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -28,5 +29,7 @@ export const routes: Routes = [
   { path: 'pipes', component: Pipes },
   { path: 'attributesbinding', component: AttributesBinding },
   { path: 'trackby', component: TrackBy },
-  { path: 'input', component: InputComponent }
+  { path: 'input', component: InputComponent },
+  { path: 'output', component: OutputComponent },
+  { path: 'parent', component: Parent }
 ];
