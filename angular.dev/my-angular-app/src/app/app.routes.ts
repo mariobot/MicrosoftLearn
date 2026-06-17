@@ -6,6 +6,7 @@ import { Reference } from './Templates/reference';
 import { NullSafe } from './Templates/nullsafe';
 import { StructuralDirectives } from './Templates/structuraldirectives';
 import { TemplateOutlet } from './Templates/TemplateOutlet';
+import { Alias } from './Templates/alias';  
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'nullsafe', component: NullSafe },
   { path: 'structuraldirectives', component: StructuralDirectives },
   { path: 'templateoutlet', component: TemplateOutlet },
+  { path: 'alias', component: Alias },
 ];
