@@ -23,6 +23,7 @@ import { NgIfComp } from './component/ngIfComp';
 import { NgComp } from './component/ngComp';
 import { AttrDirective } from './component/attrDirective';
 import { EventsComp } from './component/eventsComp';
+import { Events2Comp } from './component/events2Comp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -45,5 +46,6 @@ export const routes: Routes = [
   { path: 'ngif', component: NgIfComp },
   { path: 'ngcomp', component: NgComp },
   { path: 'attrdirective', component: AttrDirective },
-  { path: 'events', component: EventsComp }
+  { path: 'events', component: EventsComp },
+  { path: 'events2', component: Events2Comp },
 ];
