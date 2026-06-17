@@ -21,6 +21,7 @@ import { NgModuleComp } from './component/ngModuleComp';
 import { AttrBinding } from './component/attrBinding';
 import { NgIfComp } from './component/ngIfComp';
 import { NgComp } from './component/ngComp';
+import { AttrDirective } from './component/attrDirective';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -42,4 +43,5 @@ export const routes: Routes = [
   { path: 'attrbinding', component: AttrBinding },
   { path: 'ngif', component: NgIfComp },
   { path: 'ngcomp', component: NgComp },
+  { path: 'attrdirective', component: AttrDirective },
 ];
