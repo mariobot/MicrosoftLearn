@@ -34,6 +34,7 @@ import { List3Comp } from './component/List3Comp';
 import { ServicesComp } from './component/servicesComp';
 import { Services2Comp } from './component/services2Comp';
 import { Services3Comp } from './component/services3Comp';
+import { HttpClientComp} from './component/httpClientComp';
 
 import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
@@ -75,4 +76,5 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComp },
   { path: 'services2', component: Services2Comp },
   { path: 'services3', component: Services3Comp },
+  { path: 'httpclient', component: HttpClientComp },
 ];
