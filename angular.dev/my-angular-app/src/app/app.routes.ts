@@ -31,6 +31,7 @@ import { Conditional3Comp } from './component/conditional3Comp';
 import { ListComp } from './component/ListComp';
 import { List2Comp } from './component/List2Comp';
 import { List3Comp } from './component/List3Comp';
+import { ServicesComp } from './component/servicesComp';
 
 import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
@@ -69,4 +70,5 @@ export const routes: Routes = [
   { path: 'form', component: FormComp },
   { path: 'form2', component: Form2Comp },
   { path: 'form3', component: Form3Comp },
+  { path: 'services', component: ServicesComp },
 ];
