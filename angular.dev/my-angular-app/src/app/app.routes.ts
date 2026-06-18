@@ -32,6 +32,8 @@ import { ListComp } from './component/ListComp';
 import { List2Comp } from './component/List2Comp';
 import { List3Comp } from './component/List3Comp';
 
+import { FormComp } from './form/formComp';
+
 export const routes: Routes = [
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
@@ -62,4 +64,5 @@ export const routes: Routes = [
   { path: 'list', component: ListComp },
   { path: 'list2', component: List2Comp },
   { path: 'list3', component: List3Comp },
+  { path: 'form', component: FormComp },
 ];
