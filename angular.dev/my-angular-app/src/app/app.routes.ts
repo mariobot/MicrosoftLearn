@@ -38,6 +38,7 @@ import { HttpClientComp} from './component/httpClientComp';
 import { HttpClient2Comp} from './component/httpClient2Comp';
 import { HttpClient3Comp} from './component/httpClient3Comp';
 import { HttpClient4Comp} from './component/httpClient4Comp';
+import { PipesComp} from './component/pipesComp';
 
 import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
@@ -83,4 +84,5 @@ export const routes: Routes = [
   { path: 'httpclient2', component: HttpClient2Comp},
   { path: 'httpclient3', component: HttpClient3Comp},
   { path: 'httpclient4', component: HttpClient4Comp},
+  { path: 'pipes', component: PipesComp},
 ];
