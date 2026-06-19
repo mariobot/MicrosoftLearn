@@ -41,6 +41,7 @@ import { HttpClient4Comp} from './component/httpClient4Comp';
 import { PipesComp} from './component/pipesComp';
 import { Pipes2Comp} from './component/pipes2Comp';
 import { Pipes3Comp} from './component/pipes3Comp';
+import { StyleComp} from './component/styleComp';
 
 import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
@@ -89,4 +90,5 @@ export const routes: Routes = [
   { path: 'pipes', component: PipesComp},
   { path: 'pipes2', component: Pipes2Comp},
   { path: 'pipes3', component: Pipes3Comp},
+  { path: 'style', component: StyleComp},
 ];
