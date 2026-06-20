@@ -43,6 +43,7 @@ import { Pipes2Comp} from './component/pipes2Comp';
 import { Pipes3Comp} from './component/pipes3Comp';
 import { StyleComp} from './component/styleComp';
 import { Style2Comp} from './component/style2Comp';
+import { Style3Comp} from './component/style3Comp';
 
 import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
@@ -93,4 +94,5 @@ export const routes: Routes = [
   { path: 'pipes3', component: Pipes3Comp},
   { path: 'style', component: StyleComp},
   { path: 'style2', component: Style2Comp},
+  { path: 'style3', component: Style3Comp}
 ];
