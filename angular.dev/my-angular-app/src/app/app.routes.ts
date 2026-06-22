@@ -86,13 +86,13 @@ export const routes: Routes = [
   { path: 'services2', component: Services2Comp },
   { path: 'services3', component: Services3Comp },
   { path: 'httpclient', component: HttpClientComp },
-  { path: 'httpclient2', component: HttpClient2Comp},
-  { path: 'httpclient3', component: HttpClient3Comp},
-  { path: 'httpclient4', component: HttpClient4Comp},
-  { path: 'pipes', component: PipesComp},
-  { path: 'pipes2', component: Pipes2Comp},
-  { path: 'pipes3', component: Pipes3Comp},
-  { path: 'style', component: StyleComp},
-  { path: 'style2', component: Style2Comp},
-  { path: 'style3', component: Style3Comp}
+  { path: 'httpclient2', component: HttpClient2Comp },
+  { path: 'httpclient3', component: HttpClient3Comp },
+  { path: 'httpclient4', component: HttpClient4Comp },
+  { path: 'pipes', component: PipesComp },
+  { path: 'pipes2', component: Pipes2Comp },
+  { path: 'pipes3', component: Pipes3Comp },
+  { path: 'style', component: StyleComp },
+  { path: 'style2', component: Style2Comp },
+  { path: 'style3', component: Style3Comp }
 ];
