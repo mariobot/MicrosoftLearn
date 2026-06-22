@@ -50,6 +50,7 @@ import { Form2Comp } from './form/form2Comp';
 import { Form3Comp } from './form/form3Comp';
 
 import { ControlFlowComp } from './advanced/ControlFlowComp';
+import { SignalComp } from './advanced/signalComp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -97,5 +98,6 @@ export const routes: Routes = [
   { path: 'style', component: StyleComp },
   { path: 'style2', component: Style2Comp },
   { path: 'style3', component: Style3Comp },
-  { path: 'controlflow', component: ControlFlowComp }
+  { path: 'controlflow', component: ControlFlowComp },
+  { path: 'signals', component: SignalComp },
 ];
