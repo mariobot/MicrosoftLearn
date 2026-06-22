@@ -49,6 +49,8 @@ import { FormComp } from './form/formComp';
 import { Form2Comp } from './form/form2Comp';
 import { Form3Comp } from './form/form3Comp';
 
+import { ControlFlowComp } from './advanced/ControlFlowComp';
+
 export const routes: Routes = [
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
@@ -94,5 +96,6 @@ export const routes: Routes = [
   { path: 'pipes3', component: Pipes3Comp },
   { path: 'style', component: StyleComp },
   { path: 'style2', component: Style2Comp },
-  { path: 'style3', component: Style3Comp }
+  { path: 'style3', component: Style3Comp },
+  { path: 'controlflow', component: ControlFlowComp }
 ];
