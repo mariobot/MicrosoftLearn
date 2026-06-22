@@ -53,6 +53,7 @@ import { ControlFlowComp } from './advanced/ControlFlowComp';
 import { SignalComp } from './advanced/signalComp';
 import { Signal2Comp } from './advanced/signal2Comp';
 import { ChangeDetectionComp } from './advanced/changeDetectionComp';
+import { DynamicComp } from './advanced/dynamicComp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -103,5 +104,6 @@ export const routes: Routes = [
   { path: 'controlflow', component: ControlFlowComp },
   { path: 'signals', component: SignalComp },
   { path: 'signals2', component: Signal2Comp },
-  { path: 'changedetection', component: ChangeDetectionComp }
+  { path: 'changedetection', component: ChangeDetectionComp },
+  { path: 'dynamic', component: DynamicComp },
 ];
