@@ -2,7 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'interpolation-app',
+  selector: 'app-root',
   standalone: true,
   template: `
     <h3>{{ title }}</h3>
