@@ -1,14 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { Component, EventEmitter, Output, Input, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 
 @Component({
   standalone: true,
-  template: `<button (click)="clicked.emit()">{{ label }}</button>`
+  template: `<button (click)="onClick?.()">{{ label }}</button>`
 })
 export class ActionButton {
   @Input() label = 'Do it';
-  @Output() clicked = new EventEmitter<void>();
+  @Input() onClick?: () => void;
 }
 
 @Component({
@@ -18,7 +18,7 @@ export class ActionButton {
   template: `
     <h3>Selectorless via *ngComponentOutlet</h3>
     <p>Clicks: {{ clicks() }}</p>
-    <ng-container *ngComponentOutlet="ActionButton; inputs: { label: 'Launch' }; outputs: { clicked: onClick }"></ng-container>
+    <ng-container *ngComponentOutlet="ActionButton; inputs: { label: 'Launch', onClick }"></ng-container>
   `
 })
 export class ChangeDetection2Comp {
