@@ -54,6 +54,7 @@ import { SignalComp } from './advanced/signalComp';
 import { Signal2Comp } from './advanced/signal2Comp';
 import { ChangeDetectionComp } from './advanced/changeDetectionComp';
 import { DynamicComp } from './advanced/dynamicComp';
+import { ChangeDetection2Comp } from './advanced/changeDetection2Comp';
 
 export const routes: Routes = [
   { path: 'about', component: About },
@@ -105,5 +106,6 @@ export const routes: Routes = [
   { path: 'signals', component: SignalComp },
   { path: 'signals2', component: Signal2Comp },
   { path: 'changedetection', component: ChangeDetectionComp },
+  { path: 'changedetection2', component: ChangeDetection2Comp },
   { path: 'dynamic', component: DynamicComp },
 ];
