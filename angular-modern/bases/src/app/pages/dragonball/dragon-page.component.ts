@@ -1,8 +1,20 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
+
+interface Character {
+    id: number;
+    name: string;
+    power: number;
+}
 
 @Component({
-    templateUrl: './dragon-page.component.html',
+    templateUrl: './dragon-page.component.html',    
 })
 
 export class DragonPageComponent {
+
+    characters = signal<Character[]>([
+        { id: 1, name: 'Goku', power: 15000 },
+        { id: 2, name: 'Vegeta', power: 7500 },
+        { id: 3, name: 'Trunks', power: 5000 },
+    ])
 }
