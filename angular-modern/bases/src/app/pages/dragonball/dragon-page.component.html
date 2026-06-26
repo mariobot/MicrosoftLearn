@@ -2,10 +2,11 @@
 
 <section>
     <div class="col-12 col-sm-6">
-        <h3>Agregar</h3>
-        <input type="text" class="form-control" placeholder="Nombre">
-        <input type="number" class="form-control mt-2" placeholder="Poder">
-        <button class="btn btn-primary mt-2">Agregar</button>
+        <h3>Agregar {{ name() }}</h3>
+        <input type="text" class="form-control" placeholder="Nombre" #txtName [value]="name()" (change)="name.set(txtName.value)">
+        <h3>Power {{ power()}}</h3>
+        <input type="number" class="form-control mt-2" placeholder="Poder" #txtPower [value]="power()" (change)="power.set(txtPower.valueAsNumber)">
+        <button (click)="addCharacter()" class="btn btn-primary mt-2">Agregar</button>
     </div>
     <div class="col-12 col-sm-6">
         <h3>Listado</h3>        
