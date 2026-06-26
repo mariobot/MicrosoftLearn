@@ -8,10 +8,14 @@
         <button class="btn btn-primary mt-2">Agregar</button>
     </div>
     <div class="col-12 col-sm-6">
-        <h3>Listado</h3>
+        <h3>Listado</h3>        
         <ul>
             @for (character of characters(); track character.id; let idx = $index) {
-                <li>{{idx}} {{ character.name }} - <strong class="text-danger">{{ character.power }}</strong></li>
+                @if( character.power > 500){
+                    <li>{{idx}} {{ character.name }} - <strong [class.text-danger]="character.power > 9000" [class.text-primary]="character.power < 9000">{{ character.power }}</strong></li>
+                } @else{
+                    <li><strong>Aqui no hay nada</strong></li>
+                }
             }
         </ul>
     </div>
