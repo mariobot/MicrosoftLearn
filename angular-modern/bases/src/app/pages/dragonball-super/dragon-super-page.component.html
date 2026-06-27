@@ -2,10 +2,10 @@
 
 <section>
     <div class="col-12 col-sm-6">
-        <dragon-character-add (newCharacter)="addCharacter($event)" ></dragon-character-add>
+        <dragon-character-add (newCharacter)="dragonService.addCharacter($event)" ></dragon-character-add>
     </div>
     <div class="col-12 col-sm-6">
         <h3>Listado</h3>
-        <dragon-character-list listName="Listado Poderoso" [characters]="characters()"></dragon-character-list>
+        <dragon-character-list listName="Listado Poderoso" [characters]="dragonService.characters()"></dragon-character-list>
     </div>
 </section>

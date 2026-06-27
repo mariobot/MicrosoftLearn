@@ -27,11 +27,5 @@ export class CharacterAppComponent {
         this.newCharacter.emit(newCharacter)
 
         console.log(this.name() + this.power())
-        this.resetFields()
-    }
-
-    resetFields() {
-        this.name.set('');
-        this.power.set(0);
     }
 }
