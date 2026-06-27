@@ -1,0 +1,11 @@
+<p>character-list!</p>
+<ul>
+    @for (character of characters(); track character.id; let idx = $index) {
+    @if( character.power > 500){
+    <li>{{idx}} {{ character.name }} - <strong [class.text-danger]="character.power > 9000"
+            [class.text-primary]="character.power < 9000">{{ character.power }}</strong></li>
+    } @else{
+    <li><strong>Aqui no hay nada</strong></li>
+    }
+    }
+</ul>
