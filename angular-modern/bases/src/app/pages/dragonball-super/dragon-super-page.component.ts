@@ -24,5 +24,12 @@ export class DragonSuperPageComponent {
         { id: 2, name: 'Vegeta', power: 7500 },
     ])
 
-    
+    addCharacter(character: Character){
+        this.characters.update((list) => [...list, character])
+    }
+
+    resetFields(){
+        this.name.set('');
+        this.power.set(0);
+    }
 }
