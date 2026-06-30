@@ -1,5 +1,6 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
-    <app-gift-list-item/>
-    
+    @for (item of gifts(); track item) {
+        <app-gift-list-item [imageUrl]="item" />
+    }
 </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { GiftListItem } from "../gift-list-item/gift-list-item";
 
 @Component({
@@ -7,4 +7,6 @@ import { GiftListItem } from "../gift-list-item/gift-list-item";
   templateUrl: './gift-list.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GiftList {}
+export class GiftList {
+  gifts = input.required<string[]>()
+}
