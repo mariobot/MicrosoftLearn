@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GiftList } from "../../component/gift-list/gift-list";
 
 @Component({
   selector: 'app-trading-page',
-  imports: [],
+  imports: [GiftList],
   templateUrl: './trading-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
