@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { GiftList } from "../../component/gift-list/gift-list";
+import { GifService } from '../../services/gifts.service';
 
 const imageUrls: string[] = [
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
@@ -23,5 +24,6 @@ const imageUrls: string[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TradingPage {
-  gifts = imageUrls
+  //gifts = imageUrls
+  gifsServie = inject(GifService);
 }
