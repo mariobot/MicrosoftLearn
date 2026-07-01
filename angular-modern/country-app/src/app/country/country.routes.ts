@@ -11,10 +11,10 @@ export const routes: Routes = [
                 path: 'by-capital',
                 component: ByCapitalPage
             },
-            /*{
+            {
                 path: '**',
                 redirectTo: 'by-capital',
-            }*/
+            }
         ]
     },
     /*{
