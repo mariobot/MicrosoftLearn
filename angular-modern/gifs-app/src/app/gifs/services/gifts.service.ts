@@ -55,4 +55,8 @@ export class GifService{
             })
         );
     }
+
+    getHistoryGifts(query: string){
+        return this.seachHistory()[query.toLowerCase()] || [];
+    }
 }
