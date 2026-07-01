@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { GiftList } from "../../component/gift-list/gift-list";
 import { GifService } from '../../services/gifts.service';
 
@@ -19,11 +19,32 @@ const imageUrls: string[] = [
 
 @Component({
   selector: 'app-trading-page',
-  imports: [GiftList],
+  //imports: [GiftList],
   templateUrl: './trading-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TradingPage {
   //gifts = imageUrls
   gifsServie = inject(GifService);
+
+  scrolDivRef = viewChild<ElementRef>('scroll');
+
+  onScroll(event: Event) {
+    const scrollDiv = this.scrolDivRef()?.nativeElement as HTMLDivElement;
+    if(!scrollDiv) return;
+    const scrollTop = scrollDiv.scrollTop;
+    const scrollHeight = scrollDiv.scrollHeight;
+    const clientHeight = scrollDiv.clientHeight;
+    //console.log('scrollTop', scrollTop);
+    //console.log('scrollHeight', scrollHeight);
+    //console.log('clientHeight', clientHeight);
+    //console.log('scroll event', event);
+
+    const isAtBottom = scrollTop + clientHeight + 300 >= scrollHeight;
+    if (isAtBottom) {
+      console.log('Reached the bottom of the div!');
+      
+      this.gifsServie.loadTrendingGifs();
+    }
+  }
 }
