@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
-import { GiftList } from "../../component/gift-list/gift-list";
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
+//import { GiftList } from "../../component/gift-list/gift-list";
 import { GifService } from '../../services/gifts.service';
+import { ScrollStateService } from 'src/app/shared/services/scroll-state';
 
-const imageUrls: string[] = [
+/*const imageUrls: string[] = [
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
@@ -15,7 +16,7 @@ const imageUrls: string[] = [
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-];
+];*/
 
 @Component({
   selector: 'app-trading-page',
@@ -23,11 +24,19 @@ const imageUrls: string[] = [
   templateUrl: './trading-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TradingPage {
+export default class TradingPage implements AfterViewInit {
+  
   //gifts = imageUrls
   gifsServie = inject(GifService);
+  scrollStateService = inject(ScrollStateService);
 
   scrolDivRef = viewChild<ElementRef>('scroll');
+
+  ngAfterViewInit(): void {
+    const scrollDiv = this.scrolDivRef()?.nativeElement as HTMLDivElement;
+    if(!scrollDiv) return;
+    scrollDiv.scrollTop = this.scrollStateService.tredingScrollState();
+  }
 
   onScroll(event: Event) {
     const scrollDiv = this.scrolDivRef()?.nativeElement as HTMLDivElement;
@@ -40,6 +49,9 @@ export default class TradingPage {
     //console.log('clientHeight', clientHeight);
     //console.log('scroll event', event);
 
+
+    this.scrollStateService.tredingScrollState.set(scrollTop);
+
     const isAtBottom = scrollTop + clientHeight + 300 >= scrollHeight;
     if (isAtBottom) {
       console.log('Reached the bottom of the div!');
@@ -47,4 +59,6 @@ export default class TradingPage {
       this.gifsServie.loadTrendingGifs();
     }
   }
+
+  
 }
