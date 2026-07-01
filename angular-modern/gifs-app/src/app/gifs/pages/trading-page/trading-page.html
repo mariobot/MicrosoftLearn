@@ -1,3 +1,21 @@
-<div class="pt-5">
+<!--<div class="pt-5">
     <app-gift-list [gifts]="gifsServie.trandingGifs()"></app-gift-list>
 </div>
+-->
+
+
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+@for (group of gifsServie.trendingGiftGroup(); track $index) {
+
+    <div class="grid gap-4">
+        @for (item of group; track item.id) {
+            <div>
+                <img class="h-auto max-w-full rounded-base" 
+                 [src]="item.url" 
+                 [alt]="item.title">
+            </div>
+        }
+    </div>
+}
