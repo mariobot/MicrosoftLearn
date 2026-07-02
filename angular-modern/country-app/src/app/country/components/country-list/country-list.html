@@ -1,19 +1,26 @@
-<section class="mt-5" >
-<table class="table table-zebra w-full">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Bandera</th>
-      <th>Nombre</th>
-      <th>Poblacion</th>
-      <th>Region</th>
-      <th>Capital</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-    </tr>
-  </tbody>
-</table>
+<section class="mt-5">
+    <table class="table table-zebra w-full">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Poblacion</th>
+                <th>Region</th>
+                <th>Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (country of countries(); track country.cioc) {
+            <tr>
+                <td>{{ country.cioc }}</td>
+                <td>{{ country.cioc }}</td>
+                <td><img [src]="country.flags.png" [alt]="country.name" class="w-16 h-16 object-cover"></td>
+                <td class="badge badge-secondary align-right">{{ country.population | number}}</td>
+                <td>{{ country.region }}</td>
+                <td>{{ country.capital }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </section>

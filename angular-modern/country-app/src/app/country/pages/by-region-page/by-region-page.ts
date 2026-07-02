@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { SearchInput } from "../../components/search-input/search-input";
 import { CountryList } from "../../components/country-list/country-list";
+import { RESTCountryResponse } from '../../interfaces/rest-countries.interface';
 
 @Component({
   selector: 'app-by-region-page',
@@ -10,4 +11,5 @@ import { CountryList } from "../../components/country-list/country-list";
 })
 export class ByRegionPage {
 
+  countries = input<RESTCountryResponse[]>([]);
 }
