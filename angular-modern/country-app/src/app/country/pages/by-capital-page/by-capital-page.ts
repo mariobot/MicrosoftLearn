@@ -14,20 +14,27 @@ export class ByCapitalPage {
   countryService = inject(CountryService);
 
   isLoading = signal(false);
-  isError = signal<string|null>(null);
+  isError = signal<string | null>(null);
 
   countries = signal<RESTCountryResponse[]>([]);
-  
+
   onSearchCapital(searchTerm: string): void {
     if (this.isLoading()) return;
-    
+
     this.isLoading.set(true);
     this.isError.set(null);
 
-    this.countryService.searchByCapital(searchTerm).subscribe((countries) => {
-      this.isLoading.set(true);
-      this.countries.set(countries);
-    });
-
+    this.countryService.searchByCapital(searchTerm)
+      .subscribe({
+        next: (countries) => {
+          this.isLoading.set(false);
+          this.countries.set(countries);
+        },
+        error: (error) => {
+          this.isLoading.set(false);
+          this.countries.set([]);
+          this.isError.set(error.message);
+        }
+      });
   }
 }
