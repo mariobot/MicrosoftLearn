@@ -3,14 +3,11 @@ import { SearchInput } from "../../components/search-input/search-input";
 import { CountryList } from "../../components/country-list/country-list";
 
 @Component({
-  selector: 'app-by-capital-page',
+  selector: 'app-by-region-page',
   imports: [SearchInput, CountryList],
-  templateUrl: './by-capital-page.html',
+  templateUrl: './by-region-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ByCapitalPage {
-  onSearchCapital(searchTerm: string): void {
-    console.log('searchTerm', searchTerm);
+export class ByRegionPage {
 
-  }
 }
