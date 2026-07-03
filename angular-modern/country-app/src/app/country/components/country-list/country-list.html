@@ -8,6 +8,7 @@
                 <th>Poblacion</th>
                 <th>Region</th>
                 <th>Capital</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <td class="badge badge-secondary align-right">{{ country.population | number}}</td>
                 <td>{{ country.region }}</td>
                 <td>{{ country.capital }}</td>
+                <td><a [routerLink]="['/country/by', country.cioc]">Mas informacion</a></td>
             </tr>
             }
         </tbody>

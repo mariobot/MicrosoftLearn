@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, resource, signal } from '@angular/core';
 import { SearchInput } from "../../components/search-input/search-input";
 import { CountryList } from "../../components/country-list/country-list";
 import { CountryService } from '../../services/country-service';
@@ -12,6 +12,15 @@ import { RESTCountryResponse } from '../../interfaces/rest-countries.interface';
 })
 export class ByCapitalPage {
   countryService = inject(CountryService);
+  /*query = signal<string>('');
+
+  countryResource = resource({
+    request: () => ({ queery: this.query()}),
+    loader: async () = {
+      if(!request.query()) return [];
+    }
+    });
+  */
 
   isLoading = signal(false);
   isError = signal<string | null>(null);

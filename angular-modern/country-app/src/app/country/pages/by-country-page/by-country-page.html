@@ -1,3 +1,9 @@
-<app-search-input placeholder="Buscar por capital." ></app-search-input>
+<app-search-input placeholder="Buscar por país." (value)="onSearchCountry($event)"></app-search-input>
+
+@if (isError()) {
+  <div class="alert alert-error">
+    <p>{{ isError() }}</p>
+  </div>
+}
 
 <app-country-list [countries]="countries()" ></app-country-list>

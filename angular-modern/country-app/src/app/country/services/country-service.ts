@@ -4,6 +4,7 @@ import { RESTCountryResponse } from '../interfaces/rest-countries.interface';
 
 const BASE_URL = 'https://api.restcountries.com/countries/v5/capitals';
 const COUNTRIES_DEV_URL = 'https://countries.dev/capital';
+const COUNTRIES_DEV_COUNTRY_URL = 'https://countries.dev/name';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,11 @@ export class CountryService {
   searchByCapital(capital: string) {
     //const url = `${BASE_URL}?q=${capital}&limit=5&pretty=1&api-key=rc_live_03db3bd7f40f447d936bac514910c364`;
     const url = `${COUNTRIES_DEV_URL}/${capital}`;
+    return this.http.get<RESTCountryResponse[]>(url);
+  }
+
+  searchByCountry(country: string) {
+    const url = `${COUNTRIES_DEV_COUNTRY_URL}/${country}`;
     return this.http.get<RESTCountryResponse[]>(url);
   }
 
