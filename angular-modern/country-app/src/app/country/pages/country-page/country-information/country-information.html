@@ -1,5 +1,41 @@
 <section class="mx-10">
     <h1 class="text-3xl">{{ country().name }}</h1>
     <h1 class="text-xl font-thin">Poblacion {{ country().population | number}}</h1>
-</section>
 
+    <div class="stats shadow">
+        <div class="stat place-items-center">
+            <div class="stat-title">Poblacion</div>
+            <div class="stat-value">{{ country().population | number }}</div>
+            <div class="stat-desc">From Date</div>
+        </div>
+
+        <div class="stat place-items-center">
+            <div class="stat-title">Nombre</div>
+            <div class="stat-value text-secondary">{{ country().name }}</div>
+            <div class="stat-desc text-secondary">{{ country().region }}</div>
+        </div>
+
+        <div class="stat place-items-center">
+            <div class="stat-title">Sub Region</div>
+            <div class="stat-value">{{ country().subregion }}</div>
+            <div class="stat-desc">{{ country().region }}</div>
+        </div>
+        <div class="stat place-items-center">
+            <div class="stat-title">Bandera</div>
+            <div class="stat-value">
+                <img [alt]="country().name" [src]="country().flag" />
+            </div>
+            <div class="stat-desc">{{ country().capital }}</div>
+        </div>
+    </div>
+
+    <figure class="diff aspect-16/9" tabindex="0">
+        <div class="diff-item-1" role="img" tabindex="0">
+            <img [alt]="country().name" [src]="country().flags.png" />
+        </div>
+        <div class="diff-item-2" role="img">
+            <img [alt]="country().name" [src]="country().flags.png" />
+        </div>
+        <div class="diff-resizer"></div>
+    </figure>
+</section>
