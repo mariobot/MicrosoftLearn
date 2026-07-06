@@ -3,10 +3,11 @@ import { SearchInput } from "../../components/search-input/search-input";
 import { CountryList } from "../../components/country-list/country-list";
 import { CountryService } from '../../services/country-service';
 import { RESTCountryResponse } from '../../interfaces/rest-countries.interface';
+import { NotFound } from "../../../shared/components/not-found/not-found";
 
 @Component({
   selector: 'app-by-capital-page',
-  imports: [SearchInput, CountryList],
+  imports: [SearchInput, CountryList, NotFound],
   templateUrl: './by-capital-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

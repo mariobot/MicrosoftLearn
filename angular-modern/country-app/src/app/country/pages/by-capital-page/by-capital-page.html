@@ -1,9 +1,7 @@
 <app-search-input placeholder="Buscar por capital." (value)="onSearchCapital($event)" ></app-search-input>
 
 @if (isError()) {
-  <div class="alert alert-error">
-    <p>{{ isError() }}</p>
-  </div>
+  <app-not-found></app-not-found>
 }
 
 <app-country-list [countries]="countries()"></app-country-list>

@@ -1,3 +1,7 @@
-<p>country-page works!</p>,
+@if(isError()) {
+  <app-not-found></app-not-found>
+}@else {
+  <app-country-information [country]="country()"></app-country-information>
+}
 
 <h1>{{ codeCountry }}</h1>

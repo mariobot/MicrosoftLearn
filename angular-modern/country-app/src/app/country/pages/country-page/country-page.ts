@@ -2,10 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../services/country-service';
 import { RESTCountryResponse } from '../../interfaces/rest-countries.interface';
+import { NotFound } from "../../../shared/components/not-found/not-found";
+import { CountryInformation } from "./country-information/country-information";
 
 @Component({
   selector: 'app-country-page',
-  imports: [],
+  imports: [NotFound, CountryInformation],
   templateUrl: './country-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -13,7 +15,8 @@ export class CountryPage {
 
   codeCountry = inject(ActivatedRoute).snapshot.paramMap.get('code') || '';
   countryService = inject(CountryService);
-  country = signal<RESTCountryResponse | null>(null);
+  country = signal<RESTCountryResponse>({} as RESTCountryResponse);
+  isError = signal<string | null>(null);
 
   constructor() {
     if (this.codeCountry) {
@@ -25,6 +28,7 @@ export class CountryPage {
           },
           error: (error) => {
             console.error('Error fetching country data:', error);
+            this.isError.set(error.message);
           }
         });
     }
